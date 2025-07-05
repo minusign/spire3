@@ -1,0 +1,228 @@
+BattleContext.h 包含了战斗模拟所需的核心数据结构和函数，
+例如玩家、怪物、卡牌、药水以及行动队列等。
+它还包含了一些用于调试目的的成员变量，以及处理卡牌使用、回合结束、状态效果和卡牌选择屏幕等功能的函数。
+
+枚举类型
+Outcome | 表示战斗的可能结果。 | UNDECIDED：战斗尚未结束。 | PLAYER_VICTORY：玩家获胜。 | PLAYER_LOSS：玩家失败。
+battleOutcomeStrings 数组提供了这些枚举值的字符串表示。
+
+结构体
+BattleContext
+BattleContext 类是战斗的核心，包含了所有战斗相关的数据和方法。
+
+调试用途成员变量:
+    sum: 用于基准测试，防止优化。
+    haveUsedDiscoveryAction: 跟踪是否使用了“发现”行动。
+    undefinedBehaviorEvoked: 标记是否触发了未定义行为。
+    seed: 战斗的随机数种子。
+    floorNum: 当前楼层数。
+    encounter: 当前的怪物遭遇类型。
+    loopCount: 循环计数。
+    energyWasted: 浪费的能量。
+    cardsDrawn: 抽取的卡牌数量。
+
+核心成员变量:
+    aiRng, cardRandomRng, miscRng, monsterHpRng, potionRng, shuffleRng: 各种随机数生成器。
+    ascension: 游戏难度（进阶等级）。
+    outcome: 战斗结果（参见 Outcome 枚举）。
+    inputState: 当前的输入状态（例如 EXECUTING_ACTIONS）。
+    cardSelectInfo: 卡牌选择屏幕的信息。
+    monsterTurnIdx: 怪物回合索引。
+    isBattleOver: 战斗是否结束。
+    endTurnQueued: 是否已将结束回合排入队列。
+    turnHasEnded: 回合是否已经结束。
+    skipMonsterTurn: 是否跳过怪物回合。
+    actionQueue: 行动队列，存储待执行的战斗行动。
+    cardQueue: 卡牌队列，存储待打出的卡牌。
+    potionCount: 当前药水数量。
+    potionCapacity: 药水容量。
+    potions: 存储药水的数组。
+    turn: 当前回合数。
+    player: 玩家对象。
+    monsters: 怪物组对象。
+    cards: 卡牌管理器对象。
+    curCardQueueItem: 当前卡牌队列项。
+    miscBits: 杂项位集，例如用于检查是否偷取了金币。
+
+构造函数:
+    BattleContext(): 默认构造函数。
+    BattleContext(const BattleContext &rhs): 拷贝构造函数。
+
+初始化函数:
+    init(const GameContext &gc): 初始化战斗。
+    init(const GameContext &gc, MonsterEncounter encounterToInit): 使用指定怪物遭遇初始化战斗。
+    initRelics(const GameContext &gc): 初始化遗物。
+
+战斗结束相关函数:
+    exitBattle(GameContext &g) const: 退出战斗。
+    updateRelicsOnExit(GameContext &g) const: 战斗结束后更新遗物状态。
+    updateCardsOnExit(Deck &d) const: 战斗结束后更新卡牌状态（例如仪式匕首、学到的教训）。
+
+杂项辅助函数:
+    setRequiresStolenGoldCheck(bool value): 设置是否需要检查偷取金币。
+    requiresStolenGoldCheck() const: 返回是否需要检查偷取金币。
+    getMonsterTurnNumber() const: 获取怪物回合数（从 1 开始）。
+
+行动执行函数:
+    executeActions(): 执行行动队列中的行动。
+    playCardQueueItem(CardQueueItem): 打出卡牌队列中的卡牌。
+    useCard(): 使用卡牌。
+    useNoTriggerCard(): 使用不触发效果的卡牌。
+    useAttackCard(): 使用攻击牌。
+    useSkillCard(): 使用技能牌。
+    usePowerCard(): 使用力量牌。
+    onUseAttackCard(): 攻击牌使用后触发。
+    onUseSkillCard(): 技能牌使用后触发。
+    onUsePowerCard(): 力量牌使用后触发。
+    onUseStatusOrCurseCard(): 状态牌或诅咒牌使用后触发。
+    onAfterUseCard(): 任何卡牌使用后触发。
+
+状态和行动队列管理函数:
+    setState(InputState state): 设置输入状态。
+    addToTop(const Action &a): 将行动添加到行动队列顶部。
+    addToBot(const Action &a): 将行动添加到行动队列底部。
+    addToTopCard(CardQueueItem item): 将卡牌添加到卡牌队列顶部。
+    addToBotCard(CardQueueItem item): 将卡牌添加到卡牌队列底部。
+
+战斗流程检查和清理函数:
+    checkCombat(): 检查战斗状态。
+    clearPostCombatActions(): 清除战斗后行动。
+    cleanCardQueue(): 清理卡牌队列。
+    isCardPlayAllowed() const: 判断是否允许打牌。
+
+回合结束相关函数:
+    endTurn(): 玩家点击结束回合按钮时调用。
+    callEndOfTurnActions(): 回合结束卡牌队列项到达时调用。
+    onTurnEnding(): 回合实际结束时调用。
+    callEndTurnEarlySequence(): 提早结束回合序列（例如时间吞噬者）。
+    applyEndOfRoundPowers(): 应用回合结束的力量效果。
+    afterMonsterTurns(): 怪物回合结束后触发。
+
+药水相关函数:
+    obtainPotion(Potion p): 获得药水。
+    discardPotion(int idx): 丢弃药水。
+    drinkPotion(int idx, int target=0): 饮用药水。
+
+卡牌处理函数:
+    drawCards(int count): 牌。
+    discardAtEndOfTurn(): 回合结束时弃牌。
+    discardAtEndOfTurnHelper(): 弃牌辅助函数。
+    playTopCardInDrawPile(int monsterTargetIdx, bool exhausts): 打出抽牌堆顶部的卡牌。
+    moveToHandHelper(CardInstance c): 将卡牌移动到手牌。
+    exhaustSpecificCardInHand(int idx, std::int16_t uniqueId): 消耗手牌中指定索引的卡牌。
+    restoreRetainedCards(int count): 恢复保留的卡牌。
+    exhaustTopCardInHand(): 消耗手牌顶部的卡牌。
+    triggerOnEndOfTurnForPlayingCards(): 触发打出卡牌的回合结束效果。
+    triggerOnOtherCardPlayed(const CardInstance &usedCard): 触发其他卡牌打出后的效果。
+    debuffEnemy<MonsterStatus s>(int idx, int amount, bool isSourceMonster=true): 对敌人施加减益效果（模板函数）。
+    calculateCardDamage(const CardInstance &card, int targetIdx, int baseDamage) const: 计算卡牌伤害。
+    calculateCardBlock(int baseBlock) const: 计算卡牌格挡。
+    queuePurgeCard(const CardInstance &c, int target): 将净化卡牌排入队列。
+    addPurgeCardToCardQueue(const CardQueueItem &item): 将净化卡牌添加到卡牌队列。
+    noOpRollMove(): 怪物空操作时调整随机数生成器。
+    onManualDiscard(const CardInstance &c): 手动弃牌时触发。
+    onShuffle(): 洗牌时触发。
+    triggerAndMoveToExhaustPile(CardInstance c): 触发效果并将卡牌移动到消耗堆。
+    mummifiedHandOnUsePower(): 木乃伊之手遗物效果（使用力量牌时触发）。
+
+卡牌选择屏幕相关函数:
+    openDiscoveryScreen(std::array<CardId, 3> discoveryCards, int copyCount): 打开发现卡牌屏幕。
+    openSimpleCardSelectScreen(CardSelectTask task, int count): 打开简单卡牌选择屏幕。
+
+单卡选择辅助函数:
+    chooseArmamentsCard(int handIdx): 选择武装（Armaments）卡牌。
+    chooseCodexCard(CardId id): 选择手抄本（Codex）卡牌。
+    chooseDiscardToHandCard(int discardIdx, bool forZeroCost): 选择从弃牌堆到手牌的卡牌。
+    chooseDiscoveryCard(CardId id): 选择发现的卡牌。
+    chooseDualWieldCard(int handIdx): 选择双持（Dual Wield）卡牌。
+    chooseExhaustOneCard(int handIdx): 选择消耗一张卡牌。
+    chooseExhumeCard(int exhaustIdx): 选择挖掘（Exhume）卡牌。
+    chooseForethoughtCard(int handIdx): 选择预谋（Forethought）卡牌。
+    chooseHeadbuttCard(int discardIdx): 选择头槌（Headbutt）卡牌。
+    chooseRecycleCard(int handIdx): 选择回收（Recycle）卡牌。
+    chooseWarcryCard(int handIdx): 选择战吼（Warcry）卡牌。
+
+多卡选择辅助函数:
+    chooseDrawToHandCards(const int *idxs, int cardCount): 选择抽到手牌的卡牌。
+    chooseExhaustCards(const fixed_list<int,10> &idxs): 选择要消耗的卡牌。
+    chooseGambleCards(const fixed_list<int,10> &idxs): 选择要赌博（Gamble）的卡牌。
+
+运算符重载
+    std::ostream& operator<<(std::ostream &os, const BattleContext &bc): 重载输出运算符，用于打印 BattleContext 对象的信息。
+
+模板函数
+    Actions 命名空间中的模板函数用于创建战斗行动：
+    template <PlayerStatus s> Action Actions::BuffPlayer(int amount): 玩家获得增益。
+    template <PlayerStatus s> Action Actions::DebuffPlayer(int amount, bool isSourceMonster): 玩家获得减益。
+    template<PlayerStatus s> Action Actions::DecrementStatus(int amount): 玩家状态减少。
+    template <PlayerStatus s> Action Actions::RemoveStatus(): 移除玩家状态。
+    template<MonsterStatus s> Action Actions::BuffEnemy(int idx, int amount): 敌人获得增益。
+    template <MonsterStatus s> Action Actions::DebuffEnemy(int idx, int amount, bool isSourceMonster): 敌人获得减益。
+    template <MonsterStatus s> Action Actions::DebuffAllEnemy(int amount, bool isSourceMonster): 所有敌人获得减益。
+
+全局变量
+    extern thread_local BattleContext *g_debug_bc: 线程局部调试 BattleContext 指针。
+
+依赖文件
+    该文件包含了多个头文件，用于支持其功能：
+    vector, array: C++标准库容器。
+    sts_common.h: 常用定义。
+    data_structure/fixed_list.h: 固定大小列表。
+    constants/Potions.h: 药水常量。
+    constants/MonsterEncounters.h: 怪物遭遇常量。
+    combat/InputState.h: 输入状态定义。
+    combat/Player.h: 玩家类定义。
+    combat/Monster.h: 怪物类定义。
+    combat/MonsterGroup.h: 怪物组类定义。
+    combat/ActionQueue.h: 行动队列定义。
+    combat/CardQueue.h: 卡牌队列定义。
+    combat/Actions.h: 战斗行动定义。
+    combat/CardManager.h: 卡牌管理器定义。
+    combat/CardSelectInfo.h: 卡牌选择信息定义。
+
+
+BattleContext 类中的各个大类函数之间存在着紧密的相互作用和逻辑关系，共同构成了《Slay the Spire》的战斗流程。以下是它们之间的主要关系：
+
+初始化与设置 (Initialization & Setup):
+init() 函数是整个战斗的入口点。它负责根据 GameContext (游戏上下文) 初始化 BattleContext 的各种成员，
+    例如玩家、怪物、卡牌管理器、随机数生成器、初始能量等。
+initRelics() 函数在 init() 过程中或之后被调用，用于初始化所有遗物对战斗的影响，例如遗物的初始效果。
+setRequiresStolenGoldCheck() 和 init() 函数可能会影响 miscBits 中的标志位，用于后续的流程检查。
+
+战斗流程控制 (Battle Flow Control):
+executeActions() 是战斗的核心循环之一，它不断从 actionQueue 中取出并执行 Action 对象。这些 Action 可以是伤害、格挡、状态增减、卡牌操作等等。
+playCardQueueItem()、useCard()、useAttackCard()、useSkillCard()、usePowerCard() 等函数负责处理玩家打出卡牌的逻辑。
+        当玩家选择打出一张卡牌时，会生成一个 CardQueueItem，并最终通过这些函数触发卡牌的效果，
+        这些效果通常会通过 addToTop() 或 addToBot() 将具体的 Action 添加到 actionQueue 中。
+setState() 用于管理战斗的输入状态，例如在玩家选择卡牌时会进入 CardSelect 状态，执行行动时进入 EXECUTING_ACTIONS 状态。
+
+回合管理 (Turn Management):
+endTurn() 由玩家触发，表示玩家回合结束。
+callEndOfTurnActions() 和 onTurnEnding() 在玩家回合实际结束时被调用，负责触发各种回合结束效果，例如药水过期、状态减少、遗物效果等。
+applyEndOfRoundPowers() 和 afterMonsterTurns() 则处理怪物回合结束后的逻辑，例如怪物状态的减少或触发回合结束技能。
+    这些函数内部会调用其他函数来处理具体的效果，如 debuffEnemy() 或 player.debuff<s>()。
+
+卡牌与药水操作 (Card & Potion Operations):
+drawCards()、discardAtEndOfTurn()、moveToHandHelper()、exhaustSpecificCardInHand() 
+    等函数负责管理卡牌在不同区域（抽牌堆、手牌、弃牌堆、消耗堆）之间的移动和处理。
+obtainPotion()、discardPotion()、drinkPotion() 负责药水的获得、丢弃和使用。药水的使用也会触发一系列的 Action 被添加到 actionQueue 中。
+calculateCardDamage() 和 calculateCardBlock() 用于计算卡牌最终的伤害和格挡数值，它们会考虑玩家和怪物的状态、遗物效果等因素。
+
+状态与效果 (Statuses & Effects):
+debuffEnemy() 模板函数负责对敌人施加减益效果。
+    其内部会检查怪物的 ARTIFACT 状态，并可能触发玩家的 SADISTIC 状态和遗物 CHAMPION_BELT 的效果，通过 addToBot() 添加额外的行动。
+Actions::BuffPlayer(), Actions::DebuffPlayer(), Actions::BuffEnemy() 
+    等模板函数作为辅助，用于创建具体的 Action 对象，这些 Action 最终会被 addToTop() 或 addToBot() 添加到 actionQueue 中，然后由 executeActions() 执行。
+许多卡牌和遗物效果（例如 mummifiedHandOnUsePower()）也会直接或间接地通过添加 Action 到队列中来影响玩家或怪物的状态。
+
+卡牌选择屏幕 (Card Select Screens):
+openDiscoveryScreen() 和 openSimpleCardSelectScreen() 用于打开不同类型的卡牌选择界面。
+chooseArmamentsCard()、chooseCodexCard() 等一系列 choose 函数在卡牌选择屏幕关闭后，
+    根据玩家的选择来执行对应的卡牌效果，这些效果通常也会通过添加 Action 到队列中来实现。
+
+总结来说，这些大类函数之间的关系可以概括为：
+驱动与执行: executeActions() 是主要的驱动者，不断执行队列中的行动。
+输入与转化: 玩家的输入（如打牌、喝药）被转化为 CardQueueItem 或直接的 Action，并被加入到对应的队列中。
+效果与反馈: 卡牌、药水、遗物和状态的效果通过 Action 的形式反馈到战斗状态中，改变玩家和怪物的属性。
+回合推进: 回合结束函数负责清理当前回合状态，并准备进入下一个回合。
+状态维护: 各种辅助函数和计算函数维护着战斗的当前状态，并根据状态进行相应的计算和调整。

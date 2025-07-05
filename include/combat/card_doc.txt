@@ -1,0 +1,231 @@
+1. CardInstance.h 文档
+此文档是关于 CardInstance.h 文件的，它定义了 sts 命名空间中的 CardInstance 结构体，用于表示游戏《Slay the Spire》中一张卡牌在战斗中的具体实例。
+
+文件概览
+CardInstance.h 定义了 CardInstance 结构体，它封装了卡牌在游戏中的运行时属性，
+    例如其唯一ID、费用、是否升级等。它还包含了判断卡牌特性的辅助函数，以及卡牌在特定事件（如消耗、弃置、抽到）时触发效果的函数。
+
+结构体
+CardInstance  表示战斗中一张卡牌的特定实例。
+
+成员变量:
+    id (CardId): 卡牌的基本ID，定义了卡牌的类型和原始属性。
+    uniqueId (std::int16_t): 卡牌的唯一标识符，用于区分同一张卡牌的不同实例（例如，两张“打击”牌会有不同的 uniqueId）。
+    specialData (std::int16_t): 特殊数据，用于存储某些卡牌的额外信息（例如“浴血奋战”的伤害计数）。
+    cost (std::int8_t): 卡牌的当前费用。
+    costForTurn (std::int8_t): 卡牌在本回合的费用。
+    upgraded (bool): 卡牌是否已升级。
+    freeToPlayOnce (bool): 卡牌是否可以免费打出一次。
+    retain (bool): 卡牌是否保留到下一回合。
+
+构造函数:
+    CardInstance(): 默认构造函数。
+    CardInstance(CardId id, bool upgraded=false): 使用卡牌ID和是否升级创建实例。
+    CardInstance(const Card &card): 从 Card 对象（可能是基础卡牌数据）创建实例。
+
+查询函数 (const 成员函数):
+    getId() const: 获取卡牌ID。
+    getType() const: 获取卡牌类型（攻击、技能、力量等）。
+    getName() const: 获取卡牌名称。
+    getUniqueId() const: 获取卡牌唯一ID。
+    isUpgraded() const: 判断卡牌是否已升级。
+    getUpgradeCount() const: 获取卡牌的升级次数。
+    canUpgrade() const: 判断卡牌是否可以升级。
+    isEthereal() const: 判断卡牌是否虚无。
+    isStrikeCard() const: 判断卡牌是否为打击牌。
+    doesExhaust() const: 判断卡牌是否消耗。
+    hasSelfRetain() const: 判断卡牌是否自身保留。
+    requiresTarget() const: 判断卡牌是否需要目标。
+    isXCost() const: 判断卡牌是否为X费用牌。
+    isBloodCard() const: 判断卡牌是否为“浴血奋战”类型的牌。
+    usesSpecialData() const: 判断卡牌是否使用特殊数据。
+    isFreeToPlay(const BattleContext &bc) const: 判断卡牌是否可以免费打出（考虑上下文）。
+    canUseOnAnyTarget(const BattleContext &bc) const: 判断卡牌是否可以在任何目标上使用（非关键路径）。
+    canUse(const BattleContext &bc, int target, bool inAutoplay) const: 判断卡牌在给定目标和自动播放模式下是否可以使用。
+
+修改函数:
+    upgradeBaseCost(int newBaseCost): 升级基础费用（例如“浴血奋战”升级后）。
+    updateCost(int amount): 更新卡牌费用。
+    setCostForCombat(int cost): 设置战斗中的费用。
+    setCostForTurn(int newCost): 设置本回合的费用。
+    setUniqueId(int uniqueId): 设置卡牌唯一ID。
+    upgrade(): 升级卡牌。
+    tookDamage(): 玩家受到伤害时调用（仅用于“精湛刺击”和“浴血奋战”）。
+
+触发函数:
+    triggerOnExhaust(BattleContext &bc): 卡牌被消耗时触发效果。
+    triggerOnManualDiscard(BattleContext &bc): 卡牌被手动弃置时触发效果。
+    triggerWhenDrawn(BattleContext &bc, int myHandIdx): 卡牌被抽到手牌时触发效果。
+
+辅助函数:
+    printSimpleDesc(std::ostream &o) const: 打印卡牌的简单描述到输出流。
+
+类型定义:
+    typedef CardInstance CI: 为 CardInstance 定义别名 CI。
+
+运算符重载:
+    std::ostream& operator <<(std::ostream &os, const CardInstance &c): 重载输出运算符，用于打印 CardInstance 对象的信息。
+
+2. CardQueue.h 文档
+此文档是关于 CardQueue.h 文件的，它定义了 sts 命名空间中的 CardQueueItem 结构体和 CardQueue 结构体，用于管理游戏中待打出的卡牌序列。
+
+文件概览
+CardQueue.h 包含了用于表示卡牌队列中单个项目的 CardQueueItem，
+    以及用于管理这些项目的循环队列 CardQueue。这个队列在战斗中用于存储玩家或游戏机制待打出的卡牌。
+
+结构体
+CardQueueItem.   结构体表示卡牌队列中的一个条目，包含了待打出的卡牌及其相关信息。
+    成员变量:
+        card (CardInstance): 待打出的卡牌实例。
+        target (int): 卡牌的目标索引（如果需要目标）。
+        isEndTurn (bool): 是否为回合结束标记项。
+        triggerOnUse (bool): 使用时是否触发卡牌效果。
+        ignoreEnergyTotal (bool): 是否忽略总能量消耗。
+        energyOnUse (int): 使用时消耗的能量。
+        freeToPlay (bool): 是否免费打出。
+        randomTarget (bool): 是否随机目标。
+        autoplay (bool): 是否自动播放。
+        regretCardCount (int): 某种特殊计数（可能与 triggerOnUse 标志相关）。
+        purgeOnUse (bool): 使用后是否净化。
+        exhaustOnUse (bool): 使用后是否消耗。
+    构造函数:
+        CardQueueItem(): 默认构造函数。
+        CardQueueItem(const CardInstance &card, int target, int energyOnUse): 使用卡牌实例、目标和能量消耗创建。
+    静态方法:
+        static CardQueueItem endTurnItem(): 创建一个表示回合结束的 CardQueueItem。
+
+
+CardQueue.  结构体实现了卡牌的循环队列，用于管理待处理的 CardQueueItem。
+    成员变量:
+        static constexpr int capacity = 10: 队列的最大容量。
+        size (int): 队列当前大小。
+        backIdx (int): 队列尾部索引。
+        frontIdx (int): 队列头部索引。
+        arr (std::array<CardQueueItem, capacity>): 存储 CardQueueItem 的固定大小数组。
+    成员函数:
+        clear(): 清空队列。
+        pushFront(CardQueueItem item): 将一个项目添加到队列头部。
+        pushBack(CardQueueItem item): 将一个项目添加到队列尾部。
+        isEmpty() const: 判断队列是否为空。
+        containsCardWithId(int uniqueId) const: 判断队列中是否包含指定 uniqueId 的卡牌。
+        popFront(): 弹出队列头部的项目并返回。
+        popBack(): 弹出队列尾部的项目并返回。
+        front(): 返回队列头部的引用。
+
+3. CardManager.h 文档
+此文档是关于 CardManager.h 文件的，它定义了 sts 命名空间中的 CardManager 结构体，用于管理游戏《Slay the Spire》中战斗时的所有卡牌集合。
+
+文件概览
+CardManager.h 负责管理玩家在战斗中的手牌、抽牌堆、弃牌堆和消耗堆中的所有卡牌实例。
+    它提供了在这些区域之间移动卡牌、创建卡牌实例以及处理卡牌特殊计数（如“浴血奋战”和“疼痛”）的各种方法。
+
+结构体
+CardManager  结构体是战斗中卡牌管理的核心。
+    常量:
+        static constexpr int MAX_HAND_SIZE = 10: 手牌的最大数量。
+        static constexpr int MAX_GROUP_SIZE = 64: 牌堆（抽牌堆、弃牌堆、消耗堆）的最大容量。
+    成员变量:
+        nextUniqueCardId (int): 用于生成新的唯一卡牌ID。小于 masterDeckSize 的ID被认为是永久卡牌。
+        cardsInHand (int): 手牌中的卡牌数量。
+        hand (std::array<CardInstance, MAX_HAND_SIZE>): 存储手牌的数组。
+        limbo (std::array<CardInstance, MAX_HAND_SIZE>): 用于回合结束时保留卡牌的临时区域。
+        stasisCards (std::array<CardInstance,2>): 存储“青铜自动化”战斗中静滞卡牌的数组。
+        drawPile (std::vector<CardInstance> 或 fixed_list<CardInstance, MAX_GROUP_SIZE>): 抽牌堆。
+        discardPile (std::vector<CardInstance> 或 fixed_list<CardInstance, MAX_GROUP_SIZE>): 弃牌堆。
+        exhaustPile (std::vector<CardInstance> 或 fixed_list<CardInstance, MAX_GROUP_SIZE>): 消耗堆。
+        handNormalityCount (int): 手牌中“常态”卡牌的数量。
+        handPainCount (int): 手牌中“疼痛”卡牌的数量。
+        strikeCount (int): 手牌中“打击”卡牌的数量。
+        handBloodCardCount (int): 手牌中“浴血奋战”卡牌的数量。
+        drawPileBloodCardCount (int): 抽牌堆中“浴血奋战”卡牌的数量。
+        discardPileBloodCardCount (int): 弃牌堆中“浴血奋战”卡牌的数量。
+    初始化函数:
+        init(const GameContext &gc, BattleContext &bc): 初始化卡牌管理器，包括根据 GameContext 和 BattleContext 设置初始牌堆。
+    卡牌创建函数:
+        createDeckCardInstanceInDrawPile(const Card &card, int deckIdx, int drawIdx): 在抽牌堆中创建一张牌组卡牌实例。
+        createTempCardInDrawPile(int insertIdx, CardInstance c): 在抽牌堆中创建一张临时卡牌。
+        createTempCardInDiscard(CardInstance c): 在弃牌堆中创建一张临时卡牌。
+        createTempCardInHand(CardInstance c): 在手牌中创建一张临时卡牌。
+    卡牌移除函数:
+        removeFromDrawPileAtIdx(int idx): 从抽牌堆中移除指定索引的卡牌。
+        popFromDrawPile(): 弹出并返回抽牌堆顶部的卡牌。
+        removeFromHandAtIdx(int idx): 从手牌中移除指定索引的卡牌。
+        removeFromHandById(std::uint16_t uniqueId): 从手牌中移除指定 uniqueId 的卡牌。
+        removeFromDiscard(int idx): 从弃牌堆中移除指定索引的卡牌。
+        removeFromExhaustPile(int idx): 从消耗堆中移除指定索引的卡牌。
+    卡牌移动函数:
+        moveToHand(const CardInstance &c): 将卡牌移动到手牌。
+        moveToExhaustPile(const CardInstance &c): 将卡牌移动到消耗堆。
+        insertToDrawPile(int drawPileIdx, const CardInstance &c): 将卡牌插入到抽牌堆的指定位置。
+        moveToDrawPileTop(const CardInstance &c): 将卡牌移动到抽牌堆顶部。
+        shuffleIntoDrawPile(Random &cardRandomRng, const CardInstance &c): 将卡牌洗入抽牌堆。
+        moveToDiscardPile(const CardInstance &c): 将卡牌移动到弃牌堆。
+        moveDiscardPileIntoToDrawPile(): 将弃牌堆中的所有卡牌移动到抽牌堆并洗牌。
+    通知函数 (用于更新卡牌计数):
+        notifyAddCardToCombat(const CardInstance &c): 通知添加卡牌到战斗中。
+        notifyRemoveFromCombat(const CardInstance &c): 通知从战斗中移除卡牌。
+        notifyAddToHand(const CardInstance &c): 通知添加到手牌。
+        notifyRemoveFromHand(const CardInstance &c): 通知从手牌移除。
+        notifyAddToDrawPile(const CardInstance &c): 通知添加到抽牌堆。
+        notifyRemoveFromDrawPile(const CardInstance &c): 通知从抽牌堆移除。
+        notifyAddToDiscardPile(const CardInstance &c): 通知添加到弃牌堆。
+        notifyRemoveFromDiscardPile(const CardInstance &c): 通知从弃牌堆移除。
+    辅助函数:
+        eraseAtIdxInHand(int idx): 直接擦除手牌中指定索引的卡牌（不调用通知）。
+        getRandomCardIdxInHand(Random &rng): 获取手牌中随机一张卡牌的索引。
+        resetAttributesAtEndOfTurn(): 在回合结束时重置卡牌属性（例如 costForTurn）。
+    特殊辅助函数:
+        draw(BattleContext &bc, int amount): 从抽牌堆抽牌。
+        onTookDamage(): 当玩家受到伤害时调用，用于更新“浴血奋战”和“精湛刺击”等卡牌的特殊数据。
+        findAndUpgradeSpecialData(std::int16_t uniqueId, int amount): 查找并升级具有特殊数据的卡牌。
+        onBuffCorruption(): 当玩家获得“腐化”状态时调用，处理其对技能牌费用的影响。
+    运算符重载:
+        std::ostream &operator <<(std::ostream &os, const CardManager &c): 重载输出运算符，用于打印 CardManager 对象的信息。
+
+
+4. CardSelectInfo.h 文档
+此文档是关于 CardSelectInfo.h 文件的，它定义了 sts 命名空间中的 CardSelectTask 枚举和 CardSelectInfo 结构体，
+    用于管理游戏《Slay the Spire》中的卡牌选择屏幕信息。
+
+文件概览
+CardSelectInfo.h 提供了卡牌选择任务的类型定义，以及在打开卡牌选择界面时所需的所有相关数据，例如可选卡牌、选择数量限制和任务类型。
+
+枚举类型
+    CardSelectTask   枚举定义了不同类型的卡牌选择任务。
+    INVALID: 无效任务。
+    ARMAMENTS: 武装（升级手牌中的卡牌）。
+    CODEX: 法典（从三张力量牌中选择一张）。
+    DISCOVERY: 发现（从三张随机牌中选择一张）。
+    DUAL_WIELD: 双持（复制手牌中的一张攻击牌或力量牌）。
+    EXHAUST_ONE: 消耗一张牌。
+    EXHAUST_MANY: 消耗多张牌。
+    EXHUME: 挖掘（从消耗堆选择一张牌）。
+    FORETHOUGHT: 预谋（将一张手牌置于抽牌堆顶）。
+    GAMBLE: 赌博（弃置手牌并抽等量牌）。
+    HEADBUTT: 头槌（将一张弃牌堆中的牌置于抽牌堆顶）。
+    HOLOGRAM: 全息（从消耗堆中将一张牌置于手牌）。
+    LIQUID_MEMORIES_POTION: 液体记忆药水（选择一张消耗的牌）。
+    MEDITATE: 冥想（选择一张保留的牌）。
+    NIGHTMARE: 梦魇（选择一张手牌并复制多次）。
+    RECYCLE: 回收（消耗手牌中的牌）。
+    SECRET_TECHNIQUE: 秘密技术（将一张技能牌置于手牌）。
+    SECRET_WEAPON: 秘密武器（将一张攻击牌置于手牌）。
+    SEEK: 搜寻（从牌组中选择牌）。
+    SETUP: 布局（将一张牌置于抽牌堆顶）。
+    WARCRY: 战吼（将一张手牌置于抽牌堆顶）。
+    cardSelectTaskStrings 数组提供了这些枚举值的字符串表示。
+
+结构体
+    CardSelectInfo.    结构体包含了打开卡牌选择屏幕所需的所有信息。
+成员变量:
+    cards (std::array<CardId, 3>): 可供选择的卡牌ID数组（通常用于发现或法典等）。
+    canPickZero (bool): 是否可以选择零张卡牌。
+    canPickAnyNumber (bool): 是否可以选择任意数量的卡牌。
+    pickCount (int): 需要选择的卡牌数量。
+    data0 (int): 通用数据字段，根据 cardSelectTask 的不同有不同含义（例如复制数量）。
+    cardSelectTask (CardSelectTask): 当前卡牌选择任务的类型。
+辅助函数 (用于方便访问 data0 和 cards):
+    discovery_Cards(): 返回 cards 的引用，用于发现任务。
+    discovery_CopyCount(): 返回 data0 的引用，用于发现任务的复制数量。
+    dualWield_CopyCount(): 返回 data0 的引用，用于双持任务的复制数量。
+    codexCards(): 返回 cards 的引用，用于法典任务。

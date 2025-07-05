@@ -1,0 +1,170 @@
+
+1. ActionQueue.h 文档
+此文档是关于 ActionQueue.h 文件的，它定义了 sts 命名空间中的 Action 结构体和 ActionQueue 模板结构体，
+    用于在游戏《Slay the Spire》中管理战斗行动的队列。
+
+文件概览
+ActionQueue.h 定义了 Action，它封装了一个在 BattleContext 上执行的操作（通常是一个 lambda 函数），以及 ActionQueue，
+    一个用于存储和管理这些 Action 的简单双端队列。这是《Slay the Spire》中处理所有战斗效果（如伤害、增益、减益、卡牌效果）的核心机制。
+类型定义
+typedef std::function<void (BattleContext &)> ActionFunction;: 
+    定义了一个函数对象类型 ActionFunction，它接受一个 BattleContext 的引用作为参数并返回 void。这是所有战斗行动实际执行逻辑的签名。
+
+结构体
+Action.  结构体表示一个可以在 BattleContext 上执行的独立战斗行动。
+    成员变量:
+        actFunc (ActionFunction): 存储实际执行逻辑的函数对象。
+        clearOnCombatVictory (bool): 一个标志，指示当战斗胜利时，此行动是否应该从队列中清除。
+    构造函数:
+        Action(): 默认构造函数。
+        Action(ActionFunction a): 使用一个 ActionFunction 创建行动，默认 clearOnCombatVictory 为 true。
+        Action(ActionFunction a, bool b): 使用一个 ActionFunction 和一个布尔值创建行动，指定 clearOnCombatVictory。
+
+ActionQueue<int capacity>
+    ActionQueue 是一个模板结构体，实现了一个固定容量的简单双端队列（deque），用于存储和管理 ActionFunction。
+    模板参数:
+        capacity: 队列的最大容量。
+    友元类:
+        friend BattleContext;: 允许 BattleContext 直接访问 ActionQueue 的私有或保护成员。
+    成员变量:
+        front (int): 队列头部的索引。
+        back (int): 队列尾部的索引。
+        size (int): 队列中当前元素的数量。
+        bits (std::bitset<capacity>): 一个位集，用于存储每个 Action 的 clearOnCombatVictory 标志。
+        arr (std::array<ActionFunction, capacity> 或 ActionFunction arr[capacity]): 存储 ActionFunction 对象的底层数组。
+    构造函数:
+        ActionQueue(): 默认构造函数。
+        ActionQueue(const ActionQueue &rhs): 拷贝构造函数，用于复制队列状态和其中的元素。
+    成员函数:
+        clear(): 清空队列，重置 size、front 和 back。
+        pushFront(Action a): 将一个 Action 添加到队列的头部。它会更新 front 索引，增加 size，并设置相应的 bits 标志。
+        pushBack(Action a): 将一个 Action 添加到队列的尾部。它会更新 back 索引，增加 size，并设置相应的 bits 标志。
+        isEmpty(): 返回 true 如果队列为空，否则返回 false。
+        popFront(): 移除并返回队列头部的 ActionFunction。它会更新 front 索引并减少 size。
+        getCapacity() const: 返回队列的最大容量。
+
+2. Actions.h 文档
+此文档是关于 Actions.h 文件的，它定义了 sts 命名空间中的 Actions 结构体，
+    这是一个包含大量静态函数的工具类，用于创建各种具体的战斗行动 Action。
+文件概览
+Actions.h 提供了一系列静态函数，这些函数负责构造并返回 Action 对象。
+    这些 Action 对象包含了执行特定游戏逻辑的匿名函数（lambda），例如造成伤害、增益/减益状态、抽牌、改变姿态等。
+    BattleContext 通过将这些 Action 添加到其内部的 ActionQueue 中来调度和执行它们。
+
+结构体
+    Actions. 结构体是一个包含静态成员函数的工具类，用于便捷地创建各种战斗 Action。
+    类型定义:
+        typedef std::array<std::uint16_t,5> DamageMatrix;: 定义了一个 DamageMatrix 类型，用于表示对多个目标造成的伤害数组。
+    静态成员函数 (分类):
+    通用行动:
+        static Action SetState(InputState state): 设置战斗的输入状态。
+            玩家状态增益/减益 (模板函数，实现在 BattleContext.h 中):
+        template <PlayerStatus s> static Action BuffPlayer(int amount=1): 对玩家施加指定状态的增益。
+        template <PlayerStatus s> static Action DebuffPlayer(int amount=1, bool isSourceMonster=true): 对玩家施加指定状态的减益。
+        template <PlayerStatus s> static Action DecrementStatus(int amount=1): 减少玩家指定状态的层数。
+        template <PlayerStatus s> static Action RemoveStatus(): 移除玩家的指定状态。
+    怪物状态增益/减益 (模板函数):
+        template <MonsterStatus> static Action BuffEnemy(int idx, int amount=1): 对指定敌人施加指定状态的增益。
+        template <MonsterStatus> static Action DebuffEnemy(int idx, int amount, bool isSourceMonster=true): 对指定敌人施加指定状态的减益。
+        template <MonsterStatus> static Action DebuffAllEnemy(int amount, bool isSourceMonster=true): 对所有敌人施加指定状态的减益。
+    伤害与生命值操作:
+        static Action AttackEnemy(int idx, int damage): 对指定敌人进行攻击。
+        static Action AttackAllEnemy(int baseDamage): 对所有敌人进行攻击（伤害一次计算）。
+        static Action AttackAllEnemy(DamageMatrix damageMatrix): 对所有敌人进行攻击（使用预计算的伤害矩阵）。
+        static Action DamageEnemy(int idx, int damage): 对指定敌人造成伤害。
+        static Action DamageAllEnemy(int damage): 对所有敌人造成伤害。
+        static Action AttackPlayer(int idx, int damage): 对玩家进行攻击（来自怪物）。
+        static Action DamagePlayer(int damage, bool selfDamage=false): 对玩家造成伤害。
+        static Action VampireAttack(int damage): 吸血攻击（仅由“带壳寄生虫”使用）。
+        static Action PlayerLoseHp(int hp, bool selfDamage=false): 玩家失去生命值。
+        static Action HealPlayer(int amount): 治疗玩家。
+    其他战斗行动:
+        static Action MonsterGainBlock(int idx, int amount): 指定怪物获得格挡。
+        static Action RollMove(int monsterIdx): 指定怪物进行行动选择（RollMove）。
+        static Action ReactiveRollMove(): “扭曲之体”的反应性行动选择。
+        static Action NoOpRollMove(): 空操作的行动选择。
+        static Action ChangeStance(Stance stance): 玩家改变姿态。
+        static Action GainEnergy(int amount): 玩家获得能量。
+        static Action GainBlock(int amount): 玩家获得格挡。
+        static Action DrawCards(int amount): 玩家抽牌。
+    牌组操作:
+    static Action EmptyDeckShuffle(): 牌堆空时洗牌（会触发洗牌遗物）。
+        static Action ShuffleDrawPile(): 洗抽牌堆（不触发洗牌遗物，用于“深呼吸”和“重启”）。
+        static Action ShuffleTempCardIntoDrawPile(CardId id, int count=1): 将临时卡牌洗入抽牌堆。
+        static Action PlayTopCard(int monsterTargetIdx, bool exhausts): 抽牌堆顶部的卡牌。
+        static Action MakeTempCardInHand(CardId card, bool upgraded= false, int amount = 1): 在手牌中创建临时卡牌。
+        static Action MakeTempCardInHand(CardInstance c, int amount = 1): 在手牌中创建临时卡牌实例。
+        static Action MakeTempCardInDrawPile(const CardInstance &c, int amount, bool shuffleInto): 在抽牌堆中创建临时卡牌。
+        static Action MakeTempCardInDiscard(const CardInstance &c, int amount = 1): 在弃牌堆中创建临时卡牌。
+        static Action MakeTempCardsInHand(std::vector<CardInstance> cards): 在手牌中创建多张临时卡牌。
+        static Action DiscardNoTriggerCard(): 弃置当前卡牌队列中的卡牌，不触发弃牌效果（用于“怀疑”、“羞耻”等）。
+        static Action ClearCardQueue(): 清空卡牌队列。
+        static Action DiscardAtEndOfTurn(): 在回合结束时弃牌。
+        static Action DiscardAtEndOfTurnHelper(): 回合结束弃牌的辅助行动。
+        static Action RestoreRetainedCards(int count): 恢复保留的卡牌。
+        static Action ExhaustTopCardInHand(): 消耗手牌顶部的卡牌。
+        static Action ExhaustSpecificCardInHand(int idx, std::int16_t uniqueId): 消耗手牌中指定索引和ID的卡牌。
+    随机行动:
+        static Action DamageRandomEnemy(int damage): 对随机敌人造成伤害（例如“巨像”）。
+        static Action GainBlockRandomEnemy(int sourceMonster, int amount): 随机敌人获得格挡。
+        static Action SummonGremlins(): 召唤小鬼。
+        static Action SpawnTorchHeads(): 生成火炬头。
+        static Action SpireShieldDebuff(): “尖塔之盾”的减益（仅当玩家有法球槽位时）。
+        static Action ExhaustRandomCardInHand(int count): 随机消耗手牌中的卡牌。
+        static Action MadnessAction(): “疯狂”卡牌效果。
+        static Action RandomizeHandCost(): 随机化手牌费用。
+        static Action UpgradeRandomCardAction(): 升级随机卡牌（例如“扭曲之钳”遗物）。
+    特定卡牌/遗物行动:
+        static Action CodexAction(): “尼利的书典”遗物效果。
+        static Action ExhaustMany(int limit): 消耗多张牌（有上限）。
+        static Action GambleAction(): “赌博”卡牌效果。
+        static Action ToolboxAction(): “工具箱”遗物效果。
+        static Action FiendFireAction(int targetIdx, int calculatedDamage): “恶魔火焰”卡牌效果。
+        static Action SwordBoomerangAction(int baseDamage): “回旋之刃”卡牌效果。
+        static Action PutRandomCardsInDrawPile(CardType type, int count): 将随机卡牌放入抽牌堆（例如“化蛹”、“蜕变”）。
+        static Action DiscoveryAction(CardType type, int amount): “发现”卡牌效果（例如攻击药水、技能药水）。
+        static Action InfernalBladeAction(): “地狱之刃”卡牌效果。
+        static Action JackOfAllTradesAction(bool upgraded): “万能牌”卡牌效果。
+        static Action TransmutationAction(bool upgraded, int energy, bool useEnergy): “炼金”卡牌效果。
+        static Action ViolenceAction(int count): “暴力”卡牌效果。
+        static Action BetterDiscardPileToHandAction(int amount, CardSelectTask task): 将弃牌堆的卡牌移至手牌（例如“全息”、“液体记忆药水”）。
+        static Action ArmamentsAction(): “武装”卡牌效果。
+        static Action DualWieldAction(int copyCount): “双持”卡牌效果。
+        static Action ExhumeAction(): “挖掘”卡牌效果。
+        static Action ForethoughtAction(bool upgraded): “预谋”卡牌效果。
+        static Action HeadbuttAction(): “头槌”卡牌效果。
+        static Action ChooseExhaustOne(): 选择消耗一张牌。
+        static Action DrawToHandAction(CardSelectTask task, CardType cardType): 抽牌到手牌。
+        static Action WarcryAction(): “战吼”卡牌效果。
+    回合/全局效果:
+        static Action TimeEaterPlayCardQueueItem(const CardQueueItem &item): “时间吞噬者”打出卡牌队列项。
+        static Action UpgradeAllCardsInHand(): 升级手牌中所有卡牌。
+        static Action OnAfterCardUsed(): 卡牌使用后调用（游戏中的 UseCardAction）。
+        static Action EssenceOfDarkness(int darkOrbsPerSlot): “黑暗精华”效果（处理“神圣树皮”）。
+        static Action IncreaseOrbSlots(int count): 增加法球槽位。
+        static Action SuicideAction(int monsterIdx, bool triggerRelics): 怪物自杀行动。
+        static Action PoisonLoseHpAction(): 中毒失去生命值。
+        static Action RemovePlayerDebuffs(): 移除玩家的减益（例如“橙色药丸”遗物）。
+        static Action DualityAction(): “双重”遗物效果。
+        static Action ApotheosisAction(): “神化”卡牌效果。
+        static Action DropkickAction(int targetIdx): “重踏”卡牌效果。
+        static Action EnlightenmentAction(bool upgraded): “启蒙”卡牌效果。
+        static Action EntrenchAction(): “深挖”卡牌效果。
+        static Action FeedAction(int idx, int damage, bool upgraded): “进食”卡牌效果。
+        static Action HandOfGreedAction(int idx, int damage, bool upgraded): “贪婪之手”卡牌效果。
+        static Action LimitBreakAction(): “突破极限”卡牌效果。
+        static Action ReaperAction(int baseDamage): “收割者”卡牌效果。
+        static Action RitualDaggerAction(int idx, int damage): “仪式匕首”卡牌效果。
+        static Action SecondWindAction(int blockPerCard): “第二阵风”卡牌效果。
+        static Action SeverSoulExhaustAction(): “灵魂裂隙”消耗效果。
+        static Action SpotWeaknessAction(int target, int strength): “洞察弱点”卡牌效果。
+        static Action WhirlwindAction(int baseDamage, int energy, bool useEnergy): “旋风斩”卡牌效果。
+        static Action AttackAllMonsterRecursive(DamageMatrix matrix, int timesRemaining): 递归地对所有怪物进行多次攻击。
+
+Actions.h 和 ActionQueue.h 之间的关系
+Actions.h 和 ActionQueue.h 共同构成了游戏战斗中行动处理的核心机制：
+定义与封装: ActionQueue.h 定义了 Action 结构体，它是一个封装了实际操作逻辑（ActionFunction）的对象。
+创建与提供: Actions.h 提供了一组静态工厂方法（如 Actions::AttackEnemy()、Actions::DrawCards() 等），它们创建并返回一个包装了特定游戏逻辑的 Action 对象。这些 Action 对象通常是在 BattleContext 的方法中被创建。
+存储与调度: BattleContext 内部包含一个 ActionQueue 实例。当游戏中的某个事件（例如打出一张卡牌、怪物行动、遗物触发）需要产生一个效果时，BattleContext 会调用 Actions 中的相应静态方法来创建一个 Action 对象，然后通过 BattleContext::addToTop() 或 BattleContext::addToBot() 将这个 Action 添加到其 ActionQueue 中。
+执行: BattleContext 中的 executeActions() 方法会不断从 ActionQueue 的 front 端取出 ActionFunction 并执行它。这使得所有的游戏效果都以一种有序且可管理的方式进行处理，确保了战斗流程的正确性。
+简而言之，Actions.h 负责**“我能做什么样的行动”，而 ActionQueue.h 负责“我如何存储和管理这些行动以便按顺序执行”**。它们通过 BattleContext 这个中央控制器紧密协作，实现了《Slay the Spire》复杂的战斗逻辑。

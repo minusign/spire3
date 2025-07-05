@@ -1,0 +1,168 @@
+
+1. InputState.h 文档
+此文档是关于 InputState.h 文件的，它定义了 sts 命名空间中的 InputState 枚举类，
+    用于表示游戏《Slay the Spire》中当前玩家或系统所处的输入状态。
+
+文件概览
+InputState.h 仅包含一个枚举类 InputState，它列举了战斗中可能出现的各种玩家交互或系统内部处理的状态。
+    这些状态决定了游戏引擎当前应该如何响应玩家输入或执行哪些逻辑。
+
+枚举类型
+InputState. 枚举类表示游戏在战斗中的当前状态，决定了输入处理和游戏逻辑的流程。
+枚举成员:
+    执行行动状态:
+        EXECUTING_ACTIONS: 游戏当前正在执行行动队列中的操作，玩家输入通常被阻塞或有限制。
+    玩家选择行动状态:
+        PLAYER_NORMAL: 玩家处于正常回合，可以打牌、使用药水、结束回合等。
+        CARD_SELECT: 玩家当前正在进行卡牌选择（例如，发现、武装、挖掘等卡牌效果）。
+        CHOOSE_STANCE_ACTION: 玩家需要选择姿态（例如，通过姿态药水）。
+        CHOOSE_TOOLBOX_COLORLESS_CARD: 玩家需要选择工具箱提供的无色牌。
+        CHOOSE_EXHAUST_POTION_CARDS: 玩家需要选择消耗药水所对应的卡牌。
+        CHOOSE_GAMBLING_CARDS: 玩家需要选择赌博卡牌。
+        CHOOSE_ENTROPIC_BREW_DISCARD_POTIONS: 玩家需要选择熵能药水丢弃的药水。
+        CHOOSE_DISCARD_CARDS: 玩家需要选择弃牌。
+        SCRY: 玩家正在查看牌堆（例如，通过“观察”卡牌）。
+    随机或特殊行动触发的选择状态:
+        SELECT_ENEMY_ACTIONS: 系统正在选择敌人进行某种行动。
+        FILL_RANDOM_POTIONS: 填充随机药水。
+        SHUFFLE_INTO_DRAW_BURN: 将“灼伤”状态牌洗入抽牌堆。
+        SHUFFLE_INTO_DRAW_VOID: 将“虚空”状态牌洗入抽牌堆。
+        SHUFFLE_INTO_DRAW_DAZED: 将“眩晕”状态牌洗入抽牌堆。
+        SHUFFLE_INTO_DRAW_WOUND: 将“创伤”状态牌洗入抽牌堆。
+        SHUFFLE_INTO_DRAW_SLIMED: 将“淤泥”状态牌洗入抽牌堆。
+        SHUFFLE_INTO_DRAW_ALL_STATUS: 将所有状态牌洗入抽牌堆。
+        SHUFFLE_CUR_CARD_INTO_DRAW: 将当前卡牌洗入抽牌堆。
+        SHUFFLE_DISCARD_TO_DRAW: 将弃牌堆洗入抽牌堆。
+        INITIAL_SHUFFLE: 初始洗牌。
+        CREATE_RANDOM_CARD_IN_HAND_POWER: 在手牌中创建随机力量牌。
+        CREATE_RANDOM_CARD_IN_HAND_COLORLESS: 在手牌中创建随机无色牌。
+        CREATE_RANDOM_CARD_IN_HAND_DEAD_BRANCH: 通过“枯木树枝”在手牌中创建随机牌。
+        SELECT_CARD_IN_HAND_EXHAUST: 选择手牌中的卡牌进行消耗。
+        GENERATE_NILRY_CARDS: 生成“尼利的书典”卡牌。
+        EXHAUST_RANDOM_CARD_IN_HAND: 随机消耗手牌中的卡牌。
+        SELECT_STRANGE_SPOON_PROC: 选择“奇异之勺”触发的效果。
+        SELECT_ENEMY_THE_SPECIMEN_APPLY_POISON: 选择敌人以应用“标本”的剧毒效果。
+        SELECT_WARPED_TONGS_CARD: 选择“扭曲之钳”遗物升级的卡牌。
+        CREATE_ENCHIRIDION_POWER: 创建“小册子”力量牌。
+        SELECT_CONFUSED_CARD_COST: 选择混乱卡牌的费用。
+
+2. Player.h 文档
+此文档是关于 Player.h 文件的，它定义了 sts 命名空间中的 Player 结构体，用于表示游戏《Slay the Spire》中玩家在战斗时的所有状态和属性。
+
+文件概览
+Player.h 定义了 Player 结构体，它包含了玩家在战斗中的所有核心数据，
+    包括生命值、能量、姿态、各种状态效果、遗物、回合统计信息等。
+    它还提供了修改这些属性以及处理玩家行为（如受到伤害、获得格挡、使用能量）的方法。
+
+结构体
+Player 结构体表示玩家在战斗中的当前状态。
+    核心属性:
+        cc (CharacterClass): 玩家的角色职业。
+        gold (int16_t): 玩家的当前金币。
+        curHp (int): 玩家的当前生命值。
+        maxHp (int): 玩家的最大生命值。
+        energy (int): 玩家当前的能量。
+        energyPerTurn (int8_t): 每回合获得的能量。
+        cardDrawPerTurn (int8_t): 每回合抽取的卡牌数量（基础手牌大小）。
+        stance (Stance): 玩家当前的姿态（例如“中立”、“愤怒”、“神圣”、“宁静”）。
+        orbSlots (int8_t): 玩家的法球槽位数量。
+        lastTargetedMonster (int8_t): 最后一次被玩家瞄准的怪物索引（用于“尖塔之矛/盾”）。
+    战斗属性 (通常是力量效果或临时增益/减益):
+        block (int): 玩家当前的格挡值。
+        artifact (int): 玩家的“人工制品”层数。
+        dexterity (int): 玩家的“敏捷”层数。
+        focus (int): 玩家的“专注”层数。
+        strength (int): 玩家的“力量”层数。
+    状态效果 (PlayerStatus):
+        justAppliedBits (std::uint32_t): 位集，标记某些状态是否是本回合刚施加的。
+        statusBits0 (std::uint64_t), statusBits1 (std::uint32_t): 位集，用于快速检查玩家是否拥有某个状态。
+        statusMap (std::map<PlayerStatus, std::int16_t>): 存储具有层数的玩家状态及其值。
+    遗物 (RelicId):
+        relicBits0 (std::uint64_t), relicBits1 (std::uint64_t): 位集，用于快速检查玩家是否拥有某个遗物。
+    特殊计数器 (遗物或力量相关):
+        happyFlowerCounter (int8_t): “开心之花”计数器。
+        incenseBurnerCounter (int8_t): “焚香炉”计数器。
+        inkBottleCounter (int8_t): “墨水瓶”计数器。
+        inserterCounter (int8_t): “插入器”计数器。
+        nunchakuCounter (int8_t): “双截棍”计数器。
+        penNibCounter (int8_t): “羽毛笔”计数器。
+        sundialCounter (int8_t): “日晷”计数器。
+        haveUsedNecronomiconThisTurn (bool): 本回合是否使用了“死灵之书”。
+    力量效果特定计数:
+        combustHpLoss (int8_t): “燃烧”每回合损失生命值。
+        devaFormEnergyPerTurn (int16_t): “天神下凡”每回合额外能量。
+        echoFormCardsDoubled (int8_t): “回响形态”复制的卡牌数量。
+        panacheCounter (int8_t): “华丽”计数器。
+    回合统计:
+        cardsPlayedThisTurn (int16_t): 本回合打出的卡牌数量。
+        attacksPlayedThisTurn (int16_t): 本回合打出的攻击牌数量。
+        skillsPlayedThisTurn (int16_t): 本回合打出的技能牌数量。
+        orangePelletsCardTypesPlayed (std::bitset<3>): 标记本回合“橙色药丸”触发的卡牌类型。
+        cardsDiscardedThisTurn (int16_t): 本回合弃置的卡牌数量。
+    其他战斗信息 (目前未使用):
+        lastAttackUnblockedDamage (int16_t): 上次未格挡的攻击伤害。
+        timesDamagedThisCombat (int16_t): 本次战斗中受到伤害的次数。
+    炸弹计数 (力量效果):
+        bomb1, bomb2, bomb3 (int8_t): “炸弹”的力量计数器。
+
+    模板成员函数 (部分实现在文件末尾):
+        template <RelicId r> void setHasRelic(bool value): 设置玩家是否拥有指定遗物。
+        template <PlayerStatus> void setHasStatus(bool value): 设置玩家是否拥有指定状态。
+        template <PlayerStatus> void setStatusValueNoChecks(int value): 直接设置指定状态的值（不进行额外检查）。
+        template <PlayerStatus> void removeStatus(): 移除玩家的指定状态。
+        template <PlayerStatus> void decrementStatus(int amount=1): 减少玩家指定状态的层数。
+        template <PlayerStatus> void decrementIfNotJustApplied(): 如果指定状态不是本回合刚施加的，则减少其层数。
+        template <PlayerStatus> [[nodiscard]] bool wasJustApplied() const: 判断指定状态是否是本回合刚施加的。
+        template<PlayerStatus> void setJustApplied(bool value): 设置指定状态的 justApplied 标志。
+        template <RelicId> [[nodiscard]] bool hasRelic() const: 判断玩家是否拥有指定遗物。
+        template <PlayerStatus> [[nodiscard]] bool hasStatus() const: 判断玩家是否拥有指定状态。
+        template <PlayerStatus> [[nodiscard]] int getStatus() const: 获取玩家指定状态的层数。
+        template <PlayerStatus> void buff(int amount=1): 对玩家施加指定状态的增益。
+        template <const PlayerStatus s> void debuff(int amount, bool isSourceMonster=true): 对玩家施加指定状态的减益。
+        template <Stance> void changeStance(): 改变玩家的姿态。
+    成员函数:
+        hasStatusRuntime(PlayerStatus s) const: 运行时判断玩家是否拥有某个状态。
+        getStatusRuntime(PlayerStatus s) const: 运行时获取玩家某个状态的值（仅限 statusMap 存储的值）。
+        hasRelicRuntime(RelicId r) const: 运行时判断玩家是否拥有某个遗物。
+        removeDebuffs(): 移除玩家的所有减益。
+        increaseMaxHp(int amount): 增加玩家最大生命值。
+        heal(int amount): 治疗玩家生命值。
+        damage(BattleContext &bc, int damage, bool selfDamage=false): 玩家受到伤害。
+        attacked(BattleContext &bc, int enemyIdx, int calculatedDamage): 玩家被攻击（考虑格挡等）。
+        loseHp(BattleContext &bc, int amount, bool selfDamage): 玩家失去生命值（例如通过献祭卡牌）。
+        hpWasLost(BattleContext &bc, int amount, bool selfDamage=false): 玩家生命值损失后调用。
+        wouldDie(BattleContext &bc): 玩家即将死亡时调用（处理死亡遗物等）。
+        gainBlock(BattleContext &bc, int amount): 玩家获得格挡。
+        gainGold(BattleContext &bc, int amount): 玩家获得金币。
+        useEnergy(int amount): 玩家使用能量。
+        gainEnergy(int amount): 玩家获得能量。
+        increaseOrbSlots(int amount): 增加法球槽位。
+        channelOrb(Orb orb): 引导一个法球。
+        hasEmptyOrb() const: 判断是否有空的法球槽位。
+        applyEndOfTurnPowers(BattleContext &bc): 应用回合结束的力量效果。
+        applyAtEndOfRoundPowers(): 应用回合结束的力量效果（用于多回合效果）。
+        applyStartOfTurnRelics(BattleContext &bc): 应用回合开始的遗物效果。
+        applyStartOfTurnPowers(BattleContext &bc): 应用回合开始的力量效果。
+        applyStartOfTurnPostDrawRelics(BattleContext &bc): 抽牌后应用回合开始的遗物效果。
+        applyStartOfTurnPostDrawPowers(BattleContext &bc): 抽牌后应用回合开始的力量效果。
+        rechargeEnergy(BattleContext &bc): 重置能量（通常在回合开始时）。
+    友元函数:
+        friend std::ostream& operator<<(std::ostream &os, const Player &p): 允许 operator<< 访问 Player 的私有成员。
+
+    运算符重载:
+    std::ostream& operator<<(std::ostream &os, const Player &p): 重载输出运算符，用于打印 Player 对象的信息。
+    InputState.h 和 Player.h 之间的关系
+    InputState.h 定义了战斗中玩家或系统所处的情境，而 Player.h 定义了玩家自身在这些情境下的状态和属性。它们之间的关系是：
+    
+状态与行为的关联: BattleContext (在其他文件中定义) 会根据当前的 InputState 来决定如何处理玩家的输入和执行游戏逻辑。
+    例如，当 InputState 为 CARD_SELECT 时，BattleContext 知道玩家需要从卡牌选择屏幕中进行选择，
+    此时玩家的操作会直接影响 Player 对象的属性（例如，通过 Player::gainBlock() 获得格挡，
+    或者通过 Player::buff<PlayerStatus::STRENGTH>() 获得力量）。
+玩家状态驱动部分输入: 玩家的某些 Player 状态或遗物可能触发特定的 InputState。
+    例如，拥有“扭曲之钳”遗物可能会导致进入 SELECT_WARPED_TONGS_CARD 状态，让玩家选择一张牌进行升级。
+回合流程中的状态切换: 在战斗的每个回合中，BattleContext 会根据玩家的行动和怪物的行动，在不同的 InputState 之间进行切换。
+    而 Player 对象的状态（如生命值、能量、各种计数器）会随着这些行动和状态切换而不断更新。
+    例如，在 EXECUTING_ACTIONS 状态下执行的行动会直接影响 Player 的 curHp、block 或各种 statusMap 中的值。
+
+数据提供者: Player 结构体为战斗逻辑提供了所有必要的玩家数据。BattleContext 在处理各种 InputState 下的行动时，会查询和修改 Player 对象的属性。
+简而言之，InputState 描述了**“当前在做什么”，而 Player 描述了“谁在做这件事，以及他/她的当前情况如何”**。两者共同为《Slay the Spire》的战斗系统提供了全面的上下文信息。
