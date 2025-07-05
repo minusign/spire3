@@ -1,0 +1,45 @@
+{
+    "version": "2.0.0",
+    "tasks": [
+        {
+            "label": "使用 CMake 构建项目",
+            "type": "shell",
+            "command": "cmake",
+            "args": [
+                "--build",
+                "${workspaceFolder}/build"
+            ],
+            "group": {
+                "kind": "build",
+                "isDefault": true
+            },
+            "problemMatcher": "$gcc"
+        },
+        {
+            "label": "CMake 配置",
+            "type": "shell",
+            "command": "cmake",
+            "args": [
+                "-B",
+                "${workspaceFolder}/build",
+                "-S",
+                "${workspaceFolder}"
+            ],
+            "problemMatcher": []
+        },
+        {
+            "label": "运行 main",
+            "type": "shell",
+            "command": "${workspaceFolder}/build/main",
+            "dependsOn": "使用 CMake 构建项目",
+            "problemMatcher": []
+        },
+        {
+            "label": "运行测试",
+            "type": "shell",
+            "command": "${workspaceFolder}/build/test",
+            "dependsOn": "使用 CMake 构建项目",
+            "problemMatcher": []
+        }
+    ]
+}

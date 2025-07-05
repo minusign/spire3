@@ -1,0 +1,10 @@
+/Users/aaash/syncthing/slay/spire3/sts_lightspeed/build/CMakeFiles/slaythespire.dir
+/Users/aaash/syncthing/slay/spire3/sts_lightspeed/build/CMakeFiles/main.dir
+/Users/aaash/syncthing/slay/spire3/sts_lightspeed/build/CMakeFiles/test.dir
+/Users/aaash/syncthing/slay/spire3/sts_lightspeed/build/CMakeFiles/small-test.dir
+/Users/aaash/syncthing/slay/spire3/sts_lightspeed/build/CMakeFiles/edit_cache.dir
+/Users/aaash/syncthing/slay/spire3/sts_lightspeed/build/CMakeFiles/rebuild_cache.dir
+/Users/aaash/syncthing/slay/spire3/sts_lightspeed/build/json/CMakeFiles/edit_cache.dir
+/Users/aaash/syncthing/slay/spire3/sts_lightspeed/build/json/CMakeFiles/rebuild_cache.dir
+/Users/aaash/syncthing/slay/spire3/sts_lightspeed/build/pybind11/CMakeFiles/edit_cache.dir
+/Users/aaash/syncthing/slay/spire3/sts_lightspeed/build/pybind11/CMakeFiles/rebuild_cache.dir
