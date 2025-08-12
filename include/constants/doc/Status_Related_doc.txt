@@ -1,0 +1,89 @@
+
+1. MonsterStatusEffects.h 文档
+此文档是关于 MonsterStatusEffects.h 文件的，它定义了 sts 命名空间中的 MonsterStatus 枚举类，
+    用于表示游戏《Slay the Spire》中怪物可能拥有的各种状态效果。
+文件概览
+MonsterStatusEffects.h 定义了一个 MonsterStatus 枚举类，列出了怪物在战斗中可能受到的所有增益或减益状态。
+    这些状态影响怪物的属性、行为或与玩家的交互。文件还提供了方便调试的字符串数组和判断状态类型的辅助函数。
+枚举类型
+    MonsterStatus. 枚举类定义了怪物在战斗中可能拥有的各种状态效果。它继承自 std::uint8_t，以确保底层存储大小。
+枚举成员分类:
+标准状态 (Standard Statuses):
+    ARTIFACT | BLOCK_RETURN | CHOKED | CORPSE_EXPLOSION | LOCK_ON | MARK | METALLICIZE
+    PLATED_ARMOR | POISON | REGEN | SHACKLED | STRENGTH | VULNERABLE | WEAK
+独有力量 1 (Unique Powers 1 - 两者不能同时存在于一个怪物):
+    ANGRY | BEAT_OF_DEATH | CURIOSITY | CURL_UP | ENRAGE | FADING | FLIGHT 
+    | GENERIC_STRENGTH_UP |     INTANGIBLE (与游戏不同，每回合结束时都会减少)
+    MALLEABLE | MODE_SHIFT | RITUAL | SLOW | SPORE_CLOUD | THIEVERY | THORNS | TIME_WARP
+独有力量 2 (Unique Powers 2):
+    INVINCIBLE | REACTIVE | SHARP_HIDE | 布尔力量 (Bool Powers - 存储在 statusBits 中):
+    ASLEEP | BARRICADE | MINION | MINION_LEADER | PAINFUL_STABS | REGROW | SHIFTING
+    STASIS | INVALID
+类型定义
+    typedef MonsterStatus MS;: 为 MonsterStatus 定义别名 MS，方便代码书写。
+辅助常量数组
+    static constexpr const char* const enemyStatusStrings[]: 
+        包含 MonsterStatus 枚举值的用户友好字符串表示。
+    static constexpr const char* const monsterStatusEnumStrings[]: 
+        包含 MonsterStatus 枚举值的枚举名称字符串表示。
+辅助函数
+    static constexpr bool isBooleanPower(MonsterStatus s): 
+        一个 constexpr 函数，用于判断给定的 MonsterStatus 是否是一个布尔型力量（即只有存在或不存在，没有层数）。
+2. PlayerStatusEffects.h 文档
+此文档是关于 PlayerStatusEffects.h 文件的，它定义了游戏《Slay the Spire》中玩家可能拥有的各种状态效果、姿态和法球类型。
+文件概览
+    PlayerStatusEffects.h 定义了 PlayerStatus 枚举类，列出了玩家在战斗中可能获得的所有增益或减益状态。
+        它还将这些状态进行了分类。此外，文件还定义了 Stance 枚举（玩家的战斗姿态）和 Orb 枚举（玩家可以引导的法球类型）。文件提供了便于调试的字符串数组。
+枚举类型
+PlayerStatus  枚举类定义了玩家在战斗中可能拥有的各种状态效果。它继承自 std::uint8_t，以确保底层存储大小。
+枚举成员分类:
+使用 JustApplied 的状态 (Statuses that use JustApplied): 这些状态通常在本回合刚施加时有特殊处理。
+    INVALID | DOUBLE_DAMAGE | DRAW_REDUCTION | FRAIL | INTANGIBLE | VULNERABLE | WEAK
+减益 (DEBUFFS):
+    BIAS | CONFUSED | CONSTRICTED | ENTANGLED | FASTING | HEX | LOSE_DEXTERITY | LOSE_STRENGTH
+    NO_BLOCK | NO_DRAW | WRAITH_FORM | 力量 (POWERS):
+布尔型 (Bool):
+    BARRICADE | BLASPHEMER | CORRUPTION | ELECTRO | SURROUNDED | MASTER_REALITY
+    PEN_NIB | WRATH_NEXT_TURN
+计数器型 (Counter):
+    AMPLIFY | BLUR | BUFFER | COLLECT | DOUBLE_TAP | DUPLICATION
+    ECHO_FORM | FREE_ATTACK_POWER | REBOUND | MANTRA
+强度型 (Intensity): 这些力量通常有层数或强度。
+    ACCURACY | AFTER_IMAGE | BATTLE_HYMN | BRUTALITY | BURST | COMBUST | CREATIVE_AI | DARK_EMBRACE
+    DEMON_FORM | DEVA | DEVOTION | DRAW_CARD_NEXT_TURN | ENERGIZED | ENVENOM | ESTABLISHMENT
+    EVOLVE | FEEL_NO_PAIN | FIRE_BREATHING | FLAME_BARRIER | FOCUS | FORESIGHT | HELLO_WORLD
+    INFINITE_BLADES | JUGGERNAUT | LIKE_WATER | LOOP | MAGNETISM | MAYHEM | METALLICIZE | NEXT_TURN_BLOCK
+    NOXIOUS_FUMES | OMEGA | PANACHE | PHANTASMAL | PLATED_ARMOR | RAGE | REGEN | RITUAL | RUPTURE
+    SADISTIC | STATIC_DISCHARGE | THORNS | THOUSAND_CUTS | TOOLS_OF_THE_TRADE | VIGOR | WAVE_OF_THE_HAND
+持续时间型 (Duration):
+    EQUILIBRIUM | ARTIFACT | DEXTERITY | STRENGTH | 特殊型 (special): | THE_BOMB
+类型定义
+    typedef PlayerStatus PS;: 为 PlayerStatus 定义别名 PS，方便代码书写。
+辅助常量数组
+    static constexpr const char* const playerStatusStrings[]: 包含 PlayerStatus 枚举值的用户友好字符串表示。
+    static constexpr const char* const playerStatusEnumStrings[]: 包含 PlayerStatus 枚举值的枚举名称字符串表示。
+Stance  枚举类定义了玩家在战斗中可以进入的各种姿态。
+    枚举成员:
+        NEUTRAL: 中立。 | CALM: 平静。 | WRATH: 愤怒。 | DIVINITY: 神圣。
+    辅助常量数组
+        static constexpr const char* const stanceStrings[]: 包含 Stance 枚举值的用户友好字符串表示。
+Orb 枚举类定义了玩家（特别是观者）可以引导的法球类型。
+枚举成员:
+    EMPTY: 空槽位。
+    DARK: 黑暗法球。
+    FROST: 冰霜法球。
+    FUSION: 聚变法球。
+    LIGHTNING: 闪电法球。
+MonsterStatusEffects.h 和 PlayerStatusEffects.h 之间的关系
+这两个文件都属于 constants 模块，它们共同定义了《Slay the Spire》中所有与状态效果相关的枚举类型。
+    它们之间的关系是：
+    对象分类: MonsterStatusEffects.h 专注于定义怪物可能拥有的状态效果，
+        而 PlayerStatusEffects.h 则专注于定义玩家可能拥有的状态效果，以及玩家特有的战斗概念如姿态和法球。
+    数据提供: 这两个文件主要作为数据定义，为游戏的其他模块（如 Player.h、Monster.h、Actions.h 等）提供标准化的状态ID和类型。
+        例如，Player 和 Monster 类会使用这些枚举来存储和管理其各自的状态。
+    行为驱动: 战斗逻辑（例如在 BattleContext 和 Actions 中）会根据这些文件中定义的状态来触发特定的游戏效果。
+        例如，当玩家获得 PlayerStatus::WEAK 状态时，BattleContext 在计算玩家伤害时会应用相应的减伤惩罚。
+    互不依赖（直接层面）: 尽管它们都处理“状态效果”，但这两个文件在直接代码层面上是独立的，彼此之间没有 include 关系，
+        这有助于保持模块的解耦。它们是平行的数据定义。
+    共享概念: 尽管分类不同，但有些状态概念在玩家和怪物之间是共享的，
+        例如 ARTIFACT、METALLICIZE、PLATED_ARMOR、POISON (怪物独有), VULNERABLE、WEAK 和 INTANGIBLE (虽然描述略有不同)。这些共享的状态在各自的 Player 和 Monster 实现中会有对应的处理逻辑。

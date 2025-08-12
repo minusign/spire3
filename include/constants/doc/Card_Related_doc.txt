@@ -1,0 +1,141 @@
+这些文件定义了游戏“Slay the Spire”（STS）中卡牌相关的核心数据结构、枚举和常量。它们共同构建了卡牌的属性系统和卡牌池管理系统。
+1. 文件：Cards.h
+Cards.h 文件主要定义了卡牌的基本属性，包括卡牌的唯一标识符、稀有度、颜色、类型，
+    以及一些基于卡牌ID的静态查询函数。
+枚举类型
+    CardId : std::uint16_t:定义了游戏中所有卡牌的唯一标识符。
+        INVALID = 0 表示无效卡牌ID。
+        后续枚举值按字母顺序排列，包含了游戏中的所有可获取和特殊卡牌（如诅咒牌、状态牌）。
+    CardRarity:定义了卡牌的稀有度。
+        包括：COMMON (0), UNCOMMON, RARE, BASIC, SPECIAL, CURSE, INVALID。
+    CardColor:
+        定义了卡牌的颜色，通常与角色职业相关联。
+        包括：RED (战士), GREEN (静默猎手), BLUE (机器人), PURPLE (观者), 
+        COLORLESS (无色牌), CURSE (诅咒牌), INVALID。
+    CardType:
+        定义了卡牌的类型。
+        包括：ATTACK, SKILL, POWER, CURSE, STATUS, INVALID。
+全局常量数组
+    cardRarityPrices[]: 存储了不同稀有度卡牌的价格（例如，普通牌50，非普通牌75，稀有牌150）。
+    cardRarityStrings[]: 稀有度枚举对应的字符串表示。
+    cardColorStrings[]: 颜色枚举对应的字符串表示。
+    cardTypeStrings[]: 类型枚举对应的字符串表示。
+    cardEnumStrings[]: CardId 枚举值对应的原始字符串名称。
+    cardNames[]: CardId 枚举值对应的游戏内显示名称。
+    cardStringIds[]: CardId 枚举值对应的字符串ID，可能用于内部查找或资源加载。
+    cardColors[]: 存储了每个 CardId 对应的 CardColor。
+    cardRarities[]: 存储了每个 CardId 对应的 CardRarity。
+    cardTypes[]: 存储了每个 CardId 对应的 CardType。
+    cardBaseDamage[2][371]: 一个二维数组，存储了卡牌的基础伤害值，第一维度表示是否升级 (upgraded ? 1 : 0)。
+    cardTargets[]: 一个布尔数组，指示卡牌是否通常目标敌人（在 cardTargetsEnemy 函数中被覆盖）。
+    cardSortedIdx[]: 可能是一个用于排序或查找的卡牌索引数组。
+静态查询函数
+    getCardEnumName(CardId id): 返回给定 CardId 的枚举名称字符串。
+    getCardName(CardId id): 返回给定 CardId 的游戏内显示名称。
+    getCardStringId(CardId id): 返回给定 CardId 的字符串ID。
+    getCardColor(CardId id): 返回给定 CardId 的 CardColor。
+    getCardRarity(CardId id): 返回给定 CardId 的 CardRarity。
+    getCardType(CardId id): 返回给定 CardId 的 CardType。
+    getBaseDamage(CardId id, bool upgraded): 返回给定 CardId 在升级或未升级状态下的基础伤害。
+    isCardEthereal(CardId id, bool upgraded=false): 判断卡牌是否为虚无（Ethereal）牌。
+        虚无牌在回合结束时会自动消耗。
+    isCardInnate(CardId id, bool upgraded=false): 判断卡牌是否为固有（Innate）牌。
+        固有牌在战斗开始时会自动打出。
+    isCardStrikeCard(CardId id): 判断卡牌是否是“打击”（Strike）牌家族的一员。
+    doesCardExhaust(CardId id, bool upgraded): 判断卡牌使用后是否会消耗（Exhaust）。
+    doesCardSelfRetain(CardId id, bool upgraded): 判断卡牌在回合结束时是否会自动保留在手中。
+    isStarterStrikeOrDefend(CardId id): 判断卡牌是否是初始的打击或防御牌。
+    cardTargetsEnemy(CardId id, bool upgraded): 判断卡牌是否目标敌人。
+        对于某些卡牌，升级会改变其目标行为（例如，BLIND 和 TRIP 升级后不再目标敌人）。
+    isXCost(CardId id): 判断卡牌是否是X费牌，即其能量消耗由X表示，通常在使用时决定。
+    getEnergyCost(CardId id, bool upgraded): 返回给定 CardId 在升级或未升级状态下的能量消耗。
+        返回 -1 表示X费卡牌。
+        返回 -2 表示状态牌（如 BURN, DAZED, VOID, WOUND），这些卡牌通常不可使用，无能量消耗。
+        返回 -3 表示诅咒牌（如 ASCENDERS_BANE, CLUMSY, DECAY 等），这些卡牌通常不可使用，无能量消耗。
+2. 文件：CardPools.h
+CardPools.h 文件主要定义了游戏中各种类型的卡牌池，这些卡牌池用于生成不同角色、不同稀有度或不同类型的卡牌。
+命名空间：TransformCardPool
+    colorCardPool[4][72]: 一个二维数组，存储了每个角色职业（红色、绿色、蓝色、紫色）
+        在卡牌转换时可能获得的卡牌ID列表。
+    cardPoolSize[4]: 存储了每个角色职业转换卡牌池的大小。
+    getPoolForClass(CharacterClass cc): 返回给定角色职业的转换卡牌池。
+    getPoolSizeForClass(CharacterClass cc): 返回给定角色职业的转换卡牌池大小。
+命名空间：TrulyRandomCardPool
+    pool[4][72]: 一个二维数组，存储了每个角色职业的“真正随机”卡牌池，可能用于某些特殊事件或选择。
+    poolSize[4]: 存储了每个角色职业“真正随机”卡牌池的大小。
+    getPoolForClass(CharacterClass cc): 返回给定角色职业的真正随机卡牌池。
+    getPoolSizeForClass(CharacterClass cc): 返回给定角色职业的真正随机卡牌池大小。
+命名空间：AnyColorTypeCardPool
+    commonCards[]: 包含了所有职业的普通稀有度卡牌ID列表。
+    commonPoolSize: 普通稀有度卡牌池的大小。
+    uncommonCards[]: 包含了所有职业的非普通稀有度卡牌ID列表。
+    uncommonPoolSize: 非普通稀有度卡牌池的大小。
+    rareCards[]: 包含了所有职业的稀有稀有度卡牌ID列表。
+    rarePoolSize: 稀有稀有度卡牌池的大小。
+全局常量数组
+    curseCardPool[]: 包含了所有诅咒卡牌的ID列表。
+    curseCardPoolSize: 诅咒卡牌池的大小。
+    srcColorlessCardPool[]: 包含了所有无色卡牌的ID列表。
+    srcColorlessCardPoolSize: 无色卡牌池的大小。
+    baseColorlessPool: 一个 std::array，也包含了无色卡牌的ID列表，可能用于初始化或其他特定用途。
+命名空间：RarityCardPool
+    这个命名空间提供了按卡牌颜色和稀有度获取卡牌的机制。
+    cardBlob[]: 一个大型数组，包含了所有职业按稀有度和颜色分组的卡牌ID。
+    groupOffset[4][3]: 一个二维数组，存储了在 cardBlob 中每个颜色和稀有度组合的起始偏移量。
+    第一维度索引代表 CardColor。
+    第二维度索引代表 CardRarity（COMMON, UNCOMMON, RARE）。
+    groupSize[4][3]: 一个二维数组，存储了每个颜色和稀有度组合的卡牌池大小。
+    getPoolOffset(CardColor color, CardRarity rarity): 
+        返回给定颜色和稀有度在 cardBlob 中的起始偏移量。
+    getPoolSize(CardColor color, CardRarity rarity): 
+        返回给定颜色和稀有度的卡牌池大小。
+    getPoolSize(CharacterClass cc, CardRarity rarity): 
+        重载函数，通过 CharacterClass 获取卡牌池大小。
+    getCardFromPool(CardColor color, CardRarity rarity, int poolIdx): 
+        从给定颜色和稀有度的卡牌池中获取指定索引的卡牌ID。
+    getCardFromPool(CharacterClass c, CardRarity rarity, int poolIdx): 
+        重载函数，通过 CharacterClass 获取卡牌ID。
+命名空间：TypeRarityCardPool
+    这个命名空间提供了按卡牌颜色、类型和稀有度获取卡牌的机制。
+    cardBlob[]: 一个大型数组，包含了所有职业按卡牌类型、稀有度和颜色分组的卡牌ID。
+    groupOffset[4][3][3]: 一个三维数组，存储了在 cardBlob 中每个颜色、类型和稀有度组合的起始偏移量。
+    第一维度索引代表 CardColor。
+    第二维度索引代表 CardType（ATTACK, SKILL, POWER）。
+    第三维度索引代表 CardRarity（COMMON, UNCOMMON, RARE）。
+    groupSize[4][3][3]: 一个三维数组，存储了每个颜色、类型和稀有度组合的卡牌池大小。
+    getPoolOffset(CardColor color, CardType type, CardRarity rarity): 
+        返回给定颜色、类型和稀有度在 cardBlob 中的起始偏移量。
+    getPoolSize(CardColor color, CardType type, CardRarity rarity): 
+        返回给定颜色、类型和稀有度的卡牌池大小。
+    getPoolSize(CharacterClass c, CardType type, CardRarity rarity): 
+        重载函数，通过 CharacterClass 获取卡牌池大小。
+    getCardFromPool(CardColor color, CardType type, CardRarity rarity, int poolIdx): 
+        从给定颜色、类型和稀有度的卡牌池中获取指定索引的卡牌ID。
+    getCardFromPool(CharacterClass c, CardType type, CardRarity rarity, int poolIdx): 
+        重载函数，通过 CharacterClass 获取卡牌ID。
+命名空间：ColorlessRarityCardPool
+    这个命名空间专门用于管理无色卡牌池。
+    colorlessCardBlob[]: 包含了所有无色卡牌的ID列表，按稀有度分组。
+    colorlessGroupSize[3]: 存储了无色卡牌按稀有度分组的卡牌池大小。
+    colorlessGroupOffset[3]: 存储了无色卡牌按稀有度分组的起始偏移量。
+    getGroupSize(CardRarity rarity): 返回给定稀有度的无色卡牌池大小。
+    getCardAt(CardRarity rarity, int offset): 从给定稀有度的无色卡牌池中获取指定索引的卡牌ID。
+命名空间：CombatTypeCardPool
+    这个命名空间可能用于在战斗中生成特定类型的卡牌。
+    cardBlob[]: 包含了战斗中可能出现的攻击牌ID列表。
+    skills[]: 包含了战斗中可能出现的技能牌ID列表。
+    powers[]: 包含了战斗中可能出现的能量牌ID列表。
+    getPoolSize(CharacterClass cc, CardType type): 
+        返回给定角色职业和卡牌类型的卡牌池大小（目前攻击和技能牌池大小为28，能量牌池大小为14）。
+    getCardAt(CharacterClass cc, CardType type, int offset): 
+        从给定角色职业和卡牌类型的卡牌池中获取指定索引的卡牌ID。
+命名空间：CombatCardPool
+    这个命名空间可能用于在战斗中生成所有类型的卡牌。
+    cardBlob[]: 包含了战斗中可能出现的所有卡牌ID列表（主要用于战士职业）。
+    getPoolSize(CharacterClass cc): 返回给定角色职业的战斗卡牌池大小（目前为70）。
+    getCardAt(CharacterClass cc, int offset): 从给定角色职业的战斗卡牌池中获取指定索引的卡牌ID。
+命名空间：CombatColorlessCardPool
+    这个命名空间用于管理战斗中可能出现的无色卡牌。
+    cards[]: 包含了战斗中可能出现的无色卡牌ID列表。
+    getPoolSize(): 返回无色战斗卡牌池的大小（目前为34）。
+    getCardAt(int offset): 从无色战斗卡牌池中获取指定索引的卡牌ID。

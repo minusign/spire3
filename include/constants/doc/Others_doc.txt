@@ -1,0 +1,81 @@
+
+
+1. 文件：CharacterClasses.h
+CharacterClasses.h 文件主要定义了游戏中可选角色职业的枚举类型和对应的字符串名称。
+枚举类型
+CharacterClass : std::uint8_t:
+定义了游戏中所有角色职业的唯一标识符。
+    包括：IRONCLAD (0), SILENT, DEFECT, WATCHER, INVALID。
+全局常量数组
+    characterClassNames[]: 存储了 CharacterClass 枚举值对应的可读字符串名称，
+        例如 "Ironclad"、"Silent" 等。
+    characterClassEnumNames[]: 存储了 CharacterClass 枚举值对应的原始枚举名称字符串，
+        例如 "IRONCLAD"、"SILENT" 等。
+静态辅助函数
+    getCharacterClassName(CharacterClass cc): 返回给定 CharacterClass 的可读字符串名称。
+
+
+2. 文件：SaveFileMappings.h 
+    文件主要负责将游戏中的各种枚举类型映射到 nlohmann::json 库可序列化的字符串，以便于游戏存档的读取和写入。
+    它包含了对遗物、卡牌、怪物遭遇、药水、Neow的奖励与惩罚以及房间类型和战斗奖励类型的JSON序列化宏定义。
+JSON序列化枚举宏（NLOHMANN_JSON_SERIALIZE_ENUM）
+    该文件使用了 NLOHMANN_JSON_SERIALIZE_ENUM 宏将以下枚举类型映射到其对应的字符串表示，
+        用于JSON序列化和反序列化：
+    RelicId: 遗物ID与其在存档中使用的字符串名称的映射。 例如：{RelicId::AKABEKO, "Akabeko"}。
+    CardId: 卡牌ID与其在存档中使用的字符串名称的映射。 例如：{CardId::ACCURACY, "Accuracy"}。
+    Event: 事件ID与其在存档中使用的字符串名称的映射。 例如：{Event::OMINOUS_FORGE, "Accursed Blacksmith"}。
+    MonsterEncounter: 怪物遭遇ID与其在存档中使用的字符串名称的映射。 例如：{MonsterEncounter::AUTOMATON, "Automaton"}。
+    Potion: 药水ID与其在存档中使用的字符串名称的映射。 例如：{Potion::ANCIENT_POTION, "Ancient Potion"}。
+命名空间：Neow
+    Bonus: Neow（游戏开局选项）提供的奖励类型与其字符串名称的映射。
+    Drawback: Neow施加的惩罚类型与其字符串名称的映射。
+命名空间：Save
+    RoomType: 游戏房间类型与其在存档中使用的完整类路径字符串的映射。
+    CombatRewardType: 战斗奖励类型与其字符串名称的映射。
+    from_json(const nlohmann::json &j, CombatReward &r): 一个友元函数，定义了如何从JSON对象反序列化 CombatReward 结构体。根据奖励类型（GOLD, CARD, POTION, RELIC），解析不同的字段。
+
+
+3. 文件：Misc.h 文件包含了一些游戏中的杂项常量和枚举，主要与宝箱和生命值计算相关。
+枚举类型
+    Key : std::uint8_t: 定义了游戏中三种钥匙的类型。
+        包括：EMERALD_KEY (0), RUBY_KEY, SAPPHIRE_KEY, INVALID。
+    ChestSize : std::uint8_t: 定义了宝箱的尺寸类型。
+        包括：SMALL (0), MEDIUM, LARGE, INVALID。
+    HpType : std::uint8_t: 定义了生命值计算时使用的舍入类型。
+        包括：CEIL (向上取整), FLOOR (向下取整), ROUND (四舍五入)。
+全局常量
+    SMALL_CHEST_CHANCE: 小宝箱出现的几率 (50%)。
+    MEDIUM_CHEST_CHANCE: 中宝箱出现的几率 (33%)。
+    LARGE_CHEST_CHANCE: 大宝箱出现的几率 (17%)。
+    chestRelicTierChances[3][2]: 存储了不同尺寸宝箱中遗物稀有度（非普通和稀有）的几率。
+        例如，chestRelicTierChances[0] 是小宝箱的几率，[0][0] 为非普通遗物，[0][1] 为稀有遗物。
+    chestGoldChances[3]: 存储了不同尺寸宝箱中获得金币的几率。
+    chestGoldAmounts[3]: 存储了不同尺寸宝箱中获得的金币数量。
+全局常量数组
+    chestSizeEnumNames[]: 存储了 ChestSize 枚举值对应的原始枚举名称字符串。
+    chestSizeNames[]: 存储了 ChestSize 枚举值对应的可读字符串名称。
+
+
+4. 文件：Potions.h
+Potions.h 文件主要定义了游戏中所有药水的枚举类型、药水稀有度及其相关属性，以及药水池。
+枚举类型
+Potion : std::uint8_t: 定义了游戏中所有药水的唯一标识符。
+    INVALID = 0 表示无效药水，EMPTY_POTION_SLOT 表示空的药水槽。
+    包含了游戏中各种效果的药水，例如 ATTACK_POTION、BLOCK_POTION 等。
+PotionRarity: 定义了药水的稀有度。
+    包括：COMMON (0), UNCOMMON, RARE, PLACEHOLDER。
+全局常量数组
+    potionNames[]: 存储了 Potion 枚举值对应的可读字符串名称。
+    potionIds[]: 存储了 Potion 枚举值对应的字符串ID。
+    potionEnumNames[]: 存储了 Potion 枚举值对应的原始枚举名称字符串。
+    potionRarities[]: 存储了每个 Potion 对应的 PotionRarity。
+    potionRarityPrices[]: 存储了不同 PotionRarity 对应的基础价格。
+命名空间：PotionPool
+    potionPool[4][33]: 一个二维数组，存储了每个角色职业（红色、绿色、蓝色、紫色）可能获得的药水ID列表。
+    poolSize: 药水池的大小 (33)。
+    getPotionForClass(CharacterClass cc, int idx): 返回给定角色职业和索引对应的药水ID。
+静态辅助函数
+    getPotionName(Potion p): 返回给定 Potion 的可读字符串名称。
+    getPotionRarity(Potion p): 返回给定 Potion 的 PotionRarity。
+    getPotionBaseCost(Potion p): 返回给定 Potion 的基础购买价格。
+    potionRequiresTarget(Potion p): 判断给定的药水是否需要选择目标（例如，FEAR_POTION、FIRE_POTION 等）。

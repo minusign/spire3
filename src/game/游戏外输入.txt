@@ -1,0 +1,6 @@
+1. SaveFile.h/cpp - 最全面的状态存储
+这是游戏存档的核心文件，包含了几乎所有需要持久化的状态：
+
+基础信息：ascension_level、act_num、floor_num、current_health、max_health、gold
+钥匙状态：has_emerald_key、has_ruby_key、has_sapphire_key
+牌组信息：cards（含升级状态）、bottled卡牌信息

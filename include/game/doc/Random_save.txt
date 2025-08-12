@@ -1,0 +1,119 @@
+
+文件文档：Random.h 和 SaveFile.h
+这两个文件共同构成了游戏《杀戮尖塔》（Slay the Spire）中随机性管理和游戏存档的核心机制
+    Random.h 提供了多种随机数生成器及其操作，确保游戏行为的可预测和可重现；
+    而 SaveFile.h 则负责处理游戏数据的持久化，包括存档的加载、保存以及 Base64 编解码。
+1. 文件：Random.h
+Random.h 文件定义了两种随机数生成器（RNG）的实现：一个简化的 Java Random 类模拟和一个更复杂的 sts::Random 类，后者可能更接近游戏实际使用的随机数算法。它还包括一个 Java Collections::shuffle 模拟。
+命名空间：java. 这个命名空间包含了对 Java 标准库中随机数和集合操作的简化模拟。
+    类：Random (java::Random)
+        私有成员:
+            std::uint64_t seed: 随机数生成器的当前种子。
+            static constexpr std::uint64_t multiplier = 0x5DEECE66DULL: 用于线性同余生成器的乘数。
+            static constexpr std::uint64_t addend = 0xBULL: 用于线性同余生成器的增量。
+            static constexpr std::uint64_t mask = (1ULL << 48) - 1: 用于限制种子为 48 位的掩码。
+            static constexpr double DOUBLE_UNIT = 0x1.0p-53: 用于 nextDouble() 方法的归一化常数。
+            static std::uint64_t initialScramble(std::uint64_t seed): 内部辅助函数，用于初始化种子。
+        公共成员:
+            Random(std::uint64_t seed): 构造函数，使用给定种子初始化 RNG。
+            std::int32_t next(std::int32_t bits): 生成指定位数 (bits) 的下一个伪随机数。这是核心的生成函数。
+            int32_t nextInt(): 生成一个 32 位的伪随机整数。
+            int32_t nextInt(int32_t bound): 生成一个介于 0 (包含) 和 bound (不包含) 之间的伪随机整数。
+命名空间：Collections (java::Collections)
+    模板函数：shuffle(ForwardIterator begin, ForwardIterator end, java::Random rnd): 模拟 Java Collections.shuffle 方法，使用传入的 java::Random 对象对给定范围内的元素进行原地混洗。
+命名空间：sts 这个命名空间包含了游戏特有的随机数生成器实现。
+    类：Random (sts::Random)
+        常量:
+            static constexpr double NORM_DOUBLE = 1.1102230246251565E-16: 
+                用于 nextDouble() 的归一化常数。
+            static constexpr double NORM_FLOAT = 5.9604644775390625E-8: 
+                用于 nextFloat() 的归一化常数。
+            static constexpr std::uint64_t ONE_IN_MOST_SIGNIFICANT = static_cast<std::uint64_t>(1) << 63: 
+                用于处理种子为 0 的情况。
+        成员变量:
+            std::int32_t counter: 随机数生成器的调用计数器，可能用于同步游戏状态。
+            std::uint64_t seed0, std::uint64_t seed1: 
+                使用两个 64 位种子，暗示可能使用了 Xorshift 或类似的更复杂算法。
+        私有静态函数:
+            static constexpr std::uint64_t murmurHash3(std::uint64_t x): 
+                用于初始化种子的 MurmurHash3 函数。
+        私有成员函数:
+            std::uint64_t nextLong(): 
+                生成下一个 64 位伪随机长整数。这是核心的生成函数。
+            std::uint64_t nextLong(std::uint64_t n): 
+                生成一个介于 0 (包含) 和 n (不包含) 之间的伪随机长整数。
+            std::int32_t nextInt(): 生成一个 32 位伪随机整数。
+            double nextDouble(): 
+                生成一个介于 0.0 (包含) 和 1.0 (不包含) 之间的伪随机双精度浮点数。
+            float nextFloat(): 
+                生成一个介于 0.0f (包含) 和 1.0f (不包含) 之间的伪随机单精度浮点数。
+            bool nextBoolean(): 
+                生成一个伪随机布尔值。
+            bool randomBoolean(float chance): 
+                根据给定的几率生成一个布尔值。
+        公共成员:
+            Random(): 
+                默认构造函数，使用种子 0。
+            Random(std::uint64_t seed): 
+                构造函数，使用给定种子初始化 RNG。
+            Random(std::uint64_t seed, std::int32_t targetCounter): 
+                构造函数，并运行 RNG 达到指定的调用计数。
+            void setCounter(int targetCounter): 
+                将 RNG 的内部计数器推进到指定值。
+            std::int32_t random(std::int32_t range): 
+                生成一个介于 0 (包含) 和 range (包含) 之间的伪随机整数。
+            std::int32_t random(std::int32_t start, std::int32_t end): 
+                生成一个介于 start (包含) 和 end (包含) 之间的伪随机整数。
+            std::int64_t random(std::int64_t range): 
+                生成一个介于 0 (包含) 和 range (包含) 之间的伪随机长整数。
+            std::int64_t random(std::int64_t start, std::int64_t end): 
+                生成一个介于 start (包含) 和 end (包含) 之间的伪随机长整数。
+            float random(): 
+                生成一个介于 0.0f (包含) 和 1.0f (不包含) 之间的伪随机浮点数。
+            float random(float range): 
+                生成一个介于 0.0f (包含) 和 range (不包含) 之间的伪随机浮点数。
+            float random(float start, float end): 
+                生成一个介于 start (包含) 和 end (不包含) 之间的伪随机浮点数。
+            std::int64_t randomLong(): 
+                生成一个 64 位伪随机长整数。
+            bool randomBoolean(): 
+                生成一个伪随机布尔值。
+            std::int32_t nextInt(std::int32_t n): 
+                生成一个介于 0 (包含) 和 n (不包含) 之间的伪随机整数。
+
+                
+2. 文件：SaveFile.h
+SaveFile.h 文件定义了 SaveFile 结构体和 Base64 编解码器，用于处理游戏的存档数据。它包含了游戏中各种状态和收集品的详细信息，并提供了从文件加载和写入存档的方法。
+命名空间：sts
+    类：GameContext: 前向声明，表示 SaveFile 会与游戏上下文交互。
+命名空间：Save:
+    枚举类型：RoomType: 定义了游戏中地图房间的类型。
+    INVALID | EMPTY_ROOM | EVENT_ROOM | MONSTER_ROOM | MONSTER_ROOM_BOSS | MONSTER_ROOM_ELITE
+    REST_ROOM | SHOP_ROOM | TREASURE_ROOM | TREASURE_ROOM_BOSS | TRUE_VICTORY_ROOM | VICTORY_ROOM
+    枚举类型：CombatRewardType: 定义了战斗胜利后可能获得的奖励类型。
+    INVALID | GOLD | CARD | POTION | RELIC | STOLEN_GOLD | EMERALD_KEY | SAPPHIRE_KEY
+    结构体：CombatReward: 用于表示战斗结束后获得的具体奖励内容。
+    CombatRewardType type: 奖励的类型。
+    int amount: 金币奖励的数量。
+    int bonusGold: 额外金币奖励的数量（仅适用于金币奖励）。
+    CardId cardId: 卡牌奖励的 ID。
+    Potion potionId: 药水奖励的 ID。
+    RelicId relicId: 遗物奖励的 ID。
+结构体：Base64: 提供了 Base64 编码和解码的静态工具函数。
+    常量:
+        static constexpr char chars[]: 包含了 Base64 编码中使用的所有 64 个字符。
+    静态函数:
+        static char decodeChar(int c): 将 Base64 字符解码为对应的整数值，如果字符无效则返回 -1。
+        static char encodeChar(int dataMod64): 将整数值编码为对应的 Base64 字符。
+        static std::string decode(const std::string &base64Str): 对 Base64 编码的字符串进行解码，返回原始数据字符串。
+        static std::string encode(const std::string &data): 对原始数据字符串进行 Base64 编码，返回编码后的字符串。
+结构体：SaveFile: 包含了游戏中所有可持久化的状态数据。
+    成员变量: 包含游戏的核心状态（如种子、角色、进阶等级、生命值、金币等）、地图位置、随机数种子计数器、钥匙拥有状态、游戏概率调整、Neow事件状态、玩家拥有的物品（药水、卡牌、遗物）、以及各种游戏池（遗物池、事件池、怪物池）的当前状态。
+    构造函数:
+        默认构造函数和拷贝构造函数。
+        SaveFile(const std::string &json, CharacterClass cc): 从 JSON 字符串和角色职业构造 SaveFile 对象，解析存档数据。
+    静态函数:
+        static SaveFile loadFromPath(const std::string& path, CharacterClass cc): 从指定文件路径加载存档文件，并根据角色职业解析内容。
+        static std::string getJsonFromSaveFile(const std::string &savePath): 从指定的存档文件路径读取文件内容并返回 JSON 字符串（通常需要 Base64 解码）。
+        static void writeJsonToSaveFile(std::ifstream &jsonIs, const std::string &savePath): 将 JSON 数据写入到指定的存档文件路径（通常需要 Base64 编码）。
+        static std::string readFileToStringHelper(const std::string &path): 辅助函数，用于将文件内容读取为字符串。

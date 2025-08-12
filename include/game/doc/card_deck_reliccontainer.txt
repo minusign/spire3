@@ -1,0 +1,97 @@
+
+这些文件共同构成了游戏《杀戮尖塔》（Slay the Spire）中与卡牌、遗物以及牌组管理相关的核心组件。它们定义了游戏中单个卡牌的属性、遗物的持有和查询机制，以及玩家牌组的各种操作。
+1. 文件：Card.h
+Card.h 文件定义了 Card 结构体，表示游戏中的一张卡牌及其基本属性和操作。
+结构体：Card
+    成员变量:
+        CardId id: 卡牌的唯一标识符。
+        std::int16_t misc: 一个通用数据字段，可能用于存储与卡牌相关的额外数值（例如，某些卡牌的计数器或特定效果值）。
+        bool upgraded: 表示卡牌是否已升级。
+    构造函数:
+    默认构造函数。
+        Card(CardId id): 根据卡牌ID构造卡牌。
+        Card(CardId id, int upgraded): 根据卡牌ID和升级状态构造卡牌。
+    成员函数:
+        [[nodiscard]] CardId getId() const: 返回卡牌的ID。
+        [[nodiscard]] int getUpgraded() const: 返回卡牌的升级状态 (0或1)。
+        [[nodiscard]] bool isUpgraded() const: 返回卡牌是否已升级。
+        [[nodiscard]] bool isInnate() const: 判断卡牌是否为固有（Innate）卡牌（在战斗开始时自动打出）。
+        [[nodiscard]] const char* getName() const: 返回卡牌的游戏内显示名称。
+        [[nodiscard]] CardType getType() const: 返回卡牌的类型（攻击、技能、能力等）。
+        [[nodiscard]] CardRarity getRarity() const: 返回卡牌的稀有度。
+        [[nodiscard]] int getBaseDamage() const: 返回卡牌的基础伤害值。
+        [[nodiscard]] bool canUpgrade() const: 判断卡牌是否可以升级。
+        [[nodiscard]] bool canTransform() const: 判断卡牌是否可以被转换。
+        [[nodiscard]] bool isStrikeCard() const: 判断卡牌是否是“打击”牌家族的一员。
+        [[nodiscard]] bool isStarterStrikeOrDefend() const: 判断卡牌是否是初始的打击或防御牌。
+        [[nodiscard]] bool isStarterStrike() const: 判断卡牌是否是初始打击牌。
+        bool operator==(const Card &rhs) const: 比较两张卡牌是否相等。
+        bool operator!=(const Card &rhs) const: 比较两张卡牌是否不相等。
+        void upgrade(): 将卡牌升级。
+类型定义
+    typedef fixed_list<Card,4> CardReward: 定义 CardReward 为一个最多包含4张卡牌的固定大小列表，
+        可能用于表示战斗结束后的卡牌奖励选项。
+2. 文件：RelicContainer.h
+    RelicContainer.h 文件定义了 RelicInstance 结构体和 RelicContainer 类，用于管理玩家持有的遗物。
+结构体：RelicInstance
+成员变量:   
+    RelicId id: 遗物的唯一标识符。
+    int data: 与遗物相关的额外数据，例如某些遗物的计数器。
+类：RelicContainer
+    成员变量:
+        std::vector<RelicInstance> relics: 存储玩家拥有的所有遗物实例的动态数组。
+        std::uint64_t relicBits0, relicBits1, relicBits2: 可能用于高效地通过位掩码查询玩家是否拥有某个遗物。
+    私有成员函数:
+        void setHasRelic(RelicId r, bool value): 设置特定遗物是否已被拥有（通过修改位掩码）。
+    公共成员函数:
+        void add(RelicInstance r): 添加一个遗物实例到容器中。
+        void remove(RelicId r): 从容器中移除指定ID的遗物。
+        void replaceRelic(RelicId o, RelicId r): 替换容器中一个旧遗物ID为新遗物ID。
+        int size() const: 返回容器中遗物的数量。
+        [[nodiscard]] bool has(RelicId r) const: 判断容器中是否包含指定ID的遗物。
+        int getRelicValue(RelicId r) const: 获取指定ID遗物的 data 值。
+int& getRelicValueRef(RelicId r): 获取指定ID遗物的 data 值的引用。
+3. 文件：Deck.h
+    Deck.h 文件定义了 Deck 结构体，用于管理玩家的牌组，包括添加、移除、升级和转换卡牌等操作。
+结构体：Deck
+    常量:
+        static constexpr int MAX_SIZE = 96: 定义牌组的最大容量。
+    成员变量:
+        fixed_list<Card,MAX_SIZE> cards: 存储牌组中所有卡牌的固定大小列表。
+        std::array<int,4> cardTypeCounts: 存储牌组中不同卡牌类型的计数（攻击、技能、能力、诅咒/状态）。
+        std::array<int,3> bottleIdxs: 存储被瓶装（Bottled）卡牌在牌组中的索引，对应三种瓶子类型。
+        int upgradeableCount: 可升级卡牌的数量。
+        int transformableCount: 可转换卡牌的数量（不包括已被瓶装的卡牌）。
+    成员函数:
+        void initFromSaveFile(const SaveFile &s): 从存档文件初始化牌组。
+        [[nodiscard]] int size() const: 返回牌组中卡牌的数量。
+        [[nodiscard]] bool hasCurse() const: 判断牌组中是否包含诅咒牌。
+        [[nodiscard]] bool isCardBottled(int idx) const: 判断牌组中指定索引的卡牌是否已被瓶装。
+        [[nodiscard]] bool anyCardBottled() const: 判断牌组中是否有任何卡牌已被瓶装。
+        [[nodiscard]] int getUpgradeableCount() const: 返回牌组中可升级卡牌的数量。
+        [[nodiscard]] int getTransformableCount(int limit=-1, bool includeBottled=false) const: 
+            返回牌组中可转换卡牌的数量，可选择限制数量或包含已瓶装卡牌。
+        [[nodiscard]] int getCountMatching(const CardPredicate &predicate, int limit=-1) const: 
+            返回牌组中匹配给定谓词的卡牌数量。
+        [[nodiscard]] fixed_list<int, MAX_SIZE> getIdxsMatching(const CardPredicate &p) const: 
+            返回牌组中所有匹配给定谓词的卡牌索引列表。
+        [[nodiscard]] bool hasCardForWingStatue() const: 判断牌组中是否有可用于“翼形雕像”事件的卡牌。
+        void upgradeStrikesAndDefends(): 升级牌组中所有的打击和防御牌。
+        void upgradeRandomCards(Random &miscRng, int count): 随机升级指定数量的卡牌。
+        void transformRandomCards(Random &miscRng, int count): 随机转换指定数量的卡牌。
+        void obtain(GameContext &gc, Card card, int count=1): 获取指定数量的卡牌（所有卡牌类型）。
+        void obtainRaw(Card card): 直接获取一张卡牌（不经过游戏上下文）。
+        void remove(GameContext &gc, int idx): 移除牌组中指定索引的卡牌。
+        void removeSelected(GameContext &gc, const fixed_list<SelectScreenCard, 3> &selectList): 
+            移除选择屏幕中选定的卡牌。
+        void upgrade(int idx): 升级牌组中指定索引的卡牌。
+        void addMatchingToSelectList(fixed_list<SelectScreenCard, MAX_SIZE> &selectList, const CardPredicate &p) const: 将牌组中匹配给定谓词的卡牌添加到选择列表中。
+        void bottleCard(int idx, CardType bottleType): 将牌组中指定索引的卡牌瓶装。
+        void removeBottle(CardType bottleType): 移除特定类型的瓶装。
+        void removeAllMatching(GameContext &gc, const CardPredicate &p): 
+            移除牌组中所有匹配给定谓词的卡牌。
+        [[nodiscard]] fixed_list<int, MAX_SIZE> getUpgradeableCardIdxs() const: 
+            返回牌组中所有可升级卡牌的索引列表。
+类型定义
+    typedef std::function<bool(const Card &)> CardPredicate: 
+        定义 CardPredicate 为一个函数对象，用于判断一张卡牌是否满足特定条件。

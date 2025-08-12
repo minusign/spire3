@@ -1,0 +1,35 @@
+
+文件文档：Rooms.h 和 Events.h
+这两个文件共同定义了游戏《杀戮尖塔》（Slay the Spire）中与房间类型和事件相关的核心数据结构、枚举和常量。它们分别管理游戏地图中的各种房间，以及事件房间中可能发生的特定事件。
+1. 文件：Rooms.h
+    Rooms.h 文件主要定义了游戏中地图上可能出现的各种房间类型及其对应的字符串表示和符号。
+枚举类型
+Room : std::uint8_t: 定义了游戏中所有房间的类型。
+包括：SHOP (商店), REST (营火), EVENT (事件), ELITE (精英怪), MONSTER (普通怪), TREASURE (宝箱),
+     BOSS (Boss), BOSS_TREASURE (Boss宝箱), NONE (无房间，可能用于路径规划或占位符), INVALID (无效房间)。
+全局常量数组
+    roomStrings[]: 存储了 Room 枚举值对应的可读字符串名称，例如 "SHOP"、"REST" 等。
+静态辅助函数
+    getRoomSymbol(Room room): 根据给定的 Room 枚举值返回一个字符符号表示。 
+        NONE 对应 'N' | EVENT 对应 '?' | MONSTER 对应 'M' | ELITE 对应 'E' | REST 对应 'R'
+        SHOP 对应 '$' | TREASURE 对应 'T' | BOSS 对应 'B' | 默认（包括 INVALID）返回 'I'。
+
+
+2. 文件：Events.h
+Events.h 文件主要定义了在 EVENT 房间中可能发生的各种事件的枚举类型，并按游戏章节（Act）对事件进行了分类。
+枚举类型
+    Event : std::uint8_t:  定义了游戏中所有事件的唯一标识符。
+        INVALID = 0 表示无效事件。
+        包括通用事件 如 MONSTER, REST, SHOP, TREASURE, NEOW）
+        以及各种特定命名事件（如 OMINOUS_FORGE, PLEADING_VAGRANT, BIG_FISH, MINDBLOOM 等）。
+全局常量数组
+    eventIdStrings[]: 存储了 Event 枚举值对应的原始字符串名称。
+    eventGameNames[]: 存储了 Event 枚举值对应的游戏内显示名称，通常更加人性化。
+命名空间：EventPools 此命名空间定义了不同章节和不同条件下的事件池。
+    oneTimeEventsAsc0: 包含了在 Ascension 0 难度下只会发生一次的事件列表。
+    oneTimeEventsAsc15: 包含了在 Ascension 15 难度下只会发生一次的事件列表
+        （比 Ascension 0 少了一个 NOTE_FOR_YOURSELF 事件）。
+命名空间：EventPools::Act1、EventPools::Act2、EventPools::Act3
+这些嵌套命名空间分别定义了每个游戏章节特有的事件池。
+    events: 存储了该章节中非神社类的事件列表。
+    shrines: 存储了该章节中属于“神社”类的事件列表（这些事件通常提供升级、净化等功能）。

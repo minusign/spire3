@@ -1,0 +1,45 @@
+
+文件文档：RelicPools.h 和 Relics.h
+这两个文件共同定义了游戏《杀戮尖塔》（Slay the Spire）中遗物相关的核心数据结构、枚举和常量。它们分别管理遗物本身的属性和获取遗物的各种遗物池。
+
+
+1. 文件：Relics.h
+    Relics.h 文件主要定义了遗物的基本属性，包括遗物的唯一标识符、稀有度层级，以及一些基于遗物ID的静态查询函数。
+枚举类型
+    RelicId : std::uint8_t: 定义了游戏中所有遗物的唯一标识符。
+遗物按其主要影响阶段进行分类：
+    battle relics：战斗中状态发挥作用的遗物，例如 AKABEKO、ART_OF_WAR 等。
+    end of battle relics：战斗结束时触发效果的遗物，例如 BLACK_BLOOD、MEAT_ON_THE_BONE 等。
+    beginning of battle relics：战斗开始时触发效果的遗物，例如 ANCHOR、ANCIENT_TEA_SET 等。
+    out of battle relics：非战斗中触发效果的遗物，例如 ASTROLABE、BLACK_STAR 等。
+特殊遗物 CIRCLET 和 RED_CIRCLET。
+    INVALID 表示无效遗物。
+RelicTier: 定义了遗物的稀有度或获取类型。
+    包括：COMMON (0), UNCOMMON, RARE, BOSS, SHOP, STARTER, SPECIAL, INVALID。
+全局常量数组
+    relicTierStrings[]: 存储了 RelicTier 枚举对应的可读字符串名称，例如 "Common"、"Uncommon" 等。
+    relicEnumNames[]: 存储了 RelicId 枚举值对应的原始枚举名称字符串。
+    relicNames[]: 存储了 RelicId 枚举值对应的游戏内显示名称，例如 "Akabeko"、"Art Of War" 等。
+    relicIds[]: 存储了 RelicId 枚举值对应的字符串ID，可能用于内部查找或资源加载。
+    relicTiers[]: 存储了每个 RelicId 对应的 RelicTier。
+    relicTierPrices[]: 存储了不同 RelicTier 对应的基础价格。
+静态查询函数
+    getRelicName(RelicId id): 返回给定 RelicId 的游戏内显示名称。
+    getRelicTier(RelicId id): 返回给定 RelicId 的 RelicTier。
+    getRelicBasePrice(RelicId id): 返回给定 RelicId 的基础购买价格，通过其稀有度层级确定。
+    isEggRelic(RelicId id): 判断给定的遗物是否是蛋类遗物（熔火蛋、冰川蛋、剧毒蛋）。
+
+
+2. 文件：RelicPools.h
+    RelicPools.h 文件主要定义了游戏中各种遗物池，这些遗物池用于根据角色职业和遗物稀有度来生成遗物。
+全局常量和函数
+    starterRelics[]: 包含了四个角色（战士、静默猎手、机器人、观者）的初始遗物ID。
+    getStarterRelicForClass(CharacterClass cc): 根据给定的角色职业返回其对应的初始遗物ID。
+命名空间：Ironclad、Silent、Defect、Watcher
+这些命名空间分别定义了四个角色（战士、静默猎手、机器人、观者）专属的遗物池。每个角色命名空间内都包含以下遗物池：
+    commonRelicPool: 该角色可获得的普通稀有度遗物ID列表。
+    uncommonRelicPool: 该角色可获得的非普通稀有度遗物ID列表。
+    rareRelicPool: 该角色可获得的稀有稀有度遗物ID列表。
+    bossRelicPool: 该角色在击败Boss后可能获得的Boss遗物ID列表。
+    shopRelicPool: 该角色在商店中可能购买的商店遗物ID列表。
+这些遗物池使用 std::array 存储，并包含特定的遗物ID，反映了每个角色在游戏过程中能够遇到或获得的遗物范围。

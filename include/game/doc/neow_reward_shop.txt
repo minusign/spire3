@@ -1,0 +1,99 @@
+
+这些文件共同定义了游戏《杀戮尖塔》（Slay the Spire）中与商店交易、开局Neow事件选择以及战斗奖励相关的核心机制。它们是游戏中资源获取和决策过程的重要组成部分。
+1. 文件：Shop.h  文件定义了 Shop 结构体，用于管理游戏内商店的商品和交易逻辑。
+结构体：Shop
+    成员变量:
+        int prices[13]: 商店中所有商品的通用价格数组。
+        int removeCost: 移除卡牌的费用。
+        Card cards[7]: 商店中出售的卡牌列表。
+        Potion potions[3]: 商店中出售的药水列表。
+        RelicId relics[3]: 商店中出售的遗物ID列表。
+    常量:
+        static constexpr int REMOVE_PRICE_INCREASE = 25: 每次移除卡牌后价格上涨的金额。
+        static constexpr int BASE_REMOVE_PRICE = 75: 基础移除卡牌费用。
+        static constexpr int SMILING_MASK_PRICE = 50: 拥有“微笑面具”遗物后的移除卡牌费用。
+        static constexpr float COURIER_FACTOR = 0.80f: 拥有“快递员”遗物后的价格折扣系数。
+        static constexpr float MEMBERSHIP_CARD_FACTOR = 0.50f: 拥有“会员卡”遗物后的价格折扣系数。
+    成员函数:
+        void setup(GameContext &gc): 初始化商店，设置商品和价格。
+        void setupCards(GameContext &gc): 设置商店中出售的卡牌。
+        void setupRelics(GameContext &gc): 设置商店中出售的遗物。
+        void setupPotions(GameContext &gc): 设置商店中出售的药水。
+        void applyDiscount(float factor): 对所有商品应用折扣。
+        void buyCard(GameContext &gc, int idx): 购买指定索引的卡牌。
+        void buyRelic(GameContext &gc, int idx): 购买指定索引的遗物。
+        void buyPotion(GameContext &gc, int idx): 购买指定索引的药水。
+        void buyCardRemove(GameContext &gc): 购买卡牌移除服务。
+        int& cardPrice(int idx), [[nodiscard]] int cardPrice(int idx) const: 
+            获取或设置指定索引卡牌的价格。
+        int& relicPrice(int idx), [[nodiscard]] int relicPrice(int idx) const: 
+            获取或设置指定索引遗物的价格。
+        int& potionPrice(int idx), [[nodiscard]] int potionPrice(int idx) const: 
+            获取或设置指定索引药水的价格。
+    静态函数:
+        static CardRarity rollCardRarityShop(Random &cardRng, int cardRarityAdjustment): 
+            在商店中随机抽取卡牌稀有度。
+        static int getNewCardPrice(GameContext &gc, CardRarity rarity, bool colorless): 
+            获取新卡牌的价格。
+        static int getNewPrice(GameContext &gc, int basePrice): 
+            获取商品（药水或遗物）的最终价格，考虑折扣。
+        static int getRemoveCost(const GameContext &gc): 
+            获取移除卡牌的费用。
+        static RelicTier rollRelicTier(Random &merchantRng): 
+            在商店中随机抽取遗物稀有度。
+        static void assignRandomCardExcluding(GameContext &gc, CardType type, CardId excludeCardId, Card &outCard, CardRarity &outRarity): 
+            随机分配一张卡牌，并排除特定卡牌。
+2. 文件：Neow.h
+Neow.h 文件定义了游戏开局“Neow的祝福”事件相关的枚举、结构体和函数。
+命名空间：Neow
+    枚举类型:
+        CurrentActionSpace: Neow事件中当前可进行的操作空间，例如 CHOICE_LIST (选择列表), MAP_FORK (地图分叉), COMBAT (战斗) 等。
+        Bonus: Neow提供的奖励类型。包含了多种奖励选项，如获取卡牌、移除卡牌、获得金币、提升生命值等。
+        Drawback: Neow施加的惩罚类型。包含了无惩罚、生命值损失、金币损失、获得诅咒等。
+    全局常量数组:
+        bonusStrings[]: Bonus 枚举对应的可读字符串描述。
+        drawbackStrings[]: Drawback 枚举对应的可读字符串描述。
+    结构体：Option:
+        Bonus r: 奖励类型。
+        Drawback d: 惩罚类型。
+    函数:
+        std::array<Option, 4> getOptions(Random &r): 生成四种Neow选项。
+        CardReward getCardReward(Random &rng, CharacterClass cc, bool rareOnly= false): 获取Neow事件中的卡牌奖励。
+        CardReward getColorlessCardReward(Random &neowRng, Random& cardRng, bool rareOnly=false): 获取Neow事件中的无色卡牌奖励。
+类型定义
+    typedef std::array<Neow::Option, 4> NeowOptions: 定义 NeowOptions 为一个包含四种Neow选项的固定大小数组。
+
+
+
+
+3. 文件：Rewards.h
+Rewards.h 文件定义了 Rewards 结构体，用于封装战斗结束后或事件中获得的各种奖励。
+结构体：Rewards
+    成员变量:
+        int goldRewardCount: 金币奖励的数量（目前为1或0）。
+        std::array<int,2> gold: 金币奖励的金额，可能包含两个值（例如，基础金币和额外金币）。
+        int cardRewardCount: 卡牌奖励组的数量。
+        std::array<CardReward, 5> cardRewards: 最多包含5组卡牌奖励，每组是一个 CardReward。
+        int relicCount: 遗物奖励的数量。
+        std::array<RelicId, 3> relics: 最多包含3个遗物奖励ID。
+        int potionCount: 药水奖励的数量。
+        std::array<Potion,5> potions: 最多包含5个药水奖励ID。
+        bool emeraldKey: 是否获得翡翠钥匙。
+        bool sapphireKey: 是否获得蓝宝石钥匙。
+    构造函数:
+        默认构造函数。
+        Rewards(Potion* p, int count): 根据药水数组和数量构造奖励。
+        Rewards(RelicId relic): 根据遗物ID构造奖励。
+        Rewards(CardReward cardReward): 根据卡牌奖励构造奖励。
+    成员函数:
+        void addGold(int goldAmt): 添加金币奖励。
+        void addRelic(RelicId relic): 添加遗物奖励。
+        void addPotion(Potion potion): 添加药水奖励。
+        void addCardReward(CardReward reward): 添加卡牌奖励组。
+        void removeGoldReward(int idx): 移除金币奖励。
+        void removeCardReward(int removeIdx): 移除卡牌奖励组。
+        void removeRelicReward(int removeIdx): 移除遗物奖励。
+        void removePotionReward(int idx): 移除药水奖励。
+        void clear(): 清空所有奖励。
+        int getTotalCount() const: 返回所有奖励的总数量。
+        [[nodiscard]] std::string toString() const: 将奖励内容转换为字符串表示。

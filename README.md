@@ -1,32 +1,155 @@
-# sts_lightspeed
+# 《杀戮尖塔》AI 代理
 
-For tree search and simulation of the popular rogue-like deckbuilder game Slay The Spire
+## 1. 愿景
 
-**Features**
-* c++ 17 compiled with gcc
-* Standalone
-* Designed to be 100% RNG accurate*
-* Playable in console
-* Speed: 1M random playouts in 5s with 16 threads
-* Loading from save files (loading into combat currently only supported)
-* Tree Search (best result, knowing the state of the game's rng)
+打造一个能够稳定通关 A20 并发现全新连招的 AI，兼顾**科研价值**与**工程可落地**。
 
-**Planned Features**
-* Tree search of possible game outcomes (not given the state of rng)
+---
 
-**Implementation Progress**
-* All enemies
-* All relics
-* All Ironclad cards
-* All colorless cards
-* Everything outside of combat / all acts
+## 2. 核心设计原则
 
-**Getting Started**
-* The project was built with Clion2021 and the [mingw64 toolchain](https://www.msys2.org/) on Windows 10
-* The main target creates a simulator of the game that can be played in console.
-* The test target creates a program with various commands that can be run, including random simulation
-* Click the star button at the top of the repo :)
+1. **门控融合**：弱关联多域信息 → 拼接 + 动态门控层。
+2. **层级 & 自回归控制**：`Ω_out` 战略，`Ω_in` 战术；动作-目标链 + 宏动作。
+3. **稠密奖励 + 潜力塑形**：过程信号 + 代理潜力函数 Φ(s)。
+4. **显式信用分配**：预算契约 + λ‑优势混合，摒弃成本高的 Shapley。
 
-**Build tips**
-* If your build fails with an error about not-return-only `constexpr` methods, ensure your compiler supports c++17.
-* If CLion shows an error about not finding python libs when loading the cmake project, try opening CLion from the msys2 shell.
+---
+
+## 3. 系统架构
+
+### 3.1 模块拓扑
+
+```
+┌──────── Encoder φ (各域) ────────┐
+│  图像/文本/数值  → 门控 → z_all    │
+└────────────┬────────────────────┘
+            │
+     ┌──────┴──────┐
+     │             │
+  Ω_out (高层)   Ω_in (低层, g 条件)
+     │             │
+ V_out, π_out   V_in, π_in
+```
+
+* **耦合**：V\_out 目标含 `E[V_in]`；Ω\_out 输出资源预算 `b`。
+* **TTUR**：`lr_out=1e-4  <  lr_in=3e-4`。
+
+### 3.2 状态表示
+
+| 域   | 特征举例           |
+| --- | -------------- |
+| 全局  | 角色, 难度, HP, 金币 |
+| 战斗外 | 地图节点序列, 商店列表   |
+| 战斗内 | 手牌嵌入, 敌意图, 能量  |
+
+---
+
+## 4. 动作空间
+
+### 4.1 战斗外 Ω\_out
+
+* 路径选择（左/中/右）
+* 商店/事件决策
+* 预算向量 `b = [min_HP, potion_allow]`
+
+### 4.2 战斗内 Ω\_in
+
+1. `head₁` 选 **宏/原子动作** (Skill‑Slot Top‑k)
+2. `head₂` 选 **目标** (怪物 idx / SELF)
+3. `head₃` 选 **X 值** (Beta policy)
+   终止 token 控制可变序列。
+
+---
+
+## 5. 奖励设计
+
+```
+r = r_progress + r_combat + r_resource + (γ⋅Φ(s') − Φ(s))
+```
+
+| 分项          | 形式                  | 说明           |
+| ----------- | ------------------- | ------------ |
+| r\_progress | +1／普通层<br>+1.5／精英层  | 攀爬信号         |
+| r\_combat   | −HP\_loss/β         | 战术质量         |
+| r\_resource | −λ₁·药水罕见度 − λ₂·金币赤字 | 长期成本         |
+| Φ(s)        | 代理模型 R̂             | HP、卡池质量、关键遗物 |
+| r\_terminal | +50 胜 / 0 败         | 终局           |
+
+— 加 **终局时钟**：`−δ·turn_count` 随幕增大。
+
+---
+
+## 6. 训练流程
+
+| 阶段 | 内容                                | 退出准则                     |
+| -- | --------------------------------- | ------------------------ |
+| M₀ | 行为克隆 (≥50k 轨迹)                    | WinRate ≥5%              |
+| M₁ | PPO + 宏动作，上线 `Skill‑Slot`         | WinRate ≥20% ; ∞ 回合率 <1% |
+| M₂ | 引入预算契约 & Stratified Replay        | WinRate ≥35% ; 药水透支 <15% |
+| M₃ | 可插拔 MCTS Look‑ahead + DSL/Seq‑VAE | 心脏胜率 ≥20% ; 发现新连招 ≥1     |
+
+### 6.1 经验池
+
+* **Battle Buffer** 20 万<br>\* **Path Buffer** 5 千 (FIFO, stage stratified)
+* Lagged target τ=4 step
+
+---
+
+## 7. 信用分配机制
+
+* **Budget Penalty**：超支 HP/药水 → Ω\_out 负回报 `−ζ·excess`。
+* **Advantage λ‑Mix**：`Adv_out = λ·raw + (1−λ)·mean(Adv_in)`；λ 随资源偏差衰减。
+
+---
+
+## 8. 宏动作管理
+
+* 离线 FP‑Growth → 字典 O(10³)
+* Skill‑Slot Top‑k=15 动态装载
+* 温度退火保持多样性
+* 未来方向：可微 DSL / Seq‑VAE 生成
+
+---
+
+## 9. 稳定性协议
+
+1. **Pop‑Art** 归一 V 网络
+2. **Seed‑Pair 回归**：同种子 A/B 测试
+3. **Soft‑Freeze ϕ**：当 `var(ΔV_in)<ε` 连续 N 批
+
+---
+
+## 10. 边缘案例 & 安全
+
+| 案例   | 触发          | 处理                |
+| ---- | ----------- | ----------------- |
+| 无限拖延 | 连续 N 回合无伤差  | 环境惩罚 or 判负        |
+| 版本补丁 | CI 1000 局回归 | 宏动作字典重挖           |
+| 角色漂移 | 策略互污染       | 角色专属 adapter mask |
+
+---
+
+## 11. 路线图
+
+* **Q3**：完成 M₁，内部狗粮测试
+* **Q4**：达 M₂ 指标，上线公开挑战
+* **Q1‑Q2**：研究可微 DSL、MCTS 总成，冲论文
+
+---
+
+## 12. 参考实现参数
+
+```yaml
+Encoder_hidden: 256
+Gate_dropout: 0.1
+Macro_head_dim: 512
+β (HP scale): 50
+λ_resource: 0.3
+δ_turn: 0.02 → 0.05 (Act3)
+ζ_budget: 0.5
+k_SkillSlot: 15
+```
+
+---
+
+> **终极目标**：工程端“每日可更新、可回滚”，科研端“能自主发现人类未见路线”。

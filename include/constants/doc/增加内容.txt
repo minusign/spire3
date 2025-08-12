@@ -1,0 +1,6 @@
+Cardpools : CombatCardPool 战斗出现卡
+CombatTypeCardPool 战斗出现种类
+
+card：getEnergyCost
+
+src/action:所有效果

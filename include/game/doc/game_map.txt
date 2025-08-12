@@ -1,0 +1,204 @@
+
+文件文档：Map.h，Game.h，GameContext.h
+这些文件共同构成了游戏《杀戮尖塔》（Slay the Spire）的核心游戏逻辑和数据管理。它们分别负责地图生成与管理、游戏全局辅助函数以及最重要的游戏上下文状态和操作。
+1. 文件：Map.h 文件定义了 MapNode 结构体和 Map 结构体，用于表示游戏地图的节点和整个地图的结构。
+结构体：MapNode
+    成员变量:
+        int x, int y: 节点的坐标。
+        int parentCount: 父节点的数量。
+        std::array<int, 6> parents: 存储父节点的 Y 坐标。
+        int edgeCount: 边的数量（即连接到后续节点的数量）。
+        std::array<int, 3> edges: 存储连接到的后续节点的 Y 坐标。
+        Room room: 该节点代表的房间类型。
+    成员函数:
+        void addParent(int parent): 添加一个父节点。
+        void addEdge(int edge): 添加一个连接到后续节点的边。
+        [[nodiscard]] char getRoomSymbol() const: 返回房间类型的字符符号表示（例如 'M' 代表怪物房）。
+        [[nodiscard]] int getMaxEdge() const, [[nodiscard]] int getMinEdge() const: 
+            返回连接边的最大/最小 Y 坐标。
+        [[nodiscard]] int getMaxXParent() const, [[nodiscard]] int getMinXParent() const: 
+            返回父节点的 x 坐标的最大/最小值。
+结构体：Map
+    成员变量:
+        int burningEliteX, burningEliteY: 燃烧精英（Burning Elite）的坐标，如果存在。
+        int burningEliteBuff: 燃烧精英的增益等级。
+        std::array<std::array<MapNode, 7>, 15> nodes: 一个二维数组，存储地图中的所有节点。地图通常有15层（Y轴）和7列（X轴）。
+    构造函数:
+        默认构造函数。
+            Map(std::uint64_t seed, int ascension, int act, bool assignBurningElite): 根据种子、进阶等级、章节和是否分配燃烧精英来构造地图。
+    成员函数:
+        MapNode &getNode(int x, int y), [[nodiscard]] const MapNode &getNode(int x, int y) const: 获取指定坐标的地图节点。
+        [[nodiscard]] std::string toString(bool showRoomSymbols=true) const: 将地图转换为字符串表示，可选择是否显示房间符号。
+        static Map fromSeed(std::uint64_t seed, int ascension= 0, int act= 1, bool assignBurningElite=false): 静态方法，从给定的种子生成地图。
+        static Map act4Map(): 静态方法，生成第四章（Act 4）的地图。
+        void normalizeParents(): 规范化地图节点的父节点信息。
+
+
+2. 文件：Game.h
+Game.h 文件提供了一系列静态辅助函数，用于生成随机卡牌、遗物和药水，以及其他与游戏进程相关的辅助功能。
+常量
+    static constexpr float COLORLESS_RARE_CHANCE = 0.30f: 无色稀有卡牌的出现几率。
+命名空间：SeedHelper
+    常量:
+        constexpr int SEED_BASE = 35: 种子转换的基础值。
+    函数:
+        int getDigitValue(char c): 获取字符的数字值。
+        std::string getString(std::uint64_t seed): 将种子（uint64_t）转换为字符串。
+        std::uint64_t getLong(const std::string &seed): 将字符串转换为种子（uint64_t）。
+全局辅助函数
+    CardId getAnyColorCard(Random &cardRng, CardRarity rarity): 
+        从任何颜色（职业）的卡牌池中获取指定稀有度的卡牌。
+    CardId getRandomClassCardOfTypeAndRarity(Random &cardRng, CharacterClass cc, CardType type, CardRarity rarity):  
+        获取指定职业、类型和稀有度的随机职业卡牌。
+    CardId getRandomClassCardOfRarity(Random &rng, CharacterClass cc, CardRarity rarity):  
+        获取指定职业和稀有度的随机职业卡牌。
+    CardId getRandomColorlessCardNeow(Random &rng, CardRarity rarity):  
+        Neow事件中获取指定稀有度的随机无色卡牌。
+    CardId getColorlessCardFromPool(Random &cardRng, CardRarity rarity):  
+        从无色卡牌池中获取指定稀有度的卡牌。
+    CardId getRandomCurse(Random &cardRng):  
+        获取随机诅咒牌。
+    CardId getRandomCurse(Random &rng, CardId exclude):  
+        获取随机诅咒牌，排除指定的卡牌。
+    CardId getTrulyRandomCard(Random &cardRandomRng, CharacterClass cc):  
+        获取真正随机的卡牌（包括无色和职业牌）。
+    CardId returnTrulyRandomColorlessCardFromAvailable(Random &rng, CardId exclude):  
+        获取真正随机的无色卡牌，排除指定的卡牌。
+    CardId getTrulyRandomColorlessCardInCombat(Random &cardRandomRng):  
+        战斗中获取真正随机的无色卡牌。
+    CardId getTrulyRandomCardInCombat(Random &cardRandomRng, CharacterClass cc):  
+        战斗中获取真正随机的卡牌（包括无色和职业牌）。
+    CardId getTrulyRandomCardInCombat(Random &cardRandomRng, CharacterClass cc, CardType type): 
+         战斗中获取指定类型的真正随机卡牌。
+    std::array<CardId, 3> generateDiscoveryCards(Random &cardRandomRng, CharacterClass cc, CardType type):  
+        生成发现卡牌列表。
+    RelicTier returnRandomRelicTier(Random &relicRng, int act):  
+        根据章节获取随机遗物稀有度。
+    RelicTier returnRandomRelicTierElite(Random &relicRng):  
+        获取精英战斗后的随机遗物稀有度。
+    Potion returnRandomPotion(Random &potionRng, CharacterClass cc, bool limited=false):  
+        获取随机药水。
+    Potion returnRandomPotionOfRarity(Random &potionRng, PotionRarity rarity, CharacterClass cc, bool limited= false):  
+        获取指定稀有度的随机药水。
+    Potion getRandomPotion(Random &potionRng, CharacterClass cc):  
+        获取随机药水（可能与 returnRandomPotion 行为不同，取决于实现）。
+    RelicId getRandomFace(const RelicContainer &relics, Random &miscRng):  
+        获取随机“面具”遗物（与 N'loth 相关的事件）。
+    CardId getStartCardForEvent(CharacterClass cc):  
+        获取事件中起始的卡牌。
+    ChestSize getRandomChestSize(Random &treasureRng):  
+        获取随机宝箱尺寸。
+    RelicTier getMatryoshkaRelicTier(Random &relicRng):  
+        获取套娃（Matryoshka）遗物提供的遗物稀有度。
+    float getUpgradedCardChance(int act, int ascension):  
+        获取升级卡牌的几率。
+
+        
+3. 文件：GameContext.h
+GameContext.h 文件定义了 GameContext 类，它是游戏状态的核心，包含了所有与当前游戏会话相关的数据和操作。
+枚举类型
+    GameOutcome: 游戏结果，包括 PLAYER_LOSS、UNDECIDED、PLAYER_VICTORY。
+    RngReference: 随机数生成器（RNG）的引用类型，用于指定使用哪个RNG，例如 MISC_RNG、CARD_RNG 等。
+    CardSelectScreenType: 卡牌选择屏幕的类型，例如 TRANSFORM、UPGRADE、REMOVE 等。
+    ScreenState: 游戏当前的屏幕状态，例如 EVENT_SCREEN、REWARDS、BATTLE 等。
+结构体：SelectScreenCard
+    成员变量:
+        Card card: 选择屏幕上显示的卡牌。
+        std::int16_t deckIdx: 对应卡牌在牌组中的索引（如果来自牌组）。
+    构造函数:
+        默认构造函数。
+        SelectScreenCard(const Card &card): 根据卡牌构造。
+        SelectScreenCard(const Card &card, int deckIdx): 根据卡牌和牌组索引构造。
+结构体：ScreenStateInfo 存储当前屏幕状态的详细信息，根据 ScreenState 的不同，包含不同的相关数据。
+    通用: MonsterEncounter encounter (当前的怪物遭遇)。
+    卡牌选择屏幕: transformRng, selectScreenType, toSelectCount, toSelectCards, haveSelectedCards。
+    事件: eventData (通用事件数据), hpAmount0, hpAmount1, hpAmount2 (生命值相关数值)。
+    亡者探险家 (Dead Adventurer): phase, rewards。
+    螺旋设计师 (Designer In-Spire): upgradeOne, cleanUpIsRemoveCard。
+    宝箱房 (Treasure Room): haveGold, chestSize, tier。
+    粘性世界 (World of Goop): goldLoss。
+    狭路相逢 (We Meet Again Event): potionIdx, gold, cardIdx。
+    N'loth: relicIdx0, relicIdx1。
+    坠落 (Falling): skillCardDeckIdx, powerCardDeckIdx, attackCardDeckIdx。
+    Boss 房间: bossRelics[3] (Boss遗物选项)。
+    NeowOptions neowRewards: Neow的奖励选项。
+    Rewards rewardsContainer: 战斗奖励容器。
+    战斗: stolenGold (被窃取的金币)。
+    商店: Shop shop (商店状态)。
+类：GameContext
+    常量:
+        static constexpr float SHRINE_CHANCE = 0.25F: 神社事件的几率。
+        static constexpr bool disableColosseum = true, disableMatchAndKeep = true, disablePrismaticShard = true: 禁用某些事件或功能。
+    成员变量:
+        sts::Card noteForYourselfCard: “为自己留念”事件中获得的卡牌。
+        bool skipBattles: 是否跳过战斗（用于调试或特定模式）。
+        隐藏信息（Hidden from player）:
+            std::uint64_t seed: 当前游戏会话的种子。
+            多种 Random 对象: aiRng, cardRandomRng, cardRng, eventRng, mathUtilRng, merchantRng, miscRng, monsterHpRng, monsterRng, neowRng, potionRng, relicRng, shuffleRng, treasureRng，
+                用于管理不同方面的随机性。
+            std::vector<Event> eventList, shrineList, specialOneTimeEventList: 
+                章节事件池。
+            多种 std::vector<RelicId>: commonRelicPool, uncommonRelicPool, rareRelicPool, shopRelicPool, bossRelicPool，
+                存储可用遗物池。
+            std::array<CardId, 35> colorlessCardPool: 
+                无色卡牌池。
+            int monsterListOffset, fixed_list<MonsterEncounter, 16> monsterList: 
+                普通怪物遭遇列表。
+            int eliteMonsterListOffset, fixed_list<MonsterEncounter, 10> eliteMonsterList: 
+                精英怪物遭遇列表。
+            MonsterEncounter secondBoss: 第二个Boss（如果Boss是双Boss）。
+    玩家信息（Player information）:
+        GameOutcome outcome: 当前游戏结果。
+        ScreenState screenState: 当前游戏屏幕状态。
+        ScreenStateInfo info: 屏幕状态的详细信息。
+        Room lastRoom, curRoom: 上一个和当前房间类型。
+        Event curEvent: 当前事件。
+        MonsterEncounter boss: 当前章节的Boss。
+        float monsterChance, shopChance, treasureChance: 不同房间类型出现的几率。
+        int potionChance, cardRarityFactor, shopRemoveCount: 药水几率、卡牌稀有度系数、商店移除次数。
+        bool speedrunPace: 是否处于速通模式。
+        int curMapNodeX, curMapNodeY: 当前玩家在地图上的坐标。
+        std::shared_ptr<Map> map: 当前地图。
+        int act, ascension, floorNum: 当前章节、进阶等级、楼层数。
+        CharacterClass cc: 玩家选择的角色职业。
+        int curHp, maxHp: 当前和最大生命值。
+        int gold: 金币数量。
+        int potionCount, potionCapacity, std::array<Potion, 5> potions: 药水信息。
+        RelicContainer relics: 玩家持有的遗物容器。
+        Deck deck: 玩家的牌组。
+        bool blueKey, greenKey, redKey: 玩家是否拥有三把钥匙。
+        GameContextAction regainControlAction: 重新获得控制权时执行的动作。
+    构造函数:
+        默认构造函数。
+        GameContext(CharacterClass cc, std::uint64_t seed, int ascensionLevel): 根据角色、种子和进阶等级构造游戏上下文。
+    初始化方法:
+        void initFromSave(const SaveFile &s): 从存档文件初始化游戏上下文。
+        void initRelicsFromSave(const SaveFile &s): 从存档文件初始化遗物。
+        void initRelics(): 初始化遗物池。
+        void initPlayer(): 初始化玩家角色属性。
+        void generateMonsters(), generateWeakMonsters(), generateStrongMonsters(), generateElites(), generateBoss(): 生成不同类型的怪物遭遇。
+        void populateMonsterList(...): 填充怪物列表。
+        void populateFirstStrongEnemy(...): 填充第一个强敌人。
+    房间设置方法:
+        void transitionToAct(int act): 过渡到指定章节。
+        void transitionToMapNode(int mapNodeX): 过渡到地图上的指定节点。
+        void setupEvent(), setupTreasureRoom(), enterBossTreasureRoom(), enterAct3VictoryRoom(), enterBattle(MonsterEncounter encounter): 设置和进入各种房间。
+        void afterBattle(): 战斗结束后执行的操作。
+    游戏操作方法:
+        void obtainCard(Card c, int count=1), obtainGold(int amount), obtainKey(Key key), obtainPotion(Potion p), bool obtainRelic(RelicId r): 获取各种游戏资源。
+        RelicId returnRandomRelic(...), returnNonCampfireRelic(...), returnRandomScreenlessRelic(...): 获取随机遗物。
+        Card previewObtainCard(Card card): 预览获得卡牌的效果。
+        void relicsOnEnterRoom(Room room): 进入房间时触发遗物效果。
+        CardRarity rollCardRarity(Room room): 滚动卡牌稀有度。
+        CardId returnTrulyRandomCardFromAvailable(...), getTransformedCard(...), returnColorlessCard(...), getRandomPlayerPotionIdx(), getRandomPlayerNonBasicCardIdx(): 获取各种随机卡牌或物品。
+        MonsterEncounter getMonsterForRoomCreation(), getEliteForRoomCreation(): 获取用于房间创建的怪物遭遇。
+        void addPotionRewards(Rewards &r), createCardReward(Room room), createColorlessCardReward(), createCombatReward(), createEliteCombatReward(), createBossCombatReward(): 创建各种奖励。
+        Event getShrine(...), getEvent(...), generateEvent(...), getEventRoomOutcomeHelper(...): 获取和生成事件。
+    玩家状态操作:
+        void damagePlayer(int amount), playerLoseHp(int amount), playerOnDie(), playerHeal(int amount), playerIncreaseMaxHp(int amount), loseGold(int amount, bool inShop=false), loseMaxHp(int amount): 玩家生命值和金币操作。
+        void drinkPotion(Potion p), drinkPotionAtIdx(int idx), discardPotionAtIdx(int idx): 药水使用和丢弃。
+    界面/选择操作:
+        void openTreasureRoomChest(), selectScreenTransform(), openCombatRewardScreen(...), openCardSelectScreen(...): 打开各种游戏界面。
+    玩家选择操作:
+        void chooseNeowOption(...), chooseBossRelic(...), chooseEventOption(...), chooseSelectCardScreenOption(...), chooseCampfireOption(...), chooseMatchAndKeepCards(...), chooseTreasureRoomOption(...): 处理玩家在各种选择界面的操作。
+        void regainControl(): 使游戏重新获得控制权。

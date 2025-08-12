@@ -1,0 +1,59 @@
+
+好的，这是一份关于MonsterEncounters.h、MonsterMoves.h和MonsterIds.h这三个文件的文档。
+文件文档：MonsterEncounters.h，MonsterMoves.h，MonsterIds.h
+这些文件共同定义了游戏《杀戮尖塔》（Slay the Spire）中与敌人（怪物）相关的数据结构、枚举和常量。
+    它们分别涵盖了怪物遭遇战、怪物特定行动以及怪物标识和生命值范围。
+
+    
+1. 文件：MonsterEncounters.h
+MonsterEncounters.h 文件主要定义了游戏中各种怪物遭遇战的枚举类型，并按游戏章节（Act）对遭遇战进行了分类。
+    此外，它还包含了一些用于管理不同难度遭遇池的常量和辅助函数。
+枚举类型
+    MonsterEncounter : std::int8_t: 定义了游戏中所有独特的怪物遭遇战的ID。
+    INVALID = 0 表示无效遭遇战。
+    枚举值按游戏章节（Act 1、Act 2、Act 3、Act 4）以及事件类型（Events）进行分类，
+        包含各种弱敌人、强敌人、精英敌人和Boss遭遇战。
+全局常量数组
+    monsterEncounterStrings[]: 存储了 MonsterEncounter 枚举值对应的可读字符串名称，通常用于游戏内显示或日志记录。
+    monsterEncounterEnumNames[]: 存储了 MonsterEncounter 枚举值对应的原始枚举名称字符串，可能用于代码内部引用。
+命名空间：
+    MonsterEncounterPool  此命名空间定义了按章节和难度划分的怪物遭遇池，以及相关的权重和计数。
+    weakEnemies[3][5]: 一个二维数组，包含了每个章节的弱敌人遭遇ID。
+    第一维度索引代表章节（0 = Act 1，1 = Act 2，2 = Act 3）。
+    第二维度索引代表该章节内的弱敌人遭遇。
+        weakWeights[3][5]: 存储了对应 weakEnemies 中每个弱敌人遭遇的浮点权重，可能用于概率选择。
+        weakCount[3]: 存储了每个章节弱敌人遭遇池的大小。
+        strongEnemies[3][10]: 一个二维数组，包含了每个章节的强敌人遭遇ID。
+        strongWeights[3][10]: 存储了对应 strongEnemies 中每个强敌人遭遇的浮点权重。
+        strongCount[3]: 存储了每个章节强敌人遭遇池的大小。
+        elites[3][3]: 一个二维数组，包含了每个章节的精英敌人遭遇ID。
+静态辅助函数
+    isBossEncounter(MonsterEncounter e): 判断给定的怪物遭遇是否是Boss战。
+        这包括每个章节的最终Boss以及Act 4的Boss和精英。
+
+
+2. 文件：MonsterMoves.h
+    MonsterMoves.h 文件定义了游戏中所有怪物可能执行的特定行动（攻击、增益、减益等）的枚举类型。
+枚举类型
+MonsterMoveId : std::uint16_t:  定义了游戏中所有怪物行动的唯一标识符。
+    INVALID = 0 表示无效行动。
+枚举值命名约定通常是 MONSTER_NAME_MOVE_NAME，清晰地指明了哪个怪物会执行何种行动。
+全局常量数组
+    monsterMoveStrings[]: 存储了 MonsterMoveId 枚举值对应的原始字符串名称，通常用于代码内部引用。
+静态辅助函数
+    isMoveAttack(MMID move): 判断给定的怪物行动是否是攻击类型。
+        该函数通过一个 switch 语句列出了所有被认为是攻击的怪物行动。
+
+
+3. 文件：MonsterIds.h
+    MonsterIds.h 文件定义了游戏中所有怪物的唯一标识符，并提供了每个怪物在不同难度下的生命值范围。
+枚举类型
+    MonsterId : std::uint8_t: 定义了游戏中所有怪物的唯一标识符。
+        INVALID = 0 表示无效怪物ID。
+全局常量数组
+    monsterIdStrings[]: 存储了 MonsterId 枚举值对应的原始字符串名称。
+    monsterHpRange[][2][2]: 一个三维数组，存储了每个怪物的生命值范围。
+    第一维度索引对应 MonsterId。
+    第二维度索引：[0] 表示普通难度生命值范围，[1] 表示升级难度生命值范围。
+    第三维度索引：[0] 表示生命值下限，[1] 表示生命值上限。
+        例如，monsterHpRange[MonsterId::CULTIST][0] 会给出普通难度下邪教徒的生命值范围。
