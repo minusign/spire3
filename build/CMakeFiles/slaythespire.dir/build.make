@@ -76,435 +76,435 @@ CMakeFiles/slaythespire.dir/bindings/slaythespire.cpp.o: CMakeFiles/slaythespire
 CMakeFiles/slaythespire.dir/bindings/slaythespire.cpp.o: /Users/aaash/syncthing/slay/spire3/sts_lightspeed/bindings/slaythespire.cpp
 CMakeFiles/slaythespire.dir/bindings/slaythespire.cpp.o: CMakeFiles/slaythespire.dir/compiler_depend.ts
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/Users/aaash/syncthing/slay/spire3/sts_lightspeed/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Building CXX object CMakeFiles/slaythespire.dir/bindings/slaythespire.cpp.o"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/slaythespire.dir/bindings/slaythespire.cpp.o -MF CMakeFiles/slaythespire.dir/bindings/slaythespire.cpp.o.d -o CMakeFiles/slaythespire.dir/bindings/slaythespire.cpp.o -c /Users/aaash/syncthing/slay/spire3/sts_lightspeed/bindings/slaythespire.cpp
+	/usr/bin/clang++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/slaythespire.dir/bindings/slaythespire.cpp.o -MF CMakeFiles/slaythespire.dir/bindings/slaythespire.cpp.o.d -o CMakeFiles/slaythespire.dir/bindings/slaythespire.cpp.o -c /Users/aaash/syncthing/slay/spire3/sts_lightspeed/bindings/slaythespire.cpp
 
 CMakeFiles/slaythespire.dir/bindings/slaythespire.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing CXX source to CMakeFiles/slaythespire.dir/bindings/slaythespire.cpp.i"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /Users/aaash/syncthing/slay/spire3/sts_lightspeed/bindings/slaythespire.cpp > CMakeFiles/slaythespire.dir/bindings/slaythespire.cpp.i
+	/usr/bin/clang++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /Users/aaash/syncthing/slay/spire3/sts_lightspeed/bindings/slaythespire.cpp > CMakeFiles/slaythespire.dir/bindings/slaythespire.cpp.i
 
 CMakeFiles/slaythespire.dir/bindings/slaythespire.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/slaythespire.dir/bindings/slaythespire.cpp.s"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /Users/aaash/syncthing/slay/spire3/sts_lightspeed/bindings/slaythespire.cpp -o CMakeFiles/slaythespire.dir/bindings/slaythespire.cpp.s
+	/usr/bin/clang++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /Users/aaash/syncthing/slay/spire3/sts_lightspeed/bindings/slaythespire.cpp -o CMakeFiles/slaythespire.dir/bindings/slaythespire.cpp.s
 
 CMakeFiles/slaythespire.dir/bindings/bindings-util.cpp.o: CMakeFiles/slaythespire.dir/flags.make
 CMakeFiles/slaythespire.dir/bindings/bindings-util.cpp.o: /Users/aaash/syncthing/slay/spire3/sts_lightspeed/bindings/bindings-util.cpp
 CMakeFiles/slaythespire.dir/bindings/bindings-util.cpp.o: CMakeFiles/slaythespire.dir/compiler_depend.ts
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/Users/aaash/syncthing/slay/spire3/sts_lightspeed/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Building CXX object CMakeFiles/slaythespire.dir/bindings/bindings-util.cpp.o"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/slaythespire.dir/bindings/bindings-util.cpp.o -MF CMakeFiles/slaythespire.dir/bindings/bindings-util.cpp.o.d -o CMakeFiles/slaythespire.dir/bindings/bindings-util.cpp.o -c /Users/aaash/syncthing/slay/spire3/sts_lightspeed/bindings/bindings-util.cpp
+	/usr/bin/clang++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/slaythespire.dir/bindings/bindings-util.cpp.o -MF CMakeFiles/slaythespire.dir/bindings/bindings-util.cpp.o.d -o CMakeFiles/slaythespire.dir/bindings/bindings-util.cpp.o -c /Users/aaash/syncthing/slay/spire3/sts_lightspeed/bindings/bindings-util.cpp
 
 CMakeFiles/slaythespire.dir/bindings/bindings-util.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing CXX source to CMakeFiles/slaythespire.dir/bindings/bindings-util.cpp.i"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /Users/aaash/syncthing/slay/spire3/sts_lightspeed/bindings/bindings-util.cpp > CMakeFiles/slaythespire.dir/bindings/bindings-util.cpp.i
+	/usr/bin/clang++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /Users/aaash/syncthing/slay/spire3/sts_lightspeed/bindings/bindings-util.cpp > CMakeFiles/slaythespire.dir/bindings/bindings-util.cpp.i
 
 CMakeFiles/slaythespire.dir/bindings/bindings-util.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/slaythespire.dir/bindings/bindings-util.cpp.s"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /Users/aaash/syncthing/slay/spire3/sts_lightspeed/bindings/bindings-util.cpp -o CMakeFiles/slaythespire.dir/bindings/bindings-util.cpp.s
+	/usr/bin/clang++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /Users/aaash/syncthing/slay/spire3/sts_lightspeed/bindings/bindings-util.cpp -o CMakeFiles/slaythespire.dir/bindings/bindings-util.cpp.s
 
 CMakeFiles/slaythespire.dir/src/combat/Actions.cpp.o: CMakeFiles/slaythespire.dir/flags.make
 CMakeFiles/slaythespire.dir/src/combat/Actions.cpp.o: /Users/aaash/syncthing/slay/spire3/sts_lightspeed/src/combat/Actions.cpp
 CMakeFiles/slaythespire.dir/src/combat/Actions.cpp.o: CMakeFiles/slaythespire.dir/compiler_depend.ts
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/Users/aaash/syncthing/slay/spire3/sts_lightspeed/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_3) "Building CXX object CMakeFiles/slaythespire.dir/src/combat/Actions.cpp.o"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/slaythespire.dir/src/combat/Actions.cpp.o -MF CMakeFiles/slaythespire.dir/src/combat/Actions.cpp.o.d -o CMakeFiles/slaythespire.dir/src/combat/Actions.cpp.o -c /Users/aaash/syncthing/slay/spire3/sts_lightspeed/src/combat/Actions.cpp
+	/usr/bin/clang++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/slaythespire.dir/src/combat/Actions.cpp.o -MF CMakeFiles/slaythespire.dir/src/combat/Actions.cpp.o.d -o CMakeFiles/slaythespire.dir/src/combat/Actions.cpp.o -c /Users/aaash/syncthing/slay/spire3/sts_lightspeed/src/combat/Actions.cpp
 
 CMakeFiles/slaythespire.dir/src/combat/Actions.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing CXX source to CMakeFiles/slaythespire.dir/src/combat/Actions.cpp.i"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /Users/aaash/syncthing/slay/spire3/sts_lightspeed/src/combat/Actions.cpp > CMakeFiles/slaythespire.dir/src/combat/Actions.cpp.i
+	/usr/bin/clang++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /Users/aaash/syncthing/slay/spire3/sts_lightspeed/src/combat/Actions.cpp > CMakeFiles/slaythespire.dir/src/combat/Actions.cpp.i
 
 CMakeFiles/slaythespire.dir/src/combat/Actions.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/slaythespire.dir/src/combat/Actions.cpp.s"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /Users/aaash/syncthing/slay/spire3/sts_lightspeed/src/combat/Actions.cpp -o CMakeFiles/slaythespire.dir/src/combat/Actions.cpp.s
+	/usr/bin/clang++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /Users/aaash/syncthing/slay/spire3/sts_lightspeed/src/combat/Actions.cpp -o CMakeFiles/slaythespire.dir/src/combat/Actions.cpp.s
 
 CMakeFiles/slaythespire.dir/src/combat/BattleContext.cpp.o: CMakeFiles/slaythespire.dir/flags.make
 CMakeFiles/slaythespire.dir/src/combat/BattleContext.cpp.o: /Users/aaash/syncthing/slay/spire3/sts_lightspeed/src/combat/BattleContext.cpp
 CMakeFiles/slaythespire.dir/src/combat/BattleContext.cpp.o: CMakeFiles/slaythespire.dir/compiler_depend.ts
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/Users/aaash/syncthing/slay/spire3/sts_lightspeed/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_4) "Building CXX object CMakeFiles/slaythespire.dir/src/combat/BattleContext.cpp.o"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/slaythespire.dir/src/combat/BattleContext.cpp.o -MF CMakeFiles/slaythespire.dir/src/combat/BattleContext.cpp.o.d -o CMakeFiles/slaythespire.dir/src/combat/BattleContext.cpp.o -c /Users/aaash/syncthing/slay/spire3/sts_lightspeed/src/combat/BattleContext.cpp
+	/usr/bin/clang++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/slaythespire.dir/src/combat/BattleContext.cpp.o -MF CMakeFiles/slaythespire.dir/src/combat/BattleContext.cpp.o.d -o CMakeFiles/slaythespire.dir/src/combat/BattleContext.cpp.o -c /Users/aaash/syncthing/slay/spire3/sts_lightspeed/src/combat/BattleContext.cpp
 
 CMakeFiles/slaythespire.dir/src/combat/BattleContext.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing CXX source to CMakeFiles/slaythespire.dir/src/combat/BattleContext.cpp.i"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /Users/aaash/syncthing/slay/spire3/sts_lightspeed/src/combat/BattleContext.cpp > CMakeFiles/slaythespire.dir/src/combat/BattleContext.cpp.i
+	/usr/bin/clang++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /Users/aaash/syncthing/slay/spire3/sts_lightspeed/src/combat/BattleContext.cpp > CMakeFiles/slaythespire.dir/src/combat/BattleContext.cpp.i
 
 CMakeFiles/slaythespire.dir/src/combat/BattleContext.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/slaythespire.dir/src/combat/BattleContext.cpp.s"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /Users/aaash/syncthing/slay/spire3/sts_lightspeed/src/combat/BattleContext.cpp -o CMakeFiles/slaythespire.dir/src/combat/BattleContext.cpp.s
+	/usr/bin/clang++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /Users/aaash/syncthing/slay/spire3/sts_lightspeed/src/combat/BattleContext.cpp -o CMakeFiles/slaythespire.dir/src/combat/BattleContext.cpp.s
 
 CMakeFiles/slaythespire.dir/src/combat/CardInstance.cpp.o: CMakeFiles/slaythespire.dir/flags.make
 CMakeFiles/slaythespire.dir/src/combat/CardInstance.cpp.o: /Users/aaash/syncthing/slay/spire3/sts_lightspeed/src/combat/CardInstance.cpp
 CMakeFiles/slaythespire.dir/src/combat/CardInstance.cpp.o: CMakeFiles/slaythespire.dir/compiler_depend.ts
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/Users/aaash/syncthing/slay/spire3/sts_lightspeed/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_5) "Building CXX object CMakeFiles/slaythespire.dir/src/combat/CardInstance.cpp.o"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/slaythespire.dir/src/combat/CardInstance.cpp.o -MF CMakeFiles/slaythespire.dir/src/combat/CardInstance.cpp.o.d -o CMakeFiles/slaythespire.dir/src/combat/CardInstance.cpp.o -c /Users/aaash/syncthing/slay/spire3/sts_lightspeed/src/combat/CardInstance.cpp
+	/usr/bin/clang++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/slaythespire.dir/src/combat/CardInstance.cpp.o -MF CMakeFiles/slaythespire.dir/src/combat/CardInstance.cpp.o.d -o CMakeFiles/slaythespire.dir/src/combat/CardInstance.cpp.o -c /Users/aaash/syncthing/slay/spire3/sts_lightspeed/src/combat/CardInstance.cpp
 
 CMakeFiles/slaythespire.dir/src/combat/CardInstance.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing CXX source to CMakeFiles/slaythespire.dir/src/combat/CardInstance.cpp.i"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /Users/aaash/syncthing/slay/spire3/sts_lightspeed/src/combat/CardInstance.cpp > CMakeFiles/slaythespire.dir/src/combat/CardInstance.cpp.i
+	/usr/bin/clang++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /Users/aaash/syncthing/slay/spire3/sts_lightspeed/src/combat/CardInstance.cpp > CMakeFiles/slaythespire.dir/src/combat/CardInstance.cpp.i
 
 CMakeFiles/slaythespire.dir/src/combat/CardInstance.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/slaythespire.dir/src/combat/CardInstance.cpp.s"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /Users/aaash/syncthing/slay/spire3/sts_lightspeed/src/combat/CardInstance.cpp -o CMakeFiles/slaythespire.dir/src/combat/CardInstance.cpp.s
+	/usr/bin/clang++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /Users/aaash/syncthing/slay/spire3/sts_lightspeed/src/combat/CardInstance.cpp -o CMakeFiles/slaythespire.dir/src/combat/CardInstance.cpp.s
 
 CMakeFiles/slaythespire.dir/src/combat/CardManager.cpp.o: CMakeFiles/slaythespire.dir/flags.make
 CMakeFiles/slaythespire.dir/src/combat/CardManager.cpp.o: /Users/aaash/syncthing/slay/spire3/sts_lightspeed/src/combat/CardManager.cpp
 CMakeFiles/slaythespire.dir/src/combat/CardManager.cpp.o: CMakeFiles/slaythespire.dir/compiler_depend.ts
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/Users/aaash/syncthing/slay/spire3/sts_lightspeed/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_6) "Building CXX object CMakeFiles/slaythespire.dir/src/combat/CardManager.cpp.o"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/slaythespire.dir/src/combat/CardManager.cpp.o -MF CMakeFiles/slaythespire.dir/src/combat/CardManager.cpp.o.d -o CMakeFiles/slaythespire.dir/src/combat/CardManager.cpp.o -c /Users/aaash/syncthing/slay/spire3/sts_lightspeed/src/combat/CardManager.cpp
+	/usr/bin/clang++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/slaythespire.dir/src/combat/CardManager.cpp.o -MF CMakeFiles/slaythespire.dir/src/combat/CardManager.cpp.o.d -o CMakeFiles/slaythespire.dir/src/combat/CardManager.cpp.o -c /Users/aaash/syncthing/slay/spire3/sts_lightspeed/src/combat/CardManager.cpp
 
 CMakeFiles/slaythespire.dir/src/combat/CardManager.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing CXX source to CMakeFiles/slaythespire.dir/src/combat/CardManager.cpp.i"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /Users/aaash/syncthing/slay/spire3/sts_lightspeed/src/combat/CardManager.cpp > CMakeFiles/slaythespire.dir/src/combat/CardManager.cpp.i
+	/usr/bin/clang++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /Users/aaash/syncthing/slay/spire3/sts_lightspeed/src/combat/CardManager.cpp > CMakeFiles/slaythespire.dir/src/combat/CardManager.cpp.i
 
 CMakeFiles/slaythespire.dir/src/combat/CardManager.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/slaythespire.dir/src/combat/CardManager.cpp.s"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /Users/aaash/syncthing/slay/spire3/sts_lightspeed/src/combat/CardManager.cpp -o CMakeFiles/slaythespire.dir/src/combat/CardManager.cpp.s
+	/usr/bin/clang++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /Users/aaash/syncthing/slay/spire3/sts_lightspeed/src/combat/CardManager.cpp -o CMakeFiles/slaythespire.dir/src/combat/CardManager.cpp.s
 
 CMakeFiles/slaythespire.dir/src/combat/CardQueue.cpp.o: CMakeFiles/slaythespire.dir/flags.make
 CMakeFiles/slaythespire.dir/src/combat/CardQueue.cpp.o: /Users/aaash/syncthing/slay/spire3/sts_lightspeed/src/combat/CardQueue.cpp
 CMakeFiles/slaythespire.dir/src/combat/CardQueue.cpp.o: CMakeFiles/slaythespire.dir/compiler_depend.ts
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/Users/aaash/syncthing/slay/spire3/sts_lightspeed/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_7) "Building CXX object CMakeFiles/slaythespire.dir/src/combat/CardQueue.cpp.o"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/slaythespire.dir/src/combat/CardQueue.cpp.o -MF CMakeFiles/slaythespire.dir/src/combat/CardQueue.cpp.o.d -o CMakeFiles/slaythespire.dir/src/combat/CardQueue.cpp.o -c /Users/aaash/syncthing/slay/spire3/sts_lightspeed/src/combat/CardQueue.cpp
+	/usr/bin/clang++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/slaythespire.dir/src/combat/CardQueue.cpp.o -MF CMakeFiles/slaythespire.dir/src/combat/CardQueue.cpp.o.d -o CMakeFiles/slaythespire.dir/src/combat/CardQueue.cpp.o -c /Users/aaash/syncthing/slay/spire3/sts_lightspeed/src/combat/CardQueue.cpp
 
 CMakeFiles/slaythespire.dir/src/combat/CardQueue.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing CXX source to CMakeFiles/slaythespire.dir/src/combat/CardQueue.cpp.i"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /Users/aaash/syncthing/slay/spire3/sts_lightspeed/src/combat/CardQueue.cpp > CMakeFiles/slaythespire.dir/src/combat/CardQueue.cpp.i
+	/usr/bin/clang++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /Users/aaash/syncthing/slay/spire3/sts_lightspeed/src/combat/CardQueue.cpp > CMakeFiles/slaythespire.dir/src/combat/CardQueue.cpp.i
 
 CMakeFiles/slaythespire.dir/src/combat/CardQueue.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/slaythespire.dir/src/combat/CardQueue.cpp.s"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /Users/aaash/syncthing/slay/spire3/sts_lightspeed/src/combat/CardQueue.cpp -o CMakeFiles/slaythespire.dir/src/combat/CardQueue.cpp.s
+	/usr/bin/clang++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /Users/aaash/syncthing/slay/spire3/sts_lightspeed/src/combat/CardQueue.cpp -o CMakeFiles/slaythespire.dir/src/combat/CardQueue.cpp.s
 
 CMakeFiles/slaythespire.dir/src/combat/Monster.cpp.o: CMakeFiles/slaythespire.dir/flags.make
 CMakeFiles/slaythespire.dir/src/combat/Monster.cpp.o: /Users/aaash/syncthing/slay/spire3/sts_lightspeed/src/combat/Monster.cpp
 CMakeFiles/slaythespire.dir/src/combat/Monster.cpp.o: CMakeFiles/slaythespire.dir/compiler_depend.ts
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/Users/aaash/syncthing/slay/spire3/sts_lightspeed/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_8) "Building CXX object CMakeFiles/slaythespire.dir/src/combat/Monster.cpp.o"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/slaythespire.dir/src/combat/Monster.cpp.o -MF CMakeFiles/slaythespire.dir/src/combat/Monster.cpp.o.d -o CMakeFiles/slaythespire.dir/src/combat/Monster.cpp.o -c /Users/aaash/syncthing/slay/spire3/sts_lightspeed/src/combat/Monster.cpp
+	/usr/bin/clang++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/slaythespire.dir/src/combat/Monster.cpp.o -MF CMakeFiles/slaythespire.dir/src/combat/Monster.cpp.o.d -o CMakeFiles/slaythespire.dir/src/combat/Monster.cpp.o -c /Users/aaash/syncthing/slay/spire3/sts_lightspeed/src/combat/Monster.cpp
 
 CMakeFiles/slaythespire.dir/src/combat/Monster.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing CXX source to CMakeFiles/slaythespire.dir/src/combat/Monster.cpp.i"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /Users/aaash/syncthing/slay/spire3/sts_lightspeed/src/combat/Monster.cpp > CMakeFiles/slaythespire.dir/src/combat/Monster.cpp.i
+	/usr/bin/clang++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /Users/aaash/syncthing/slay/spire3/sts_lightspeed/src/combat/Monster.cpp > CMakeFiles/slaythespire.dir/src/combat/Monster.cpp.i
 
 CMakeFiles/slaythespire.dir/src/combat/Monster.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/slaythespire.dir/src/combat/Monster.cpp.s"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /Users/aaash/syncthing/slay/spire3/sts_lightspeed/src/combat/Monster.cpp -o CMakeFiles/slaythespire.dir/src/combat/Monster.cpp.s
+	/usr/bin/clang++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /Users/aaash/syncthing/slay/spire3/sts_lightspeed/src/combat/Monster.cpp -o CMakeFiles/slaythespire.dir/src/combat/Monster.cpp.s
 
 CMakeFiles/slaythespire.dir/src/combat/MonsterGroup.cpp.o: CMakeFiles/slaythespire.dir/flags.make
 CMakeFiles/slaythespire.dir/src/combat/MonsterGroup.cpp.o: /Users/aaash/syncthing/slay/spire3/sts_lightspeed/src/combat/MonsterGroup.cpp
 CMakeFiles/slaythespire.dir/src/combat/MonsterGroup.cpp.o: CMakeFiles/slaythespire.dir/compiler_depend.ts
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/Users/aaash/syncthing/slay/spire3/sts_lightspeed/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_9) "Building CXX object CMakeFiles/slaythespire.dir/src/combat/MonsterGroup.cpp.o"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/slaythespire.dir/src/combat/MonsterGroup.cpp.o -MF CMakeFiles/slaythespire.dir/src/combat/MonsterGroup.cpp.o.d -o CMakeFiles/slaythespire.dir/src/combat/MonsterGroup.cpp.o -c /Users/aaash/syncthing/slay/spire3/sts_lightspeed/src/combat/MonsterGroup.cpp
+	/usr/bin/clang++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/slaythespire.dir/src/combat/MonsterGroup.cpp.o -MF CMakeFiles/slaythespire.dir/src/combat/MonsterGroup.cpp.o.d -o CMakeFiles/slaythespire.dir/src/combat/MonsterGroup.cpp.o -c /Users/aaash/syncthing/slay/spire3/sts_lightspeed/src/combat/MonsterGroup.cpp
 
 CMakeFiles/slaythespire.dir/src/combat/MonsterGroup.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing CXX source to CMakeFiles/slaythespire.dir/src/combat/MonsterGroup.cpp.i"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /Users/aaash/syncthing/slay/spire3/sts_lightspeed/src/combat/MonsterGroup.cpp > CMakeFiles/slaythespire.dir/src/combat/MonsterGroup.cpp.i
+	/usr/bin/clang++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /Users/aaash/syncthing/slay/spire3/sts_lightspeed/src/combat/MonsterGroup.cpp > CMakeFiles/slaythespire.dir/src/combat/MonsterGroup.cpp.i
 
 CMakeFiles/slaythespire.dir/src/combat/MonsterGroup.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/slaythespire.dir/src/combat/MonsterGroup.cpp.s"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /Users/aaash/syncthing/slay/spire3/sts_lightspeed/src/combat/MonsterGroup.cpp -o CMakeFiles/slaythespire.dir/src/combat/MonsterGroup.cpp.s
+	/usr/bin/clang++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /Users/aaash/syncthing/slay/spire3/sts_lightspeed/src/combat/MonsterGroup.cpp -o CMakeFiles/slaythespire.dir/src/combat/MonsterGroup.cpp.s
 
 CMakeFiles/slaythespire.dir/src/combat/MonsterMoveDamage.cpp.o: CMakeFiles/slaythespire.dir/flags.make
 CMakeFiles/slaythespire.dir/src/combat/MonsterMoveDamage.cpp.o: /Users/aaash/syncthing/slay/spire3/sts_lightspeed/src/combat/MonsterMoveDamage.cpp
 CMakeFiles/slaythespire.dir/src/combat/MonsterMoveDamage.cpp.o: CMakeFiles/slaythespire.dir/compiler_depend.ts
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/Users/aaash/syncthing/slay/spire3/sts_lightspeed/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_10) "Building CXX object CMakeFiles/slaythespire.dir/src/combat/MonsterMoveDamage.cpp.o"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/slaythespire.dir/src/combat/MonsterMoveDamage.cpp.o -MF CMakeFiles/slaythespire.dir/src/combat/MonsterMoveDamage.cpp.o.d -o CMakeFiles/slaythespire.dir/src/combat/MonsterMoveDamage.cpp.o -c /Users/aaash/syncthing/slay/spire3/sts_lightspeed/src/combat/MonsterMoveDamage.cpp
+	/usr/bin/clang++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/slaythespire.dir/src/combat/MonsterMoveDamage.cpp.o -MF CMakeFiles/slaythespire.dir/src/combat/MonsterMoveDamage.cpp.o.d -o CMakeFiles/slaythespire.dir/src/combat/MonsterMoveDamage.cpp.o -c /Users/aaash/syncthing/slay/spire3/sts_lightspeed/src/combat/MonsterMoveDamage.cpp
 
 CMakeFiles/slaythespire.dir/src/combat/MonsterMoveDamage.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing CXX source to CMakeFiles/slaythespire.dir/src/combat/MonsterMoveDamage.cpp.i"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /Users/aaash/syncthing/slay/spire3/sts_lightspeed/src/combat/MonsterMoveDamage.cpp > CMakeFiles/slaythespire.dir/src/combat/MonsterMoveDamage.cpp.i
+	/usr/bin/clang++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /Users/aaash/syncthing/slay/spire3/sts_lightspeed/src/combat/MonsterMoveDamage.cpp > CMakeFiles/slaythespire.dir/src/combat/MonsterMoveDamage.cpp.i
 
 CMakeFiles/slaythespire.dir/src/combat/MonsterMoveDamage.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/slaythespire.dir/src/combat/MonsterMoveDamage.cpp.s"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /Users/aaash/syncthing/slay/spire3/sts_lightspeed/src/combat/MonsterMoveDamage.cpp -o CMakeFiles/slaythespire.dir/src/combat/MonsterMoveDamage.cpp.s
+	/usr/bin/clang++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /Users/aaash/syncthing/slay/spire3/sts_lightspeed/src/combat/MonsterMoveDamage.cpp -o CMakeFiles/slaythespire.dir/src/combat/MonsterMoveDamage.cpp.s
 
 CMakeFiles/slaythespire.dir/src/combat/MonsterSpecific.cpp.o: CMakeFiles/slaythespire.dir/flags.make
 CMakeFiles/slaythespire.dir/src/combat/MonsterSpecific.cpp.o: /Users/aaash/syncthing/slay/spire3/sts_lightspeed/src/combat/MonsterSpecific.cpp
 CMakeFiles/slaythespire.dir/src/combat/MonsterSpecific.cpp.o: CMakeFiles/slaythespire.dir/compiler_depend.ts
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/Users/aaash/syncthing/slay/spire3/sts_lightspeed/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_11) "Building CXX object CMakeFiles/slaythespire.dir/src/combat/MonsterSpecific.cpp.o"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/slaythespire.dir/src/combat/MonsterSpecific.cpp.o -MF CMakeFiles/slaythespire.dir/src/combat/MonsterSpecific.cpp.o.d -o CMakeFiles/slaythespire.dir/src/combat/MonsterSpecific.cpp.o -c /Users/aaash/syncthing/slay/spire3/sts_lightspeed/src/combat/MonsterSpecific.cpp
+	/usr/bin/clang++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/slaythespire.dir/src/combat/MonsterSpecific.cpp.o -MF CMakeFiles/slaythespire.dir/src/combat/MonsterSpecific.cpp.o.d -o CMakeFiles/slaythespire.dir/src/combat/MonsterSpecific.cpp.o -c /Users/aaash/syncthing/slay/spire3/sts_lightspeed/src/combat/MonsterSpecific.cpp
 
 CMakeFiles/slaythespire.dir/src/combat/MonsterSpecific.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing CXX source to CMakeFiles/slaythespire.dir/src/combat/MonsterSpecific.cpp.i"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /Users/aaash/syncthing/slay/spire3/sts_lightspeed/src/combat/MonsterSpecific.cpp > CMakeFiles/slaythespire.dir/src/combat/MonsterSpecific.cpp.i
+	/usr/bin/clang++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /Users/aaash/syncthing/slay/spire3/sts_lightspeed/src/combat/MonsterSpecific.cpp > CMakeFiles/slaythespire.dir/src/combat/MonsterSpecific.cpp.i
 
 CMakeFiles/slaythespire.dir/src/combat/MonsterSpecific.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/slaythespire.dir/src/combat/MonsterSpecific.cpp.s"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /Users/aaash/syncthing/slay/spire3/sts_lightspeed/src/combat/MonsterSpecific.cpp -o CMakeFiles/slaythespire.dir/src/combat/MonsterSpecific.cpp.s
+	/usr/bin/clang++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /Users/aaash/syncthing/slay/spire3/sts_lightspeed/src/combat/MonsterSpecific.cpp -o CMakeFiles/slaythespire.dir/src/combat/MonsterSpecific.cpp.s
 
 CMakeFiles/slaythespire.dir/src/combat/Player.cpp.o: CMakeFiles/slaythespire.dir/flags.make
 CMakeFiles/slaythespire.dir/src/combat/Player.cpp.o: /Users/aaash/syncthing/slay/spire3/sts_lightspeed/src/combat/Player.cpp
 CMakeFiles/slaythespire.dir/src/combat/Player.cpp.o: CMakeFiles/slaythespire.dir/compiler_depend.ts
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/Users/aaash/syncthing/slay/spire3/sts_lightspeed/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_12) "Building CXX object CMakeFiles/slaythespire.dir/src/combat/Player.cpp.o"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/slaythespire.dir/src/combat/Player.cpp.o -MF CMakeFiles/slaythespire.dir/src/combat/Player.cpp.o.d -o CMakeFiles/slaythespire.dir/src/combat/Player.cpp.o -c /Users/aaash/syncthing/slay/spire3/sts_lightspeed/src/combat/Player.cpp
+	/usr/bin/clang++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/slaythespire.dir/src/combat/Player.cpp.o -MF CMakeFiles/slaythespire.dir/src/combat/Player.cpp.o.d -o CMakeFiles/slaythespire.dir/src/combat/Player.cpp.o -c /Users/aaash/syncthing/slay/spire3/sts_lightspeed/src/combat/Player.cpp
 
 CMakeFiles/slaythespire.dir/src/combat/Player.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing CXX source to CMakeFiles/slaythespire.dir/src/combat/Player.cpp.i"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /Users/aaash/syncthing/slay/spire3/sts_lightspeed/src/combat/Player.cpp > CMakeFiles/slaythespire.dir/src/combat/Player.cpp.i
+	/usr/bin/clang++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /Users/aaash/syncthing/slay/spire3/sts_lightspeed/src/combat/Player.cpp > CMakeFiles/slaythespire.dir/src/combat/Player.cpp.i
 
 CMakeFiles/slaythespire.dir/src/combat/Player.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/slaythespire.dir/src/combat/Player.cpp.s"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /Users/aaash/syncthing/slay/spire3/sts_lightspeed/src/combat/Player.cpp -o CMakeFiles/slaythespire.dir/src/combat/Player.cpp.s
+	/usr/bin/clang++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /Users/aaash/syncthing/slay/spire3/sts_lightspeed/src/combat/Player.cpp -o CMakeFiles/slaythespire.dir/src/combat/Player.cpp.s
 
 CMakeFiles/slaythespire.dir/src/game/Card.cpp.o: CMakeFiles/slaythespire.dir/flags.make
 CMakeFiles/slaythespire.dir/src/game/Card.cpp.o: /Users/aaash/syncthing/slay/spire3/sts_lightspeed/src/game/Card.cpp
 CMakeFiles/slaythespire.dir/src/game/Card.cpp.o: CMakeFiles/slaythespire.dir/compiler_depend.ts
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/Users/aaash/syncthing/slay/spire3/sts_lightspeed/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_13) "Building CXX object CMakeFiles/slaythespire.dir/src/game/Card.cpp.o"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/slaythespire.dir/src/game/Card.cpp.o -MF CMakeFiles/slaythespire.dir/src/game/Card.cpp.o.d -o CMakeFiles/slaythespire.dir/src/game/Card.cpp.o -c /Users/aaash/syncthing/slay/spire3/sts_lightspeed/src/game/Card.cpp
+	/usr/bin/clang++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/slaythespire.dir/src/game/Card.cpp.o -MF CMakeFiles/slaythespire.dir/src/game/Card.cpp.o.d -o CMakeFiles/slaythespire.dir/src/game/Card.cpp.o -c /Users/aaash/syncthing/slay/spire3/sts_lightspeed/src/game/Card.cpp
 
 CMakeFiles/slaythespire.dir/src/game/Card.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing CXX source to CMakeFiles/slaythespire.dir/src/game/Card.cpp.i"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /Users/aaash/syncthing/slay/spire3/sts_lightspeed/src/game/Card.cpp > CMakeFiles/slaythespire.dir/src/game/Card.cpp.i
+	/usr/bin/clang++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /Users/aaash/syncthing/slay/spire3/sts_lightspeed/src/game/Card.cpp > CMakeFiles/slaythespire.dir/src/game/Card.cpp.i
 
 CMakeFiles/slaythespire.dir/src/game/Card.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/slaythespire.dir/src/game/Card.cpp.s"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /Users/aaash/syncthing/slay/spire3/sts_lightspeed/src/game/Card.cpp -o CMakeFiles/slaythespire.dir/src/game/Card.cpp.s
+	/usr/bin/clang++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /Users/aaash/syncthing/slay/spire3/sts_lightspeed/src/game/Card.cpp -o CMakeFiles/slaythespire.dir/src/game/Card.cpp.s
 
 CMakeFiles/slaythespire.dir/src/game/CombatReward.cpp.o: CMakeFiles/slaythespire.dir/flags.make
 CMakeFiles/slaythespire.dir/src/game/CombatReward.cpp.o: /Users/aaash/syncthing/slay/spire3/sts_lightspeed/src/game/CombatReward.cpp
 CMakeFiles/slaythespire.dir/src/game/CombatReward.cpp.o: CMakeFiles/slaythespire.dir/compiler_depend.ts
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/Users/aaash/syncthing/slay/spire3/sts_lightspeed/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_14) "Building CXX object CMakeFiles/slaythespire.dir/src/game/CombatReward.cpp.o"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/slaythespire.dir/src/game/CombatReward.cpp.o -MF CMakeFiles/slaythespire.dir/src/game/CombatReward.cpp.o.d -o CMakeFiles/slaythespire.dir/src/game/CombatReward.cpp.o -c /Users/aaash/syncthing/slay/spire3/sts_lightspeed/src/game/CombatReward.cpp
+	/usr/bin/clang++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/slaythespire.dir/src/game/CombatReward.cpp.o -MF CMakeFiles/slaythespire.dir/src/game/CombatReward.cpp.o.d -o CMakeFiles/slaythespire.dir/src/game/CombatReward.cpp.o -c /Users/aaash/syncthing/slay/spire3/sts_lightspeed/src/game/CombatReward.cpp
 
 CMakeFiles/slaythespire.dir/src/game/CombatReward.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing CXX source to CMakeFiles/slaythespire.dir/src/game/CombatReward.cpp.i"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /Users/aaash/syncthing/slay/spire3/sts_lightspeed/src/game/CombatReward.cpp > CMakeFiles/slaythespire.dir/src/game/CombatReward.cpp.i
+	/usr/bin/clang++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /Users/aaash/syncthing/slay/spire3/sts_lightspeed/src/game/CombatReward.cpp > CMakeFiles/slaythespire.dir/src/game/CombatReward.cpp.i
 
 CMakeFiles/slaythespire.dir/src/game/CombatReward.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/slaythespire.dir/src/game/CombatReward.cpp.s"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /Users/aaash/syncthing/slay/spire3/sts_lightspeed/src/game/CombatReward.cpp -o CMakeFiles/slaythespire.dir/src/game/CombatReward.cpp.s
+	/usr/bin/clang++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /Users/aaash/syncthing/slay/spire3/sts_lightspeed/src/game/CombatReward.cpp -o CMakeFiles/slaythespire.dir/src/game/CombatReward.cpp.s
 
 CMakeFiles/slaythespire.dir/src/game/Deck.cpp.o: CMakeFiles/slaythespire.dir/flags.make
 CMakeFiles/slaythespire.dir/src/game/Deck.cpp.o: /Users/aaash/syncthing/slay/spire3/sts_lightspeed/src/game/Deck.cpp
 CMakeFiles/slaythespire.dir/src/game/Deck.cpp.o: CMakeFiles/slaythespire.dir/compiler_depend.ts
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/Users/aaash/syncthing/slay/spire3/sts_lightspeed/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_15) "Building CXX object CMakeFiles/slaythespire.dir/src/game/Deck.cpp.o"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/slaythespire.dir/src/game/Deck.cpp.o -MF CMakeFiles/slaythespire.dir/src/game/Deck.cpp.o.d -o CMakeFiles/slaythespire.dir/src/game/Deck.cpp.o -c /Users/aaash/syncthing/slay/spire3/sts_lightspeed/src/game/Deck.cpp
+	/usr/bin/clang++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/slaythespire.dir/src/game/Deck.cpp.o -MF CMakeFiles/slaythespire.dir/src/game/Deck.cpp.o.d -o CMakeFiles/slaythespire.dir/src/game/Deck.cpp.o -c /Users/aaash/syncthing/slay/spire3/sts_lightspeed/src/game/Deck.cpp
 
 CMakeFiles/slaythespire.dir/src/game/Deck.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing CXX source to CMakeFiles/slaythespire.dir/src/game/Deck.cpp.i"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /Users/aaash/syncthing/slay/spire3/sts_lightspeed/src/game/Deck.cpp > CMakeFiles/slaythespire.dir/src/game/Deck.cpp.i
+	/usr/bin/clang++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /Users/aaash/syncthing/slay/spire3/sts_lightspeed/src/game/Deck.cpp > CMakeFiles/slaythespire.dir/src/game/Deck.cpp.i
 
 CMakeFiles/slaythespire.dir/src/game/Deck.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/slaythespire.dir/src/game/Deck.cpp.s"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /Users/aaash/syncthing/slay/spire3/sts_lightspeed/src/game/Deck.cpp -o CMakeFiles/slaythespire.dir/src/game/Deck.cpp.s
+	/usr/bin/clang++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /Users/aaash/syncthing/slay/spire3/sts_lightspeed/src/game/Deck.cpp -o CMakeFiles/slaythespire.dir/src/game/Deck.cpp.s
 
 CMakeFiles/slaythespire.dir/src/game/Game.cpp.o: CMakeFiles/slaythespire.dir/flags.make
 CMakeFiles/slaythespire.dir/src/game/Game.cpp.o: /Users/aaash/syncthing/slay/spire3/sts_lightspeed/src/game/Game.cpp
 CMakeFiles/slaythespire.dir/src/game/Game.cpp.o: CMakeFiles/slaythespire.dir/compiler_depend.ts
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/Users/aaash/syncthing/slay/spire3/sts_lightspeed/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_16) "Building CXX object CMakeFiles/slaythespire.dir/src/game/Game.cpp.o"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/slaythespire.dir/src/game/Game.cpp.o -MF CMakeFiles/slaythespire.dir/src/game/Game.cpp.o.d -o CMakeFiles/slaythespire.dir/src/game/Game.cpp.o -c /Users/aaash/syncthing/slay/spire3/sts_lightspeed/src/game/Game.cpp
+	/usr/bin/clang++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/slaythespire.dir/src/game/Game.cpp.o -MF CMakeFiles/slaythespire.dir/src/game/Game.cpp.o.d -o CMakeFiles/slaythespire.dir/src/game/Game.cpp.o -c /Users/aaash/syncthing/slay/spire3/sts_lightspeed/src/game/Game.cpp
 
 CMakeFiles/slaythespire.dir/src/game/Game.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing CXX source to CMakeFiles/slaythespire.dir/src/game/Game.cpp.i"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /Users/aaash/syncthing/slay/spire3/sts_lightspeed/src/game/Game.cpp > CMakeFiles/slaythespire.dir/src/game/Game.cpp.i
+	/usr/bin/clang++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /Users/aaash/syncthing/slay/spire3/sts_lightspeed/src/game/Game.cpp > CMakeFiles/slaythespire.dir/src/game/Game.cpp.i
 
 CMakeFiles/slaythespire.dir/src/game/Game.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/slaythespire.dir/src/game/Game.cpp.s"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /Users/aaash/syncthing/slay/spire3/sts_lightspeed/src/game/Game.cpp -o CMakeFiles/slaythespire.dir/src/game/Game.cpp.s
+	/usr/bin/clang++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /Users/aaash/syncthing/slay/spire3/sts_lightspeed/src/game/Game.cpp -o CMakeFiles/slaythespire.dir/src/game/Game.cpp.s
 
 CMakeFiles/slaythespire.dir/src/game/GameContext.cpp.o: CMakeFiles/slaythespire.dir/flags.make
 CMakeFiles/slaythespire.dir/src/game/GameContext.cpp.o: /Users/aaash/syncthing/slay/spire3/sts_lightspeed/src/game/GameContext.cpp
 CMakeFiles/slaythespire.dir/src/game/GameContext.cpp.o: CMakeFiles/slaythespire.dir/compiler_depend.ts
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/Users/aaash/syncthing/slay/spire3/sts_lightspeed/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_17) "Building CXX object CMakeFiles/slaythespire.dir/src/game/GameContext.cpp.o"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/slaythespire.dir/src/game/GameContext.cpp.o -MF CMakeFiles/slaythespire.dir/src/game/GameContext.cpp.o.d -o CMakeFiles/slaythespire.dir/src/game/GameContext.cpp.o -c /Users/aaash/syncthing/slay/spire3/sts_lightspeed/src/game/GameContext.cpp
+	/usr/bin/clang++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/slaythespire.dir/src/game/GameContext.cpp.o -MF CMakeFiles/slaythespire.dir/src/game/GameContext.cpp.o.d -o CMakeFiles/slaythespire.dir/src/game/GameContext.cpp.o -c /Users/aaash/syncthing/slay/spire3/sts_lightspeed/src/game/GameContext.cpp
 
 CMakeFiles/slaythespire.dir/src/game/GameContext.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing CXX source to CMakeFiles/slaythespire.dir/src/game/GameContext.cpp.i"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /Users/aaash/syncthing/slay/spire3/sts_lightspeed/src/game/GameContext.cpp > CMakeFiles/slaythespire.dir/src/game/GameContext.cpp.i
+	/usr/bin/clang++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /Users/aaash/syncthing/slay/spire3/sts_lightspeed/src/game/GameContext.cpp > CMakeFiles/slaythespire.dir/src/game/GameContext.cpp.i
 
 CMakeFiles/slaythespire.dir/src/game/GameContext.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/slaythespire.dir/src/game/GameContext.cpp.s"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /Users/aaash/syncthing/slay/spire3/sts_lightspeed/src/game/GameContext.cpp -o CMakeFiles/slaythespire.dir/src/game/GameContext.cpp.s
+	/usr/bin/clang++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /Users/aaash/syncthing/slay/spire3/sts_lightspeed/src/game/GameContext.cpp -o CMakeFiles/slaythespire.dir/src/game/GameContext.cpp.s
 
 CMakeFiles/slaythespire.dir/src/game/Map.cpp.o: CMakeFiles/slaythespire.dir/flags.make
 CMakeFiles/slaythespire.dir/src/game/Map.cpp.o: /Users/aaash/syncthing/slay/spire3/sts_lightspeed/src/game/Map.cpp
 CMakeFiles/slaythespire.dir/src/game/Map.cpp.o: CMakeFiles/slaythespire.dir/compiler_depend.ts
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/Users/aaash/syncthing/slay/spire3/sts_lightspeed/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_18) "Building CXX object CMakeFiles/slaythespire.dir/src/game/Map.cpp.o"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/slaythespire.dir/src/game/Map.cpp.o -MF CMakeFiles/slaythespire.dir/src/game/Map.cpp.o.d -o CMakeFiles/slaythespire.dir/src/game/Map.cpp.o -c /Users/aaash/syncthing/slay/spire3/sts_lightspeed/src/game/Map.cpp
+	/usr/bin/clang++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/slaythespire.dir/src/game/Map.cpp.o -MF CMakeFiles/slaythespire.dir/src/game/Map.cpp.o.d -o CMakeFiles/slaythespire.dir/src/game/Map.cpp.o -c /Users/aaash/syncthing/slay/spire3/sts_lightspeed/src/game/Map.cpp
 
 CMakeFiles/slaythespire.dir/src/game/Map.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing CXX source to CMakeFiles/slaythespire.dir/src/game/Map.cpp.i"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /Users/aaash/syncthing/slay/spire3/sts_lightspeed/src/game/Map.cpp > CMakeFiles/slaythespire.dir/src/game/Map.cpp.i
+	/usr/bin/clang++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /Users/aaash/syncthing/slay/spire3/sts_lightspeed/src/game/Map.cpp > CMakeFiles/slaythespire.dir/src/game/Map.cpp.i
 
 CMakeFiles/slaythespire.dir/src/game/Map.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/slaythespire.dir/src/game/Map.cpp.s"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /Users/aaash/syncthing/slay/spire3/sts_lightspeed/src/game/Map.cpp -o CMakeFiles/slaythespire.dir/src/game/Map.cpp.s
+	/usr/bin/clang++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /Users/aaash/syncthing/slay/spire3/sts_lightspeed/src/game/Map.cpp -o CMakeFiles/slaythespire.dir/src/game/Map.cpp.s
 
 CMakeFiles/slaythespire.dir/src/game/Neow.cpp.o: CMakeFiles/slaythespire.dir/flags.make
 CMakeFiles/slaythespire.dir/src/game/Neow.cpp.o: /Users/aaash/syncthing/slay/spire3/sts_lightspeed/src/game/Neow.cpp
 CMakeFiles/slaythespire.dir/src/game/Neow.cpp.o: CMakeFiles/slaythespire.dir/compiler_depend.ts
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/Users/aaash/syncthing/slay/spire3/sts_lightspeed/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_19) "Building CXX object CMakeFiles/slaythespire.dir/src/game/Neow.cpp.o"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/slaythespire.dir/src/game/Neow.cpp.o -MF CMakeFiles/slaythespire.dir/src/game/Neow.cpp.o.d -o CMakeFiles/slaythespire.dir/src/game/Neow.cpp.o -c /Users/aaash/syncthing/slay/spire3/sts_lightspeed/src/game/Neow.cpp
+	/usr/bin/clang++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/slaythespire.dir/src/game/Neow.cpp.o -MF CMakeFiles/slaythespire.dir/src/game/Neow.cpp.o.d -o CMakeFiles/slaythespire.dir/src/game/Neow.cpp.o -c /Users/aaash/syncthing/slay/spire3/sts_lightspeed/src/game/Neow.cpp
 
 CMakeFiles/slaythespire.dir/src/game/Neow.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing CXX source to CMakeFiles/slaythespire.dir/src/game/Neow.cpp.i"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /Users/aaash/syncthing/slay/spire3/sts_lightspeed/src/game/Neow.cpp > CMakeFiles/slaythespire.dir/src/game/Neow.cpp.i
+	/usr/bin/clang++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /Users/aaash/syncthing/slay/spire3/sts_lightspeed/src/game/Neow.cpp > CMakeFiles/slaythespire.dir/src/game/Neow.cpp.i
 
 CMakeFiles/slaythespire.dir/src/game/Neow.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/slaythespire.dir/src/game/Neow.cpp.s"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /Users/aaash/syncthing/slay/spire3/sts_lightspeed/src/game/Neow.cpp -o CMakeFiles/slaythespire.dir/src/game/Neow.cpp.s
+	/usr/bin/clang++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /Users/aaash/syncthing/slay/spire3/sts_lightspeed/src/game/Neow.cpp -o CMakeFiles/slaythespire.dir/src/game/Neow.cpp.s
 
 CMakeFiles/slaythespire.dir/src/game/SaveFile.cpp.o: CMakeFiles/slaythespire.dir/flags.make
 CMakeFiles/slaythespire.dir/src/game/SaveFile.cpp.o: /Users/aaash/syncthing/slay/spire3/sts_lightspeed/src/game/SaveFile.cpp
 CMakeFiles/slaythespire.dir/src/game/SaveFile.cpp.o: CMakeFiles/slaythespire.dir/compiler_depend.ts
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/Users/aaash/syncthing/slay/spire3/sts_lightspeed/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_20) "Building CXX object CMakeFiles/slaythespire.dir/src/game/SaveFile.cpp.o"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/slaythespire.dir/src/game/SaveFile.cpp.o -MF CMakeFiles/slaythespire.dir/src/game/SaveFile.cpp.o.d -o CMakeFiles/slaythespire.dir/src/game/SaveFile.cpp.o -c /Users/aaash/syncthing/slay/spire3/sts_lightspeed/src/game/SaveFile.cpp
+	/usr/bin/clang++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/slaythespire.dir/src/game/SaveFile.cpp.o -MF CMakeFiles/slaythespire.dir/src/game/SaveFile.cpp.o.d -o CMakeFiles/slaythespire.dir/src/game/SaveFile.cpp.o -c /Users/aaash/syncthing/slay/spire3/sts_lightspeed/src/game/SaveFile.cpp
 
 CMakeFiles/slaythespire.dir/src/game/SaveFile.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing CXX source to CMakeFiles/slaythespire.dir/src/game/SaveFile.cpp.i"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /Users/aaash/syncthing/slay/spire3/sts_lightspeed/src/game/SaveFile.cpp > CMakeFiles/slaythespire.dir/src/game/SaveFile.cpp.i
+	/usr/bin/clang++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /Users/aaash/syncthing/slay/spire3/sts_lightspeed/src/game/SaveFile.cpp > CMakeFiles/slaythespire.dir/src/game/SaveFile.cpp.i
 
 CMakeFiles/slaythespire.dir/src/game/SaveFile.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/slaythespire.dir/src/game/SaveFile.cpp.s"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /Users/aaash/syncthing/slay/spire3/sts_lightspeed/src/game/SaveFile.cpp -o CMakeFiles/slaythespire.dir/src/game/SaveFile.cpp.s
+	/usr/bin/clang++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /Users/aaash/syncthing/slay/spire3/sts_lightspeed/src/game/SaveFile.cpp -o CMakeFiles/slaythespire.dir/src/game/SaveFile.cpp.s
 
 CMakeFiles/slaythespire.dir/src/game/Shop.cpp.o: CMakeFiles/slaythespire.dir/flags.make
 CMakeFiles/slaythespire.dir/src/game/Shop.cpp.o: /Users/aaash/syncthing/slay/spire3/sts_lightspeed/src/game/Shop.cpp
 CMakeFiles/slaythespire.dir/src/game/Shop.cpp.o: CMakeFiles/slaythespire.dir/compiler_depend.ts
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/Users/aaash/syncthing/slay/spire3/sts_lightspeed/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_21) "Building CXX object CMakeFiles/slaythespire.dir/src/game/Shop.cpp.o"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/slaythespire.dir/src/game/Shop.cpp.o -MF CMakeFiles/slaythespire.dir/src/game/Shop.cpp.o.d -o CMakeFiles/slaythespire.dir/src/game/Shop.cpp.o -c /Users/aaash/syncthing/slay/spire3/sts_lightspeed/src/game/Shop.cpp
+	/usr/bin/clang++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/slaythespire.dir/src/game/Shop.cpp.o -MF CMakeFiles/slaythespire.dir/src/game/Shop.cpp.o.d -o CMakeFiles/slaythespire.dir/src/game/Shop.cpp.o -c /Users/aaash/syncthing/slay/spire3/sts_lightspeed/src/game/Shop.cpp
 
 CMakeFiles/slaythespire.dir/src/game/Shop.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing CXX source to CMakeFiles/slaythespire.dir/src/game/Shop.cpp.i"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /Users/aaash/syncthing/slay/spire3/sts_lightspeed/src/game/Shop.cpp > CMakeFiles/slaythespire.dir/src/game/Shop.cpp.i
+	/usr/bin/clang++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /Users/aaash/syncthing/slay/spire3/sts_lightspeed/src/game/Shop.cpp > CMakeFiles/slaythespire.dir/src/game/Shop.cpp.i
 
 CMakeFiles/slaythespire.dir/src/game/Shop.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/slaythespire.dir/src/game/Shop.cpp.s"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /Users/aaash/syncthing/slay/spire3/sts_lightspeed/src/game/Shop.cpp -o CMakeFiles/slaythespire.dir/src/game/Shop.cpp.s
+	/usr/bin/clang++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /Users/aaash/syncthing/slay/spire3/sts_lightspeed/src/game/Shop.cpp -o CMakeFiles/slaythespire.dir/src/game/Shop.cpp.s
 
 CMakeFiles/slaythespire.dir/src/sim/BattleSimulator.cpp.o: CMakeFiles/slaythespire.dir/flags.make
 CMakeFiles/slaythespire.dir/src/sim/BattleSimulator.cpp.o: /Users/aaash/syncthing/slay/spire3/sts_lightspeed/src/sim/BattleSimulator.cpp
 CMakeFiles/slaythespire.dir/src/sim/BattleSimulator.cpp.o: CMakeFiles/slaythespire.dir/compiler_depend.ts
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/Users/aaash/syncthing/slay/spire3/sts_lightspeed/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_22) "Building CXX object CMakeFiles/slaythespire.dir/src/sim/BattleSimulator.cpp.o"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/slaythespire.dir/src/sim/BattleSimulator.cpp.o -MF CMakeFiles/slaythespire.dir/src/sim/BattleSimulator.cpp.o.d -o CMakeFiles/slaythespire.dir/src/sim/BattleSimulator.cpp.o -c /Users/aaash/syncthing/slay/spire3/sts_lightspeed/src/sim/BattleSimulator.cpp
+	/usr/bin/clang++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/slaythespire.dir/src/sim/BattleSimulator.cpp.o -MF CMakeFiles/slaythespire.dir/src/sim/BattleSimulator.cpp.o.d -o CMakeFiles/slaythespire.dir/src/sim/BattleSimulator.cpp.o -c /Users/aaash/syncthing/slay/spire3/sts_lightspeed/src/sim/BattleSimulator.cpp
 
 CMakeFiles/slaythespire.dir/src/sim/BattleSimulator.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing CXX source to CMakeFiles/slaythespire.dir/src/sim/BattleSimulator.cpp.i"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /Users/aaash/syncthing/slay/spire3/sts_lightspeed/src/sim/BattleSimulator.cpp > CMakeFiles/slaythespire.dir/src/sim/BattleSimulator.cpp.i
+	/usr/bin/clang++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /Users/aaash/syncthing/slay/spire3/sts_lightspeed/src/sim/BattleSimulator.cpp > CMakeFiles/slaythespire.dir/src/sim/BattleSimulator.cpp.i
 
 CMakeFiles/slaythespire.dir/src/sim/BattleSimulator.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/slaythespire.dir/src/sim/BattleSimulator.cpp.s"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /Users/aaash/syncthing/slay/spire3/sts_lightspeed/src/sim/BattleSimulator.cpp -o CMakeFiles/slaythespire.dir/src/sim/BattleSimulator.cpp.s
+	/usr/bin/clang++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /Users/aaash/syncthing/slay/spire3/sts_lightspeed/src/sim/BattleSimulator.cpp -o CMakeFiles/slaythespire.dir/src/sim/BattleSimulator.cpp.s
 
 CMakeFiles/slaythespire.dir/src/sim/ConsoleSimulator.cpp.o: CMakeFiles/slaythespire.dir/flags.make
 CMakeFiles/slaythespire.dir/src/sim/ConsoleSimulator.cpp.o: /Users/aaash/syncthing/slay/spire3/sts_lightspeed/src/sim/ConsoleSimulator.cpp
 CMakeFiles/slaythespire.dir/src/sim/ConsoleSimulator.cpp.o: CMakeFiles/slaythespire.dir/compiler_depend.ts
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/Users/aaash/syncthing/slay/spire3/sts_lightspeed/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_23) "Building CXX object CMakeFiles/slaythespire.dir/src/sim/ConsoleSimulator.cpp.o"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/slaythespire.dir/src/sim/ConsoleSimulator.cpp.o -MF CMakeFiles/slaythespire.dir/src/sim/ConsoleSimulator.cpp.o.d -o CMakeFiles/slaythespire.dir/src/sim/ConsoleSimulator.cpp.o -c /Users/aaash/syncthing/slay/spire3/sts_lightspeed/src/sim/ConsoleSimulator.cpp
+	/usr/bin/clang++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/slaythespire.dir/src/sim/ConsoleSimulator.cpp.o -MF CMakeFiles/slaythespire.dir/src/sim/ConsoleSimulator.cpp.o.d -o CMakeFiles/slaythespire.dir/src/sim/ConsoleSimulator.cpp.o -c /Users/aaash/syncthing/slay/spire3/sts_lightspeed/src/sim/ConsoleSimulator.cpp
 
 CMakeFiles/slaythespire.dir/src/sim/ConsoleSimulator.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing CXX source to CMakeFiles/slaythespire.dir/src/sim/ConsoleSimulator.cpp.i"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /Users/aaash/syncthing/slay/spire3/sts_lightspeed/src/sim/ConsoleSimulator.cpp > CMakeFiles/slaythespire.dir/src/sim/ConsoleSimulator.cpp.i
+	/usr/bin/clang++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /Users/aaash/syncthing/slay/spire3/sts_lightspeed/src/sim/ConsoleSimulator.cpp > CMakeFiles/slaythespire.dir/src/sim/ConsoleSimulator.cpp.i
 
 CMakeFiles/slaythespire.dir/src/sim/ConsoleSimulator.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/slaythespire.dir/src/sim/ConsoleSimulator.cpp.s"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /Users/aaash/syncthing/slay/spire3/sts_lightspeed/src/sim/ConsoleSimulator.cpp -o CMakeFiles/slaythespire.dir/src/sim/ConsoleSimulator.cpp.s
+	/usr/bin/clang++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /Users/aaash/syncthing/slay/spire3/sts_lightspeed/src/sim/ConsoleSimulator.cpp -o CMakeFiles/slaythespire.dir/src/sim/ConsoleSimulator.cpp.s
 
 CMakeFiles/slaythespire.dir/src/sim/PrintHelpers.cpp.o: CMakeFiles/slaythespire.dir/flags.make
 CMakeFiles/slaythespire.dir/src/sim/PrintHelpers.cpp.o: /Users/aaash/syncthing/slay/spire3/sts_lightspeed/src/sim/PrintHelpers.cpp
 CMakeFiles/slaythespire.dir/src/sim/PrintHelpers.cpp.o: CMakeFiles/slaythespire.dir/compiler_depend.ts
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/Users/aaash/syncthing/slay/spire3/sts_lightspeed/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_24) "Building CXX object CMakeFiles/slaythespire.dir/src/sim/PrintHelpers.cpp.o"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/slaythespire.dir/src/sim/PrintHelpers.cpp.o -MF CMakeFiles/slaythespire.dir/src/sim/PrintHelpers.cpp.o.d -o CMakeFiles/slaythespire.dir/src/sim/PrintHelpers.cpp.o -c /Users/aaash/syncthing/slay/spire3/sts_lightspeed/src/sim/PrintHelpers.cpp
+	/usr/bin/clang++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/slaythespire.dir/src/sim/PrintHelpers.cpp.o -MF CMakeFiles/slaythespire.dir/src/sim/PrintHelpers.cpp.o.d -o CMakeFiles/slaythespire.dir/src/sim/PrintHelpers.cpp.o -c /Users/aaash/syncthing/slay/spire3/sts_lightspeed/src/sim/PrintHelpers.cpp
 
 CMakeFiles/slaythespire.dir/src/sim/PrintHelpers.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing CXX source to CMakeFiles/slaythespire.dir/src/sim/PrintHelpers.cpp.i"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /Users/aaash/syncthing/slay/spire3/sts_lightspeed/src/sim/PrintHelpers.cpp > CMakeFiles/slaythespire.dir/src/sim/PrintHelpers.cpp.i
+	/usr/bin/clang++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /Users/aaash/syncthing/slay/spire3/sts_lightspeed/src/sim/PrintHelpers.cpp > CMakeFiles/slaythespire.dir/src/sim/PrintHelpers.cpp.i
 
 CMakeFiles/slaythespire.dir/src/sim/PrintHelpers.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/slaythespire.dir/src/sim/PrintHelpers.cpp.s"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /Users/aaash/syncthing/slay/spire3/sts_lightspeed/src/sim/PrintHelpers.cpp -o CMakeFiles/slaythespire.dir/src/sim/PrintHelpers.cpp.s
+	/usr/bin/clang++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /Users/aaash/syncthing/slay/spire3/sts_lightspeed/src/sim/PrintHelpers.cpp -o CMakeFiles/slaythespire.dir/src/sim/PrintHelpers.cpp.s
 
 CMakeFiles/slaythespire.dir/src/sim/SimHelpers.cpp.o: CMakeFiles/slaythespire.dir/flags.make
 CMakeFiles/slaythespire.dir/src/sim/SimHelpers.cpp.o: /Users/aaash/syncthing/slay/spire3/sts_lightspeed/src/sim/SimHelpers.cpp
 CMakeFiles/slaythespire.dir/src/sim/SimHelpers.cpp.o: CMakeFiles/slaythespire.dir/compiler_depend.ts
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/Users/aaash/syncthing/slay/spire3/sts_lightspeed/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_25) "Building CXX object CMakeFiles/slaythespire.dir/src/sim/SimHelpers.cpp.o"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/slaythespire.dir/src/sim/SimHelpers.cpp.o -MF CMakeFiles/slaythespire.dir/src/sim/SimHelpers.cpp.o.d -o CMakeFiles/slaythespire.dir/src/sim/SimHelpers.cpp.o -c /Users/aaash/syncthing/slay/spire3/sts_lightspeed/src/sim/SimHelpers.cpp
+	/usr/bin/clang++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/slaythespire.dir/src/sim/SimHelpers.cpp.o -MF CMakeFiles/slaythespire.dir/src/sim/SimHelpers.cpp.o.d -o CMakeFiles/slaythespire.dir/src/sim/SimHelpers.cpp.o -c /Users/aaash/syncthing/slay/spire3/sts_lightspeed/src/sim/SimHelpers.cpp
 
 CMakeFiles/slaythespire.dir/src/sim/SimHelpers.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing CXX source to CMakeFiles/slaythespire.dir/src/sim/SimHelpers.cpp.i"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /Users/aaash/syncthing/slay/spire3/sts_lightspeed/src/sim/SimHelpers.cpp > CMakeFiles/slaythespire.dir/src/sim/SimHelpers.cpp.i
+	/usr/bin/clang++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /Users/aaash/syncthing/slay/spire3/sts_lightspeed/src/sim/SimHelpers.cpp > CMakeFiles/slaythespire.dir/src/sim/SimHelpers.cpp.i
 
 CMakeFiles/slaythespire.dir/src/sim/SimHelpers.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/slaythespire.dir/src/sim/SimHelpers.cpp.s"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /Users/aaash/syncthing/slay/spire3/sts_lightspeed/src/sim/SimHelpers.cpp -o CMakeFiles/slaythespire.dir/src/sim/SimHelpers.cpp.s
+	/usr/bin/clang++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /Users/aaash/syncthing/slay/spire3/sts_lightspeed/src/sim/SimHelpers.cpp -o CMakeFiles/slaythespire.dir/src/sim/SimHelpers.cpp.s
 
 CMakeFiles/slaythespire.dir/src/sim/search/Action.cpp.o: CMakeFiles/slaythespire.dir/flags.make
 CMakeFiles/slaythespire.dir/src/sim/search/Action.cpp.o: /Users/aaash/syncthing/slay/spire3/sts_lightspeed/src/sim/search/Action.cpp
 CMakeFiles/slaythespire.dir/src/sim/search/Action.cpp.o: CMakeFiles/slaythespire.dir/compiler_depend.ts
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/Users/aaash/syncthing/slay/spire3/sts_lightspeed/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_26) "Building CXX object CMakeFiles/slaythespire.dir/src/sim/search/Action.cpp.o"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/slaythespire.dir/src/sim/search/Action.cpp.o -MF CMakeFiles/slaythespire.dir/src/sim/search/Action.cpp.o.d -o CMakeFiles/slaythespire.dir/src/sim/search/Action.cpp.o -c /Users/aaash/syncthing/slay/spire3/sts_lightspeed/src/sim/search/Action.cpp
+	/usr/bin/clang++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/slaythespire.dir/src/sim/search/Action.cpp.o -MF CMakeFiles/slaythespire.dir/src/sim/search/Action.cpp.o.d -o CMakeFiles/slaythespire.dir/src/sim/search/Action.cpp.o -c /Users/aaash/syncthing/slay/spire3/sts_lightspeed/src/sim/search/Action.cpp
 
 CMakeFiles/slaythespire.dir/src/sim/search/Action.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing CXX source to CMakeFiles/slaythespire.dir/src/sim/search/Action.cpp.i"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /Users/aaash/syncthing/slay/spire3/sts_lightspeed/src/sim/search/Action.cpp > CMakeFiles/slaythespire.dir/src/sim/search/Action.cpp.i
+	/usr/bin/clang++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /Users/aaash/syncthing/slay/spire3/sts_lightspeed/src/sim/search/Action.cpp > CMakeFiles/slaythespire.dir/src/sim/search/Action.cpp.i
 
 CMakeFiles/slaythespire.dir/src/sim/search/Action.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/slaythespire.dir/src/sim/search/Action.cpp.s"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /Users/aaash/syncthing/slay/spire3/sts_lightspeed/src/sim/search/Action.cpp -o CMakeFiles/slaythespire.dir/src/sim/search/Action.cpp.s
+	/usr/bin/clang++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /Users/aaash/syncthing/slay/spire3/sts_lightspeed/src/sim/search/Action.cpp -o CMakeFiles/slaythespire.dir/src/sim/search/Action.cpp.s
 
 CMakeFiles/slaythespire.dir/src/sim/search/BattleScumSearcher2.cpp.o: CMakeFiles/slaythespire.dir/flags.make
 CMakeFiles/slaythespire.dir/src/sim/search/BattleScumSearcher2.cpp.o: /Users/aaash/syncthing/slay/spire3/sts_lightspeed/src/sim/search/BattleScumSearcher2.cpp
 CMakeFiles/slaythespire.dir/src/sim/search/BattleScumSearcher2.cpp.o: CMakeFiles/slaythespire.dir/compiler_depend.ts
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/Users/aaash/syncthing/slay/spire3/sts_lightspeed/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_27) "Building CXX object CMakeFiles/slaythespire.dir/src/sim/search/BattleScumSearcher2.cpp.o"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/slaythespire.dir/src/sim/search/BattleScumSearcher2.cpp.o -MF CMakeFiles/slaythespire.dir/src/sim/search/BattleScumSearcher2.cpp.o.d -o CMakeFiles/slaythespire.dir/src/sim/search/BattleScumSearcher2.cpp.o -c /Users/aaash/syncthing/slay/spire3/sts_lightspeed/src/sim/search/BattleScumSearcher2.cpp
+	/usr/bin/clang++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/slaythespire.dir/src/sim/search/BattleScumSearcher2.cpp.o -MF CMakeFiles/slaythespire.dir/src/sim/search/BattleScumSearcher2.cpp.o.d -o CMakeFiles/slaythespire.dir/src/sim/search/BattleScumSearcher2.cpp.o -c /Users/aaash/syncthing/slay/spire3/sts_lightspeed/src/sim/search/BattleScumSearcher2.cpp
 
 CMakeFiles/slaythespire.dir/src/sim/search/BattleScumSearcher2.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing CXX source to CMakeFiles/slaythespire.dir/src/sim/search/BattleScumSearcher2.cpp.i"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /Users/aaash/syncthing/slay/spire3/sts_lightspeed/src/sim/search/BattleScumSearcher2.cpp > CMakeFiles/slaythespire.dir/src/sim/search/BattleScumSearcher2.cpp.i
+	/usr/bin/clang++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /Users/aaash/syncthing/slay/spire3/sts_lightspeed/src/sim/search/BattleScumSearcher2.cpp > CMakeFiles/slaythespire.dir/src/sim/search/BattleScumSearcher2.cpp.i
 
 CMakeFiles/slaythespire.dir/src/sim/search/BattleScumSearcher2.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/slaythespire.dir/src/sim/search/BattleScumSearcher2.cpp.s"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /Users/aaash/syncthing/slay/spire3/sts_lightspeed/src/sim/search/BattleScumSearcher2.cpp -o CMakeFiles/slaythespire.dir/src/sim/search/BattleScumSearcher2.cpp.s
+	/usr/bin/clang++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /Users/aaash/syncthing/slay/spire3/sts_lightspeed/src/sim/search/BattleScumSearcher2.cpp -o CMakeFiles/slaythespire.dir/src/sim/search/BattleScumSearcher2.cpp.s
 
 CMakeFiles/slaythespire.dir/src/sim/search/ExpertKnowledge.cpp.o: CMakeFiles/slaythespire.dir/flags.make
 CMakeFiles/slaythespire.dir/src/sim/search/ExpertKnowledge.cpp.o: /Users/aaash/syncthing/slay/spire3/sts_lightspeed/src/sim/search/ExpertKnowledge.cpp
 CMakeFiles/slaythespire.dir/src/sim/search/ExpertKnowledge.cpp.o: CMakeFiles/slaythespire.dir/compiler_depend.ts
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/Users/aaash/syncthing/slay/spire3/sts_lightspeed/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_28) "Building CXX object CMakeFiles/slaythespire.dir/src/sim/search/ExpertKnowledge.cpp.o"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/slaythespire.dir/src/sim/search/ExpertKnowledge.cpp.o -MF CMakeFiles/slaythespire.dir/src/sim/search/ExpertKnowledge.cpp.o.d -o CMakeFiles/slaythespire.dir/src/sim/search/ExpertKnowledge.cpp.o -c /Users/aaash/syncthing/slay/spire3/sts_lightspeed/src/sim/search/ExpertKnowledge.cpp
+	/usr/bin/clang++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/slaythespire.dir/src/sim/search/ExpertKnowledge.cpp.o -MF CMakeFiles/slaythespire.dir/src/sim/search/ExpertKnowledge.cpp.o.d -o CMakeFiles/slaythespire.dir/src/sim/search/ExpertKnowledge.cpp.o -c /Users/aaash/syncthing/slay/spire3/sts_lightspeed/src/sim/search/ExpertKnowledge.cpp
 
 CMakeFiles/slaythespire.dir/src/sim/search/ExpertKnowledge.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing CXX source to CMakeFiles/slaythespire.dir/src/sim/search/ExpertKnowledge.cpp.i"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /Users/aaash/syncthing/slay/spire3/sts_lightspeed/src/sim/search/ExpertKnowledge.cpp > CMakeFiles/slaythespire.dir/src/sim/search/ExpertKnowledge.cpp.i
+	/usr/bin/clang++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /Users/aaash/syncthing/slay/spire3/sts_lightspeed/src/sim/search/ExpertKnowledge.cpp > CMakeFiles/slaythespire.dir/src/sim/search/ExpertKnowledge.cpp.i
 
 CMakeFiles/slaythespire.dir/src/sim/search/ExpertKnowledge.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/slaythespire.dir/src/sim/search/ExpertKnowledge.cpp.s"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /Users/aaash/syncthing/slay/spire3/sts_lightspeed/src/sim/search/ExpertKnowledge.cpp -o CMakeFiles/slaythespire.dir/src/sim/search/ExpertKnowledge.cpp.s
+	/usr/bin/clang++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /Users/aaash/syncthing/slay/spire3/sts_lightspeed/src/sim/search/ExpertKnowledge.cpp -o CMakeFiles/slaythespire.dir/src/sim/search/ExpertKnowledge.cpp.s
 
 CMakeFiles/slaythespire.dir/src/sim/search/GameAction.cpp.o: CMakeFiles/slaythespire.dir/flags.make
 CMakeFiles/slaythespire.dir/src/sim/search/GameAction.cpp.o: /Users/aaash/syncthing/slay/spire3/sts_lightspeed/src/sim/search/GameAction.cpp
 CMakeFiles/slaythespire.dir/src/sim/search/GameAction.cpp.o: CMakeFiles/slaythespire.dir/compiler_depend.ts
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/Users/aaash/syncthing/slay/spire3/sts_lightspeed/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_29) "Building CXX object CMakeFiles/slaythespire.dir/src/sim/search/GameAction.cpp.o"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/slaythespire.dir/src/sim/search/GameAction.cpp.o -MF CMakeFiles/slaythespire.dir/src/sim/search/GameAction.cpp.o.d -o CMakeFiles/slaythespire.dir/src/sim/search/GameAction.cpp.o -c /Users/aaash/syncthing/slay/spire3/sts_lightspeed/src/sim/search/GameAction.cpp
+	/usr/bin/clang++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/slaythespire.dir/src/sim/search/GameAction.cpp.o -MF CMakeFiles/slaythespire.dir/src/sim/search/GameAction.cpp.o.d -o CMakeFiles/slaythespire.dir/src/sim/search/GameAction.cpp.o -c /Users/aaash/syncthing/slay/spire3/sts_lightspeed/src/sim/search/GameAction.cpp
 
 CMakeFiles/slaythespire.dir/src/sim/search/GameAction.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing CXX source to CMakeFiles/slaythespire.dir/src/sim/search/GameAction.cpp.i"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /Users/aaash/syncthing/slay/spire3/sts_lightspeed/src/sim/search/GameAction.cpp > CMakeFiles/slaythespire.dir/src/sim/search/GameAction.cpp.i
+	/usr/bin/clang++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /Users/aaash/syncthing/slay/spire3/sts_lightspeed/src/sim/search/GameAction.cpp > CMakeFiles/slaythespire.dir/src/sim/search/GameAction.cpp.i
 
 CMakeFiles/slaythespire.dir/src/sim/search/GameAction.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/slaythespire.dir/src/sim/search/GameAction.cpp.s"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /Users/aaash/syncthing/slay/spire3/sts_lightspeed/src/sim/search/GameAction.cpp -o CMakeFiles/slaythespire.dir/src/sim/search/GameAction.cpp.s
+	/usr/bin/clang++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /Users/aaash/syncthing/slay/spire3/sts_lightspeed/src/sim/search/GameAction.cpp -o CMakeFiles/slaythespire.dir/src/sim/search/GameAction.cpp.s
 
 CMakeFiles/slaythespire.dir/src/sim/search/ScumSearchAgent2.cpp.o: CMakeFiles/slaythespire.dir/flags.make
 CMakeFiles/slaythespire.dir/src/sim/search/ScumSearchAgent2.cpp.o: /Users/aaash/syncthing/slay/spire3/sts_lightspeed/src/sim/search/ScumSearchAgent2.cpp
 CMakeFiles/slaythespire.dir/src/sim/search/ScumSearchAgent2.cpp.o: CMakeFiles/slaythespire.dir/compiler_depend.ts
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/Users/aaash/syncthing/slay/spire3/sts_lightspeed/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_30) "Building CXX object CMakeFiles/slaythespire.dir/src/sim/search/ScumSearchAgent2.cpp.o"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/slaythespire.dir/src/sim/search/ScumSearchAgent2.cpp.o -MF CMakeFiles/slaythespire.dir/src/sim/search/ScumSearchAgent2.cpp.o.d -o CMakeFiles/slaythespire.dir/src/sim/search/ScumSearchAgent2.cpp.o -c /Users/aaash/syncthing/slay/spire3/sts_lightspeed/src/sim/search/ScumSearchAgent2.cpp
+	/usr/bin/clang++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/slaythespire.dir/src/sim/search/ScumSearchAgent2.cpp.o -MF CMakeFiles/slaythespire.dir/src/sim/search/ScumSearchAgent2.cpp.o.d -o CMakeFiles/slaythespire.dir/src/sim/search/ScumSearchAgent2.cpp.o -c /Users/aaash/syncthing/slay/spire3/sts_lightspeed/src/sim/search/ScumSearchAgent2.cpp
 
 CMakeFiles/slaythespire.dir/src/sim/search/ScumSearchAgent2.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing CXX source to CMakeFiles/slaythespire.dir/src/sim/search/ScumSearchAgent2.cpp.i"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /Users/aaash/syncthing/slay/spire3/sts_lightspeed/src/sim/search/ScumSearchAgent2.cpp > CMakeFiles/slaythespire.dir/src/sim/search/ScumSearchAgent2.cpp.i
+	/usr/bin/clang++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /Users/aaash/syncthing/slay/spire3/sts_lightspeed/src/sim/search/ScumSearchAgent2.cpp > CMakeFiles/slaythespire.dir/src/sim/search/ScumSearchAgent2.cpp.i
 
 CMakeFiles/slaythespire.dir/src/sim/search/ScumSearchAgent2.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/slaythespire.dir/src/sim/search/ScumSearchAgent2.cpp.s"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /Users/aaash/syncthing/slay/spire3/sts_lightspeed/src/sim/search/ScumSearchAgent2.cpp -o CMakeFiles/slaythespire.dir/src/sim/search/ScumSearchAgent2.cpp.s
+	/usr/bin/clang++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /Users/aaash/syncthing/slay/spire3/sts_lightspeed/src/sim/search/ScumSearchAgent2.cpp -o CMakeFiles/slaythespire.dir/src/sim/search/ScumSearchAgent2.cpp.s
 
 CMakeFiles/slaythespire.dir/src/sim/search/SimpleAgent.cpp.o: CMakeFiles/slaythespire.dir/flags.make
 CMakeFiles/slaythespire.dir/src/sim/search/SimpleAgent.cpp.o: /Users/aaash/syncthing/slay/spire3/sts_lightspeed/src/sim/search/SimpleAgent.cpp
 CMakeFiles/slaythespire.dir/src/sim/search/SimpleAgent.cpp.o: CMakeFiles/slaythespire.dir/compiler_depend.ts
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/Users/aaash/syncthing/slay/spire3/sts_lightspeed/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_31) "Building CXX object CMakeFiles/slaythespire.dir/src/sim/search/SimpleAgent.cpp.o"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/slaythespire.dir/src/sim/search/SimpleAgent.cpp.o -MF CMakeFiles/slaythespire.dir/src/sim/search/SimpleAgent.cpp.o.d -o CMakeFiles/slaythespire.dir/src/sim/search/SimpleAgent.cpp.o -c /Users/aaash/syncthing/slay/spire3/sts_lightspeed/src/sim/search/SimpleAgent.cpp
+	/usr/bin/clang++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/slaythespire.dir/src/sim/search/SimpleAgent.cpp.o -MF CMakeFiles/slaythespire.dir/src/sim/search/SimpleAgent.cpp.o.d -o CMakeFiles/slaythespire.dir/src/sim/search/SimpleAgent.cpp.o -c /Users/aaash/syncthing/slay/spire3/sts_lightspeed/src/sim/search/SimpleAgent.cpp
 
 CMakeFiles/slaythespire.dir/src/sim/search/SimpleAgent.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing CXX source to CMakeFiles/slaythespire.dir/src/sim/search/SimpleAgent.cpp.i"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /Users/aaash/syncthing/slay/spire3/sts_lightspeed/src/sim/search/SimpleAgent.cpp > CMakeFiles/slaythespire.dir/src/sim/search/SimpleAgent.cpp.i
+	/usr/bin/clang++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /Users/aaash/syncthing/slay/spire3/sts_lightspeed/src/sim/search/SimpleAgent.cpp > CMakeFiles/slaythespire.dir/src/sim/search/SimpleAgent.cpp.i
 
 CMakeFiles/slaythespire.dir/src/sim/search/SimpleAgent.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/slaythespire.dir/src/sim/search/SimpleAgent.cpp.s"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /Users/aaash/syncthing/slay/spire3/sts_lightspeed/src/sim/search/SimpleAgent.cpp -o CMakeFiles/slaythespire.dir/src/sim/search/SimpleAgent.cpp.s
+	/usr/bin/clang++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /Users/aaash/syncthing/slay/spire3/sts_lightspeed/src/sim/search/SimpleAgent.cpp -o CMakeFiles/slaythespire.dir/src/sim/search/SimpleAgent.cpp.s
 
 # Object files for target slaythespire
 slaythespire_OBJECTS = \
@@ -578,7 +578,6 @@ slaythespire.cpython-312-darwin.so: CMakeFiles/slaythespire.dir/build.make
 slaythespire.cpython-312-darwin.so: CMakeFiles/slaythespire.dir/link.txt
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --bold --progress-dir=/Users/aaash/syncthing/slay/spire3/sts_lightspeed/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_32) "Linking CXX shared module slaythespire.cpython-312-darwin.so"
 	$(CMAKE_COMMAND) -E cmake_link_script CMakeFiles/slaythespire.dir/link.txt --verbose=$(VERBOSE)
-	/usr/bin/strip -x /Users/aaash/syncthing/slay/spire3/sts_lightspeed/build/slaythespire.cpython-312-darwin.so
 
 # Rule to build all files generated by this target.
 CMakeFiles/slaythespire.dir/build: slaythespire.cpython-312-darwin.so
