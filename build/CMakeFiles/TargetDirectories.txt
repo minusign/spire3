@@ -1,7 +1,8 @@
-/Users/aaash/syncthing/slay/spire3/sts_lightspeed/build/CMakeFiles/slaythespire.dir
+/Users/aaash/syncthing/slay/spire3/sts_lightspeed/build/CMakeFiles/sts_lightspeed_env.dir
 /Users/aaash/syncthing/slay/spire3/sts_lightspeed/build/CMakeFiles/main.dir
 /Users/aaash/syncthing/slay/spire3/sts_lightspeed/build/CMakeFiles/test.dir
 /Users/aaash/syncthing/slay/spire3/sts_lightspeed/build/CMakeFiles/small-test.dir
+/Users/aaash/syncthing/slay/spire3/sts_lightspeed/build/CMakeFiles/test_python_import.dir
 /Users/aaash/syncthing/slay/spire3/sts_lightspeed/build/CMakeFiles/edit_cache.dir
 /Users/aaash/syncthing/slay/spire3/sts_lightspeed/build/CMakeFiles/rebuild_cache.dir
 /Users/aaash/syncthing/slay/spire3/sts_lightspeed/build/json/CMakeFiles/edit_cache.dir

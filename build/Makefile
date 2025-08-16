@@ -118,17 +118,17 @@ depend:
 .PHONY : depend
 
 #=============================================================================
-# Target rules for targets named slaythespire
+# Target rules for targets named sts_lightspeed_env
 
 # Build rule for target.
-slaythespire: cmake_check_build_system
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 slaythespire
-.PHONY : slaythespire
+sts_lightspeed_env: cmake_check_build_system
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 sts_lightspeed_env
+.PHONY : sts_lightspeed_env
 
 # fast build rule for target.
-slaythespire/fast:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/slaythespire.dir/build.make CMakeFiles/slaythespire.dir/build
-.PHONY : slaythespire/fast
+sts_lightspeed_env/fast:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/sts_lightspeed_env.dir/build.make CMakeFiles/sts_lightspeed_env.dir/build
+.PHONY : sts_lightspeed_env/fast
 
 #=============================================================================
 # Target rules for targets named main
@@ -168,6 +168,19 @@ small-test: cmake_check_build_system
 small-test/fast:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/small-test.dir/build.make CMakeFiles/small-test.dir/build
 .PHONY : small-test/fast
+
+#=============================================================================
+# Target rules for targets named test_python_import
+
+# Build rule for target.
+test_python_import: cmake_check_build_system
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 test_python_import
+.PHONY : test_python_import
+
+# fast build rule for target.
+test_python_import/fast:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/test_python_import.dir/build.make CMakeFiles/test_python_import.dir/build
+.PHONY : test_python_import/fast
 
 apps/main.o: apps/main.cpp.o
 .PHONY : apps/main.o
@@ -246,7 +259,7 @@ bindings/bindings-util.o: bindings/bindings-util.cpp.o
 
 # target to build an object file
 bindings/bindings-util.cpp.o:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/slaythespire.dir/build.make CMakeFiles/slaythespire.dir/bindings/bindings-util.cpp.o
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/sts_lightspeed_env.dir/build.make CMakeFiles/sts_lightspeed_env.dir/bindings/bindings-util.cpp.o
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/small-test.dir/build.make CMakeFiles/small-test.dir/bindings/bindings-util.cpp.o
 .PHONY : bindings/bindings-util.cpp.o
 
@@ -255,7 +268,7 @@ bindings/bindings-util.i: bindings/bindings-util.cpp.i
 
 # target to preprocess a source file
 bindings/bindings-util.cpp.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/slaythespire.dir/build.make CMakeFiles/slaythespire.dir/bindings/bindings-util.cpp.i
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/sts_lightspeed_env.dir/build.make CMakeFiles/sts_lightspeed_env.dir/bindings/bindings-util.cpp.i
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/small-test.dir/build.make CMakeFiles/small-test.dir/bindings/bindings-util.cpp.i
 .PHONY : bindings/bindings-util.cpp.i
 
@@ -264,7 +277,7 @@ bindings/bindings-util.s: bindings/bindings-util.cpp.s
 
 # target to generate assembly for a file
 bindings/bindings-util.cpp.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/slaythespire.dir/build.make CMakeFiles/slaythespire.dir/bindings/bindings-util.cpp.s
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/sts_lightspeed_env.dir/build.make CMakeFiles/sts_lightspeed_env.dir/bindings/bindings-util.cpp.s
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/small-test.dir/build.make CMakeFiles/small-test.dir/bindings/bindings-util.cpp.s
 .PHONY : bindings/bindings-util.cpp.s
 
@@ -273,7 +286,7 @@ bindings/slaythespire.o: bindings/slaythespire.cpp.o
 
 # target to build an object file
 bindings/slaythespire.cpp.o:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/slaythespire.dir/build.make CMakeFiles/slaythespire.dir/bindings/slaythespire.cpp.o
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/sts_lightspeed_env.dir/build.make CMakeFiles/sts_lightspeed_env.dir/bindings/slaythespire.cpp.o
 .PHONY : bindings/slaythespire.cpp.o
 
 bindings/slaythespire.i: bindings/slaythespire.cpp.i
@@ -281,7 +294,7 @@ bindings/slaythespire.i: bindings/slaythespire.cpp.i
 
 # target to preprocess a source file
 bindings/slaythespire.cpp.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/slaythespire.dir/build.make CMakeFiles/slaythespire.dir/bindings/slaythespire.cpp.i
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/sts_lightspeed_env.dir/build.make CMakeFiles/sts_lightspeed_env.dir/bindings/slaythespire.cpp.i
 .PHONY : bindings/slaythespire.cpp.i
 
 bindings/slaythespire.s: bindings/slaythespire.cpp.s
@@ -289,7 +302,7 @@ bindings/slaythespire.s: bindings/slaythespire.cpp.s
 
 # target to generate assembly for a file
 bindings/slaythespire.cpp.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/slaythespire.dir/build.make CMakeFiles/slaythespire.dir/bindings/slaythespire.cpp.s
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/sts_lightspeed_env.dir/build.make CMakeFiles/sts_lightspeed_env.dir/bindings/slaythespire.cpp.s
 .PHONY : bindings/slaythespire.cpp.s
 
 src/combat/Actions.o: src/combat/Actions.cpp.o
@@ -297,7 +310,7 @@ src/combat/Actions.o: src/combat/Actions.cpp.o
 
 # target to build an object file
 src/combat/Actions.cpp.o:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/slaythespire.dir/build.make CMakeFiles/slaythespire.dir/src/combat/Actions.cpp.o
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/sts_lightspeed_env.dir/build.make CMakeFiles/sts_lightspeed_env.dir/src/combat/Actions.cpp.o
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/main.dir/build.make CMakeFiles/main.dir/src/combat/Actions.cpp.o
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/test.dir/build.make CMakeFiles/test.dir/src/combat/Actions.cpp.o
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/small-test.dir/build.make CMakeFiles/small-test.dir/src/combat/Actions.cpp.o
@@ -308,7 +321,7 @@ src/combat/Actions.i: src/combat/Actions.cpp.i
 
 # target to preprocess a source file
 src/combat/Actions.cpp.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/slaythespire.dir/build.make CMakeFiles/slaythespire.dir/src/combat/Actions.cpp.i
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/sts_lightspeed_env.dir/build.make CMakeFiles/sts_lightspeed_env.dir/src/combat/Actions.cpp.i
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/main.dir/build.make CMakeFiles/main.dir/src/combat/Actions.cpp.i
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/test.dir/build.make CMakeFiles/test.dir/src/combat/Actions.cpp.i
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/small-test.dir/build.make CMakeFiles/small-test.dir/src/combat/Actions.cpp.i
@@ -319,7 +332,7 @@ src/combat/Actions.s: src/combat/Actions.cpp.s
 
 # target to generate assembly for a file
 src/combat/Actions.cpp.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/slaythespire.dir/build.make CMakeFiles/slaythespire.dir/src/combat/Actions.cpp.s
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/sts_lightspeed_env.dir/build.make CMakeFiles/sts_lightspeed_env.dir/src/combat/Actions.cpp.s
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/main.dir/build.make CMakeFiles/main.dir/src/combat/Actions.cpp.s
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/test.dir/build.make CMakeFiles/test.dir/src/combat/Actions.cpp.s
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/small-test.dir/build.make CMakeFiles/small-test.dir/src/combat/Actions.cpp.s
@@ -330,7 +343,7 @@ src/combat/BattleContext.o: src/combat/BattleContext.cpp.o
 
 # target to build an object file
 src/combat/BattleContext.cpp.o:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/slaythespire.dir/build.make CMakeFiles/slaythespire.dir/src/combat/BattleContext.cpp.o
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/sts_lightspeed_env.dir/build.make CMakeFiles/sts_lightspeed_env.dir/src/combat/BattleContext.cpp.o
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/main.dir/build.make CMakeFiles/main.dir/src/combat/BattleContext.cpp.o
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/test.dir/build.make CMakeFiles/test.dir/src/combat/BattleContext.cpp.o
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/small-test.dir/build.make CMakeFiles/small-test.dir/src/combat/BattleContext.cpp.o
@@ -341,7 +354,7 @@ src/combat/BattleContext.i: src/combat/BattleContext.cpp.i
 
 # target to preprocess a source file
 src/combat/BattleContext.cpp.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/slaythespire.dir/build.make CMakeFiles/slaythespire.dir/src/combat/BattleContext.cpp.i
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/sts_lightspeed_env.dir/build.make CMakeFiles/sts_lightspeed_env.dir/src/combat/BattleContext.cpp.i
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/main.dir/build.make CMakeFiles/main.dir/src/combat/BattleContext.cpp.i
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/test.dir/build.make CMakeFiles/test.dir/src/combat/BattleContext.cpp.i
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/small-test.dir/build.make CMakeFiles/small-test.dir/src/combat/BattleContext.cpp.i
@@ -352,7 +365,7 @@ src/combat/BattleContext.s: src/combat/BattleContext.cpp.s
 
 # target to generate assembly for a file
 src/combat/BattleContext.cpp.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/slaythespire.dir/build.make CMakeFiles/slaythespire.dir/src/combat/BattleContext.cpp.s
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/sts_lightspeed_env.dir/build.make CMakeFiles/sts_lightspeed_env.dir/src/combat/BattleContext.cpp.s
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/main.dir/build.make CMakeFiles/main.dir/src/combat/BattleContext.cpp.s
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/test.dir/build.make CMakeFiles/test.dir/src/combat/BattleContext.cpp.s
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/small-test.dir/build.make CMakeFiles/small-test.dir/src/combat/BattleContext.cpp.s
@@ -363,7 +376,7 @@ src/combat/CardInstance.o: src/combat/CardInstance.cpp.o
 
 # target to build an object file
 src/combat/CardInstance.cpp.o:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/slaythespire.dir/build.make CMakeFiles/slaythespire.dir/src/combat/CardInstance.cpp.o
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/sts_lightspeed_env.dir/build.make CMakeFiles/sts_lightspeed_env.dir/src/combat/CardInstance.cpp.o
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/main.dir/build.make CMakeFiles/main.dir/src/combat/CardInstance.cpp.o
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/test.dir/build.make CMakeFiles/test.dir/src/combat/CardInstance.cpp.o
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/small-test.dir/build.make CMakeFiles/small-test.dir/src/combat/CardInstance.cpp.o
@@ -374,7 +387,7 @@ src/combat/CardInstance.i: src/combat/CardInstance.cpp.i
 
 # target to preprocess a source file
 src/combat/CardInstance.cpp.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/slaythespire.dir/build.make CMakeFiles/slaythespire.dir/src/combat/CardInstance.cpp.i
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/sts_lightspeed_env.dir/build.make CMakeFiles/sts_lightspeed_env.dir/src/combat/CardInstance.cpp.i
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/main.dir/build.make CMakeFiles/main.dir/src/combat/CardInstance.cpp.i
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/test.dir/build.make CMakeFiles/test.dir/src/combat/CardInstance.cpp.i
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/small-test.dir/build.make CMakeFiles/small-test.dir/src/combat/CardInstance.cpp.i
@@ -385,7 +398,7 @@ src/combat/CardInstance.s: src/combat/CardInstance.cpp.s
 
 # target to generate assembly for a file
 src/combat/CardInstance.cpp.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/slaythespire.dir/build.make CMakeFiles/slaythespire.dir/src/combat/CardInstance.cpp.s
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/sts_lightspeed_env.dir/build.make CMakeFiles/sts_lightspeed_env.dir/src/combat/CardInstance.cpp.s
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/main.dir/build.make CMakeFiles/main.dir/src/combat/CardInstance.cpp.s
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/test.dir/build.make CMakeFiles/test.dir/src/combat/CardInstance.cpp.s
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/small-test.dir/build.make CMakeFiles/small-test.dir/src/combat/CardInstance.cpp.s
@@ -396,7 +409,7 @@ src/combat/CardManager.o: src/combat/CardManager.cpp.o
 
 # target to build an object file
 src/combat/CardManager.cpp.o:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/slaythespire.dir/build.make CMakeFiles/slaythespire.dir/src/combat/CardManager.cpp.o
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/sts_lightspeed_env.dir/build.make CMakeFiles/sts_lightspeed_env.dir/src/combat/CardManager.cpp.o
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/main.dir/build.make CMakeFiles/main.dir/src/combat/CardManager.cpp.o
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/test.dir/build.make CMakeFiles/test.dir/src/combat/CardManager.cpp.o
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/small-test.dir/build.make CMakeFiles/small-test.dir/src/combat/CardManager.cpp.o
@@ -407,7 +420,7 @@ src/combat/CardManager.i: src/combat/CardManager.cpp.i
 
 # target to preprocess a source file
 src/combat/CardManager.cpp.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/slaythespire.dir/build.make CMakeFiles/slaythespire.dir/src/combat/CardManager.cpp.i
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/sts_lightspeed_env.dir/build.make CMakeFiles/sts_lightspeed_env.dir/src/combat/CardManager.cpp.i
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/main.dir/build.make CMakeFiles/main.dir/src/combat/CardManager.cpp.i
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/test.dir/build.make CMakeFiles/test.dir/src/combat/CardManager.cpp.i
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/small-test.dir/build.make CMakeFiles/small-test.dir/src/combat/CardManager.cpp.i
@@ -418,7 +431,7 @@ src/combat/CardManager.s: src/combat/CardManager.cpp.s
 
 # target to generate assembly for a file
 src/combat/CardManager.cpp.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/slaythespire.dir/build.make CMakeFiles/slaythespire.dir/src/combat/CardManager.cpp.s
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/sts_lightspeed_env.dir/build.make CMakeFiles/sts_lightspeed_env.dir/src/combat/CardManager.cpp.s
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/main.dir/build.make CMakeFiles/main.dir/src/combat/CardManager.cpp.s
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/test.dir/build.make CMakeFiles/test.dir/src/combat/CardManager.cpp.s
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/small-test.dir/build.make CMakeFiles/small-test.dir/src/combat/CardManager.cpp.s
@@ -429,7 +442,7 @@ src/combat/CardQueue.o: src/combat/CardQueue.cpp.o
 
 # target to build an object file
 src/combat/CardQueue.cpp.o:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/slaythespire.dir/build.make CMakeFiles/slaythespire.dir/src/combat/CardQueue.cpp.o
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/sts_lightspeed_env.dir/build.make CMakeFiles/sts_lightspeed_env.dir/src/combat/CardQueue.cpp.o
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/main.dir/build.make CMakeFiles/main.dir/src/combat/CardQueue.cpp.o
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/test.dir/build.make CMakeFiles/test.dir/src/combat/CardQueue.cpp.o
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/small-test.dir/build.make CMakeFiles/small-test.dir/src/combat/CardQueue.cpp.o
@@ -440,7 +453,7 @@ src/combat/CardQueue.i: src/combat/CardQueue.cpp.i
 
 # target to preprocess a source file
 src/combat/CardQueue.cpp.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/slaythespire.dir/build.make CMakeFiles/slaythespire.dir/src/combat/CardQueue.cpp.i
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/sts_lightspeed_env.dir/build.make CMakeFiles/sts_lightspeed_env.dir/src/combat/CardQueue.cpp.i
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/main.dir/build.make CMakeFiles/main.dir/src/combat/CardQueue.cpp.i
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/test.dir/build.make CMakeFiles/test.dir/src/combat/CardQueue.cpp.i
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/small-test.dir/build.make CMakeFiles/small-test.dir/src/combat/CardQueue.cpp.i
@@ -451,7 +464,7 @@ src/combat/CardQueue.s: src/combat/CardQueue.cpp.s
 
 # target to generate assembly for a file
 src/combat/CardQueue.cpp.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/slaythespire.dir/build.make CMakeFiles/slaythespire.dir/src/combat/CardQueue.cpp.s
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/sts_lightspeed_env.dir/build.make CMakeFiles/sts_lightspeed_env.dir/src/combat/CardQueue.cpp.s
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/main.dir/build.make CMakeFiles/main.dir/src/combat/CardQueue.cpp.s
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/test.dir/build.make CMakeFiles/test.dir/src/combat/CardQueue.cpp.s
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/small-test.dir/build.make CMakeFiles/small-test.dir/src/combat/CardQueue.cpp.s
@@ -462,7 +475,7 @@ src/combat/Monster.o: src/combat/Monster.cpp.o
 
 # target to build an object file
 src/combat/Monster.cpp.o:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/slaythespire.dir/build.make CMakeFiles/slaythespire.dir/src/combat/Monster.cpp.o
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/sts_lightspeed_env.dir/build.make CMakeFiles/sts_lightspeed_env.dir/src/combat/Monster.cpp.o
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/main.dir/build.make CMakeFiles/main.dir/src/combat/Monster.cpp.o
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/test.dir/build.make CMakeFiles/test.dir/src/combat/Monster.cpp.o
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/small-test.dir/build.make CMakeFiles/small-test.dir/src/combat/Monster.cpp.o
@@ -473,7 +486,7 @@ src/combat/Monster.i: src/combat/Monster.cpp.i
 
 # target to preprocess a source file
 src/combat/Monster.cpp.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/slaythespire.dir/build.make CMakeFiles/slaythespire.dir/src/combat/Monster.cpp.i
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/sts_lightspeed_env.dir/build.make CMakeFiles/sts_lightspeed_env.dir/src/combat/Monster.cpp.i
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/main.dir/build.make CMakeFiles/main.dir/src/combat/Monster.cpp.i
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/test.dir/build.make CMakeFiles/test.dir/src/combat/Monster.cpp.i
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/small-test.dir/build.make CMakeFiles/small-test.dir/src/combat/Monster.cpp.i
@@ -484,7 +497,7 @@ src/combat/Monster.s: src/combat/Monster.cpp.s
 
 # target to generate assembly for a file
 src/combat/Monster.cpp.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/slaythespire.dir/build.make CMakeFiles/slaythespire.dir/src/combat/Monster.cpp.s
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/sts_lightspeed_env.dir/build.make CMakeFiles/sts_lightspeed_env.dir/src/combat/Monster.cpp.s
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/main.dir/build.make CMakeFiles/main.dir/src/combat/Monster.cpp.s
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/test.dir/build.make CMakeFiles/test.dir/src/combat/Monster.cpp.s
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/small-test.dir/build.make CMakeFiles/small-test.dir/src/combat/Monster.cpp.s
@@ -495,7 +508,7 @@ src/combat/MonsterGroup.o: src/combat/MonsterGroup.cpp.o
 
 # target to build an object file
 src/combat/MonsterGroup.cpp.o:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/slaythespire.dir/build.make CMakeFiles/slaythespire.dir/src/combat/MonsterGroup.cpp.o
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/sts_lightspeed_env.dir/build.make CMakeFiles/sts_lightspeed_env.dir/src/combat/MonsterGroup.cpp.o
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/main.dir/build.make CMakeFiles/main.dir/src/combat/MonsterGroup.cpp.o
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/test.dir/build.make CMakeFiles/test.dir/src/combat/MonsterGroup.cpp.o
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/small-test.dir/build.make CMakeFiles/small-test.dir/src/combat/MonsterGroup.cpp.o
@@ -506,7 +519,7 @@ src/combat/MonsterGroup.i: src/combat/MonsterGroup.cpp.i
 
 # target to preprocess a source file
 src/combat/MonsterGroup.cpp.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/slaythespire.dir/build.make CMakeFiles/slaythespire.dir/src/combat/MonsterGroup.cpp.i
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/sts_lightspeed_env.dir/build.make CMakeFiles/sts_lightspeed_env.dir/src/combat/MonsterGroup.cpp.i
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/main.dir/build.make CMakeFiles/main.dir/src/combat/MonsterGroup.cpp.i
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/test.dir/build.make CMakeFiles/test.dir/src/combat/MonsterGroup.cpp.i
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/small-test.dir/build.make CMakeFiles/small-test.dir/src/combat/MonsterGroup.cpp.i
@@ -517,7 +530,7 @@ src/combat/MonsterGroup.s: src/combat/MonsterGroup.cpp.s
 
 # target to generate assembly for a file
 src/combat/MonsterGroup.cpp.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/slaythespire.dir/build.make CMakeFiles/slaythespire.dir/src/combat/MonsterGroup.cpp.s
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/sts_lightspeed_env.dir/build.make CMakeFiles/sts_lightspeed_env.dir/src/combat/MonsterGroup.cpp.s
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/main.dir/build.make CMakeFiles/main.dir/src/combat/MonsterGroup.cpp.s
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/test.dir/build.make CMakeFiles/test.dir/src/combat/MonsterGroup.cpp.s
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/small-test.dir/build.make CMakeFiles/small-test.dir/src/combat/MonsterGroup.cpp.s
@@ -528,7 +541,7 @@ src/combat/MonsterMoveDamage.o: src/combat/MonsterMoveDamage.cpp.o
 
 # target to build an object file
 src/combat/MonsterMoveDamage.cpp.o:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/slaythespire.dir/build.make CMakeFiles/slaythespire.dir/src/combat/MonsterMoveDamage.cpp.o
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/sts_lightspeed_env.dir/build.make CMakeFiles/sts_lightspeed_env.dir/src/combat/MonsterMoveDamage.cpp.o
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/main.dir/build.make CMakeFiles/main.dir/src/combat/MonsterMoveDamage.cpp.o
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/test.dir/build.make CMakeFiles/test.dir/src/combat/MonsterMoveDamage.cpp.o
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/small-test.dir/build.make CMakeFiles/small-test.dir/src/combat/MonsterMoveDamage.cpp.o
@@ -539,7 +552,7 @@ src/combat/MonsterMoveDamage.i: src/combat/MonsterMoveDamage.cpp.i
 
 # target to preprocess a source file
 src/combat/MonsterMoveDamage.cpp.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/slaythespire.dir/build.make CMakeFiles/slaythespire.dir/src/combat/MonsterMoveDamage.cpp.i
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/sts_lightspeed_env.dir/build.make CMakeFiles/sts_lightspeed_env.dir/src/combat/MonsterMoveDamage.cpp.i
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/main.dir/build.make CMakeFiles/main.dir/src/combat/MonsterMoveDamage.cpp.i
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/test.dir/build.make CMakeFiles/test.dir/src/combat/MonsterMoveDamage.cpp.i
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/small-test.dir/build.make CMakeFiles/small-test.dir/src/combat/MonsterMoveDamage.cpp.i
@@ -550,7 +563,7 @@ src/combat/MonsterMoveDamage.s: src/combat/MonsterMoveDamage.cpp.s
 
 # target to generate assembly for a file
 src/combat/MonsterMoveDamage.cpp.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/slaythespire.dir/build.make CMakeFiles/slaythespire.dir/src/combat/MonsterMoveDamage.cpp.s
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/sts_lightspeed_env.dir/build.make CMakeFiles/sts_lightspeed_env.dir/src/combat/MonsterMoveDamage.cpp.s
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/main.dir/build.make CMakeFiles/main.dir/src/combat/MonsterMoveDamage.cpp.s
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/test.dir/build.make CMakeFiles/test.dir/src/combat/MonsterMoveDamage.cpp.s
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/small-test.dir/build.make CMakeFiles/small-test.dir/src/combat/MonsterMoveDamage.cpp.s
@@ -561,7 +574,7 @@ src/combat/MonsterSpecific.o: src/combat/MonsterSpecific.cpp.o
 
 # target to build an object file
 src/combat/MonsterSpecific.cpp.o:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/slaythespire.dir/build.make CMakeFiles/slaythespire.dir/src/combat/MonsterSpecific.cpp.o
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/sts_lightspeed_env.dir/build.make CMakeFiles/sts_lightspeed_env.dir/src/combat/MonsterSpecific.cpp.o
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/main.dir/build.make CMakeFiles/main.dir/src/combat/MonsterSpecific.cpp.o
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/test.dir/build.make CMakeFiles/test.dir/src/combat/MonsterSpecific.cpp.o
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/small-test.dir/build.make CMakeFiles/small-test.dir/src/combat/MonsterSpecific.cpp.o
@@ -572,7 +585,7 @@ src/combat/MonsterSpecific.i: src/combat/MonsterSpecific.cpp.i
 
 # target to preprocess a source file
 src/combat/MonsterSpecific.cpp.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/slaythespire.dir/build.make CMakeFiles/slaythespire.dir/src/combat/MonsterSpecific.cpp.i
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/sts_lightspeed_env.dir/build.make CMakeFiles/sts_lightspeed_env.dir/src/combat/MonsterSpecific.cpp.i
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/main.dir/build.make CMakeFiles/main.dir/src/combat/MonsterSpecific.cpp.i
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/test.dir/build.make CMakeFiles/test.dir/src/combat/MonsterSpecific.cpp.i
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/small-test.dir/build.make CMakeFiles/small-test.dir/src/combat/MonsterSpecific.cpp.i
@@ -583,7 +596,7 @@ src/combat/MonsterSpecific.s: src/combat/MonsterSpecific.cpp.s
 
 # target to generate assembly for a file
 src/combat/MonsterSpecific.cpp.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/slaythespire.dir/build.make CMakeFiles/slaythespire.dir/src/combat/MonsterSpecific.cpp.s
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/sts_lightspeed_env.dir/build.make CMakeFiles/sts_lightspeed_env.dir/src/combat/MonsterSpecific.cpp.s
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/main.dir/build.make CMakeFiles/main.dir/src/combat/MonsterSpecific.cpp.s
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/test.dir/build.make CMakeFiles/test.dir/src/combat/MonsterSpecific.cpp.s
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/small-test.dir/build.make CMakeFiles/small-test.dir/src/combat/MonsterSpecific.cpp.s
@@ -594,7 +607,7 @@ src/combat/Player.o: src/combat/Player.cpp.o
 
 # target to build an object file
 src/combat/Player.cpp.o:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/slaythespire.dir/build.make CMakeFiles/slaythespire.dir/src/combat/Player.cpp.o
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/sts_lightspeed_env.dir/build.make CMakeFiles/sts_lightspeed_env.dir/src/combat/Player.cpp.o
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/main.dir/build.make CMakeFiles/main.dir/src/combat/Player.cpp.o
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/test.dir/build.make CMakeFiles/test.dir/src/combat/Player.cpp.o
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/small-test.dir/build.make CMakeFiles/small-test.dir/src/combat/Player.cpp.o
@@ -605,7 +618,7 @@ src/combat/Player.i: src/combat/Player.cpp.i
 
 # target to preprocess a source file
 src/combat/Player.cpp.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/slaythespire.dir/build.make CMakeFiles/slaythespire.dir/src/combat/Player.cpp.i
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/sts_lightspeed_env.dir/build.make CMakeFiles/sts_lightspeed_env.dir/src/combat/Player.cpp.i
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/main.dir/build.make CMakeFiles/main.dir/src/combat/Player.cpp.i
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/test.dir/build.make CMakeFiles/test.dir/src/combat/Player.cpp.i
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/small-test.dir/build.make CMakeFiles/small-test.dir/src/combat/Player.cpp.i
@@ -616,7 +629,7 @@ src/combat/Player.s: src/combat/Player.cpp.s
 
 # target to generate assembly for a file
 src/combat/Player.cpp.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/slaythespire.dir/build.make CMakeFiles/slaythespire.dir/src/combat/Player.cpp.s
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/sts_lightspeed_env.dir/build.make CMakeFiles/sts_lightspeed_env.dir/src/combat/Player.cpp.s
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/main.dir/build.make CMakeFiles/main.dir/src/combat/Player.cpp.s
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/test.dir/build.make CMakeFiles/test.dir/src/combat/Player.cpp.s
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/small-test.dir/build.make CMakeFiles/small-test.dir/src/combat/Player.cpp.s
@@ -627,7 +640,7 @@ src/game/Card.o: src/game/Card.cpp.o
 
 # target to build an object file
 src/game/Card.cpp.o:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/slaythespire.dir/build.make CMakeFiles/slaythespire.dir/src/game/Card.cpp.o
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/sts_lightspeed_env.dir/build.make CMakeFiles/sts_lightspeed_env.dir/src/game/Card.cpp.o
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/main.dir/build.make CMakeFiles/main.dir/src/game/Card.cpp.o
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/test.dir/build.make CMakeFiles/test.dir/src/game/Card.cpp.o
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/small-test.dir/build.make CMakeFiles/small-test.dir/src/game/Card.cpp.o
@@ -638,7 +651,7 @@ src/game/Card.i: src/game/Card.cpp.i
 
 # target to preprocess a source file
 src/game/Card.cpp.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/slaythespire.dir/build.make CMakeFiles/slaythespire.dir/src/game/Card.cpp.i
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/sts_lightspeed_env.dir/build.make CMakeFiles/sts_lightspeed_env.dir/src/game/Card.cpp.i
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/main.dir/build.make CMakeFiles/main.dir/src/game/Card.cpp.i
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/test.dir/build.make CMakeFiles/test.dir/src/game/Card.cpp.i
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/small-test.dir/build.make CMakeFiles/small-test.dir/src/game/Card.cpp.i
@@ -649,7 +662,7 @@ src/game/Card.s: src/game/Card.cpp.s
 
 # target to generate assembly for a file
 src/game/Card.cpp.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/slaythespire.dir/build.make CMakeFiles/slaythespire.dir/src/game/Card.cpp.s
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/sts_lightspeed_env.dir/build.make CMakeFiles/sts_lightspeed_env.dir/src/game/Card.cpp.s
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/main.dir/build.make CMakeFiles/main.dir/src/game/Card.cpp.s
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/test.dir/build.make CMakeFiles/test.dir/src/game/Card.cpp.s
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/small-test.dir/build.make CMakeFiles/small-test.dir/src/game/Card.cpp.s
@@ -660,7 +673,7 @@ src/game/CombatReward.o: src/game/CombatReward.cpp.o
 
 # target to build an object file
 src/game/CombatReward.cpp.o:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/slaythespire.dir/build.make CMakeFiles/slaythespire.dir/src/game/CombatReward.cpp.o
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/sts_lightspeed_env.dir/build.make CMakeFiles/sts_lightspeed_env.dir/src/game/CombatReward.cpp.o
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/main.dir/build.make CMakeFiles/main.dir/src/game/CombatReward.cpp.o
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/test.dir/build.make CMakeFiles/test.dir/src/game/CombatReward.cpp.o
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/small-test.dir/build.make CMakeFiles/small-test.dir/src/game/CombatReward.cpp.o
@@ -671,7 +684,7 @@ src/game/CombatReward.i: src/game/CombatReward.cpp.i
 
 # target to preprocess a source file
 src/game/CombatReward.cpp.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/slaythespire.dir/build.make CMakeFiles/slaythespire.dir/src/game/CombatReward.cpp.i
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/sts_lightspeed_env.dir/build.make CMakeFiles/sts_lightspeed_env.dir/src/game/CombatReward.cpp.i
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/main.dir/build.make CMakeFiles/main.dir/src/game/CombatReward.cpp.i
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/test.dir/build.make CMakeFiles/test.dir/src/game/CombatReward.cpp.i
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/small-test.dir/build.make CMakeFiles/small-test.dir/src/game/CombatReward.cpp.i
@@ -682,7 +695,7 @@ src/game/CombatReward.s: src/game/CombatReward.cpp.s
 
 # target to generate assembly for a file
 src/game/CombatReward.cpp.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/slaythespire.dir/build.make CMakeFiles/slaythespire.dir/src/game/CombatReward.cpp.s
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/sts_lightspeed_env.dir/build.make CMakeFiles/sts_lightspeed_env.dir/src/game/CombatReward.cpp.s
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/main.dir/build.make CMakeFiles/main.dir/src/game/CombatReward.cpp.s
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/test.dir/build.make CMakeFiles/test.dir/src/game/CombatReward.cpp.s
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/small-test.dir/build.make CMakeFiles/small-test.dir/src/game/CombatReward.cpp.s
@@ -693,7 +706,7 @@ src/game/Deck.o: src/game/Deck.cpp.o
 
 # target to build an object file
 src/game/Deck.cpp.o:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/slaythespire.dir/build.make CMakeFiles/slaythespire.dir/src/game/Deck.cpp.o
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/sts_lightspeed_env.dir/build.make CMakeFiles/sts_lightspeed_env.dir/src/game/Deck.cpp.o
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/main.dir/build.make CMakeFiles/main.dir/src/game/Deck.cpp.o
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/test.dir/build.make CMakeFiles/test.dir/src/game/Deck.cpp.o
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/small-test.dir/build.make CMakeFiles/small-test.dir/src/game/Deck.cpp.o
@@ -704,7 +717,7 @@ src/game/Deck.i: src/game/Deck.cpp.i
 
 # target to preprocess a source file
 src/game/Deck.cpp.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/slaythespire.dir/build.make CMakeFiles/slaythespire.dir/src/game/Deck.cpp.i
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/sts_lightspeed_env.dir/build.make CMakeFiles/sts_lightspeed_env.dir/src/game/Deck.cpp.i
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/main.dir/build.make CMakeFiles/main.dir/src/game/Deck.cpp.i
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/test.dir/build.make CMakeFiles/test.dir/src/game/Deck.cpp.i
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/small-test.dir/build.make CMakeFiles/small-test.dir/src/game/Deck.cpp.i
@@ -715,7 +728,7 @@ src/game/Deck.s: src/game/Deck.cpp.s
 
 # target to generate assembly for a file
 src/game/Deck.cpp.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/slaythespire.dir/build.make CMakeFiles/slaythespire.dir/src/game/Deck.cpp.s
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/sts_lightspeed_env.dir/build.make CMakeFiles/sts_lightspeed_env.dir/src/game/Deck.cpp.s
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/main.dir/build.make CMakeFiles/main.dir/src/game/Deck.cpp.s
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/test.dir/build.make CMakeFiles/test.dir/src/game/Deck.cpp.s
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/small-test.dir/build.make CMakeFiles/small-test.dir/src/game/Deck.cpp.s
@@ -726,7 +739,7 @@ src/game/Game.o: src/game/Game.cpp.o
 
 # target to build an object file
 src/game/Game.cpp.o:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/slaythespire.dir/build.make CMakeFiles/slaythespire.dir/src/game/Game.cpp.o
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/sts_lightspeed_env.dir/build.make CMakeFiles/sts_lightspeed_env.dir/src/game/Game.cpp.o
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/main.dir/build.make CMakeFiles/main.dir/src/game/Game.cpp.o
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/test.dir/build.make CMakeFiles/test.dir/src/game/Game.cpp.o
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/small-test.dir/build.make CMakeFiles/small-test.dir/src/game/Game.cpp.o
@@ -737,7 +750,7 @@ src/game/Game.i: src/game/Game.cpp.i
 
 # target to preprocess a source file
 src/game/Game.cpp.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/slaythespire.dir/build.make CMakeFiles/slaythespire.dir/src/game/Game.cpp.i
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/sts_lightspeed_env.dir/build.make CMakeFiles/sts_lightspeed_env.dir/src/game/Game.cpp.i
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/main.dir/build.make CMakeFiles/main.dir/src/game/Game.cpp.i
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/test.dir/build.make CMakeFiles/test.dir/src/game/Game.cpp.i
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/small-test.dir/build.make CMakeFiles/small-test.dir/src/game/Game.cpp.i
@@ -748,7 +761,7 @@ src/game/Game.s: src/game/Game.cpp.s
 
 # target to generate assembly for a file
 src/game/Game.cpp.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/slaythespire.dir/build.make CMakeFiles/slaythespire.dir/src/game/Game.cpp.s
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/sts_lightspeed_env.dir/build.make CMakeFiles/sts_lightspeed_env.dir/src/game/Game.cpp.s
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/main.dir/build.make CMakeFiles/main.dir/src/game/Game.cpp.s
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/test.dir/build.make CMakeFiles/test.dir/src/game/Game.cpp.s
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/small-test.dir/build.make CMakeFiles/small-test.dir/src/game/Game.cpp.s
@@ -759,7 +772,7 @@ src/game/GameContext.o: src/game/GameContext.cpp.o
 
 # target to build an object file
 src/game/GameContext.cpp.o:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/slaythespire.dir/build.make CMakeFiles/slaythespire.dir/src/game/GameContext.cpp.o
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/sts_lightspeed_env.dir/build.make CMakeFiles/sts_lightspeed_env.dir/src/game/GameContext.cpp.o
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/main.dir/build.make CMakeFiles/main.dir/src/game/GameContext.cpp.o
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/test.dir/build.make CMakeFiles/test.dir/src/game/GameContext.cpp.o
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/small-test.dir/build.make CMakeFiles/small-test.dir/src/game/GameContext.cpp.o
@@ -770,7 +783,7 @@ src/game/GameContext.i: src/game/GameContext.cpp.i
 
 # target to preprocess a source file
 src/game/GameContext.cpp.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/slaythespire.dir/build.make CMakeFiles/slaythespire.dir/src/game/GameContext.cpp.i
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/sts_lightspeed_env.dir/build.make CMakeFiles/sts_lightspeed_env.dir/src/game/GameContext.cpp.i
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/main.dir/build.make CMakeFiles/main.dir/src/game/GameContext.cpp.i
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/test.dir/build.make CMakeFiles/test.dir/src/game/GameContext.cpp.i
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/small-test.dir/build.make CMakeFiles/small-test.dir/src/game/GameContext.cpp.i
@@ -781,7 +794,7 @@ src/game/GameContext.s: src/game/GameContext.cpp.s
 
 # target to generate assembly for a file
 src/game/GameContext.cpp.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/slaythespire.dir/build.make CMakeFiles/slaythespire.dir/src/game/GameContext.cpp.s
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/sts_lightspeed_env.dir/build.make CMakeFiles/sts_lightspeed_env.dir/src/game/GameContext.cpp.s
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/main.dir/build.make CMakeFiles/main.dir/src/game/GameContext.cpp.s
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/test.dir/build.make CMakeFiles/test.dir/src/game/GameContext.cpp.s
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/small-test.dir/build.make CMakeFiles/small-test.dir/src/game/GameContext.cpp.s
@@ -792,7 +805,7 @@ src/game/Map.o: src/game/Map.cpp.o
 
 # target to build an object file
 src/game/Map.cpp.o:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/slaythespire.dir/build.make CMakeFiles/slaythespire.dir/src/game/Map.cpp.o
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/sts_lightspeed_env.dir/build.make CMakeFiles/sts_lightspeed_env.dir/src/game/Map.cpp.o
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/main.dir/build.make CMakeFiles/main.dir/src/game/Map.cpp.o
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/test.dir/build.make CMakeFiles/test.dir/src/game/Map.cpp.o
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/small-test.dir/build.make CMakeFiles/small-test.dir/src/game/Map.cpp.o
@@ -803,7 +816,7 @@ src/game/Map.i: src/game/Map.cpp.i
 
 # target to preprocess a source file
 src/game/Map.cpp.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/slaythespire.dir/build.make CMakeFiles/slaythespire.dir/src/game/Map.cpp.i
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/sts_lightspeed_env.dir/build.make CMakeFiles/sts_lightspeed_env.dir/src/game/Map.cpp.i
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/main.dir/build.make CMakeFiles/main.dir/src/game/Map.cpp.i
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/test.dir/build.make CMakeFiles/test.dir/src/game/Map.cpp.i
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/small-test.dir/build.make CMakeFiles/small-test.dir/src/game/Map.cpp.i
@@ -814,7 +827,7 @@ src/game/Map.s: src/game/Map.cpp.s
 
 # target to generate assembly for a file
 src/game/Map.cpp.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/slaythespire.dir/build.make CMakeFiles/slaythespire.dir/src/game/Map.cpp.s
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/sts_lightspeed_env.dir/build.make CMakeFiles/sts_lightspeed_env.dir/src/game/Map.cpp.s
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/main.dir/build.make CMakeFiles/main.dir/src/game/Map.cpp.s
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/test.dir/build.make CMakeFiles/test.dir/src/game/Map.cpp.s
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/small-test.dir/build.make CMakeFiles/small-test.dir/src/game/Map.cpp.s
@@ -825,7 +838,7 @@ src/game/Neow.o: src/game/Neow.cpp.o
 
 # target to build an object file
 src/game/Neow.cpp.o:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/slaythespire.dir/build.make CMakeFiles/slaythespire.dir/src/game/Neow.cpp.o
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/sts_lightspeed_env.dir/build.make CMakeFiles/sts_lightspeed_env.dir/src/game/Neow.cpp.o
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/main.dir/build.make CMakeFiles/main.dir/src/game/Neow.cpp.o
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/test.dir/build.make CMakeFiles/test.dir/src/game/Neow.cpp.o
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/small-test.dir/build.make CMakeFiles/small-test.dir/src/game/Neow.cpp.o
@@ -836,7 +849,7 @@ src/game/Neow.i: src/game/Neow.cpp.i
 
 # target to preprocess a source file
 src/game/Neow.cpp.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/slaythespire.dir/build.make CMakeFiles/slaythespire.dir/src/game/Neow.cpp.i
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/sts_lightspeed_env.dir/build.make CMakeFiles/sts_lightspeed_env.dir/src/game/Neow.cpp.i
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/main.dir/build.make CMakeFiles/main.dir/src/game/Neow.cpp.i
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/test.dir/build.make CMakeFiles/test.dir/src/game/Neow.cpp.i
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/small-test.dir/build.make CMakeFiles/small-test.dir/src/game/Neow.cpp.i
@@ -847,7 +860,7 @@ src/game/Neow.s: src/game/Neow.cpp.s
 
 # target to generate assembly for a file
 src/game/Neow.cpp.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/slaythespire.dir/build.make CMakeFiles/slaythespire.dir/src/game/Neow.cpp.s
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/sts_lightspeed_env.dir/build.make CMakeFiles/sts_lightspeed_env.dir/src/game/Neow.cpp.s
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/main.dir/build.make CMakeFiles/main.dir/src/game/Neow.cpp.s
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/test.dir/build.make CMakeFiles/test.dir/src/game/Neow.cpp.s
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/small-test.dir/build.make CMakeFiles/small-test.dir/src/game/Neow.cpp.s
@@ -858,7 +871,7 @@ src/game/SaveFile.o: src/game/SaveFile.cpp.o
 
 # target to build an object file
 src/game/SaveFile.cpp.o:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/slaythespire.dir/build.make CMakeFiles/slaythespire.dir/src/game/SaveFile.cpp.o
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/sts_lightspeed_env.dir/build.make CMakeFiles/sts_lightspeed_env.dir/src/game/SaveFile.cpp.o
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/main.dir/build.make CMakeFiles/main.dir/src/game/SaveFile.cpp.o
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/test.dir/build.make CMakeFiles/test.dir/src/game/SaveFile.cpp.o
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/small-test.dir/build.make CMakeFiles/small-test.dir/src/game/SaveFile.cpp.o
@@ -869,7 +882,7 @@ src/game/SaveFile.i: src/game/SaveFile.cpp.i
 
 # target to preprocess a source file
 src/game/SaveFile.cpp.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/slaythespire.dir/build.make CMakeFiles/slaythespire.dir/src/game/SaveFile.cpp.i
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/sts_lightspeed_env.dir/build.make CMakeFiles/sts_lightspeed_env.dir/src/game/SaveFile.cpp.i
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/main.dir/build.make CMakeFiles/main.dir/src/game/SaveFile.cpp.i
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/test.dir/build.make CMakeFiles/test.dir/src/game/SaveFile.cpp.i
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/small-test.dir/build.make CMakeFiles/small-test.dir/src/game/SaveFile.cpp.i
@@ -880,7 +893,7 @@ src/game/SaveFile.s: src/game/SaveFile.cpp.s
 
 # target to generate assembly for a file
 src/game/SaveFile.cpp.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/slaythespire.dir/build.make CMakeFiles/slaythespire.dir/src/game/SaveFile.cpp.s
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/sts_lightspeed_env.dir/build.make CMakeFiles/sts_lightspeed_env.dir/src/game/SaveFile.cpp.s
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/main.dir/build.make CMakeFiles/main.dir/src/game/SaveFile.cpp.s
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/test.dir/build.make CMakeFiles/test.dir/src/game/SaveFile.cpp.s
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/small-test.dir/build.make CMakeFiles/small-test.dir/src/game/SaveFile.cpp.s
@@ -891,7 +904,7 @@ src/game/Shop.o: src/game/Shop.cpp.o
 
 # target to build an object file
 src/game/Shop.cpp.o:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/slaythespire.dir/build.make CMakeFiles/slaythespire.dir/src/game/Shop.cpp.o
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/sts_lightspeed_env.dir/build.make CMakeFiles/sts_lightspeed_env.dir/src/game/Shop.cpp.o
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/main.dir/build.make CMakeFiles/main.dir/src/game/Shop.cpp.o
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/test.dir/build.make CMakeFiles/test.dir/src/game/Shop.cpp.o
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/small-test.dir/build.make CMakeFiles/small-test.dir/src/game/Shop.cpp.o
@@ -902,7 +915,7 @@ src/game/Shop.i: src/game/Shop.cpp.i
 
 # target to preprocess a source file
 src/game/Shop.cpp.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/slaythespire.dir/build.make CMakeFiles/slaythespire.dir/src/game/Shop.cpp.i
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/sts_lightspeed_env.dir/build.make CMakeFiles/sts_lightspeed_env.dir/src/game/Shop.cpp.i
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/main.dir/build.make CMakeFiles/main.dir/src/game/Shop.cpp.i
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/test.dir/build.make CMakeFiles/test.dir/src/game/Shop.cpp.i
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/small-test.dir/build.make CMakeFiles/small-test.dir/src/game/Shop.cpp.i
@@ -913,7 +926,7 @@ src/game/Shop.s: src/game/Shop.cpp.s
 
 # target to generate assembly for a file
 src/game/Shop.cpp.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/slaythespire.dir/build.make CMakeFiles/slaythespire.dir/src/game/Shop.cpp.s
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/sts_lightspeed_env.dir/build.make CMakeFiles/sts_lightspeed_env.dir/src/game/Shop.cpp.s
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/main.dir/build.make CMakeFiles/main.dir/src/game/Shop.cpp.s
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/test.dir/build.make CMakeFiles/test.dir/src/game/Shop.cpp.s
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/small-test.dir/build.make CMakeFiles/small-test.dir/src/game/Shop.cpp.s
@@ -924,7 +937,7 @@ src/sim/BattleSimulator.o: src/sim/BattleSimulator.cpp.o
 
 # target to build an object file
 src/sim/BattleSimulator.cpp.o:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/slaythespire.dir/build.make CMakeFiles/slaythespire.dir/src/sim/BattleSimulator.cpp.o
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/sts_lightspeed_env.dir/build.make CMakeFiles/sts_lightspeed_env.dir/src/sim/BattleSimulator.cpp.o
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/main.dir/build.make CMakeFiles/main.dir/src/sim/BattleSimulator.cpp.o
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/test.dir/build.make CMakeFiles/test.dir/src/sim/BattleSimulator.cpp.o
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/small-test.dir/build.make CMakeFiles/small-test.dir/src/sim/BattleSimulator.cpp.o
@@ -935,7 +948,7 @@ src/sim/BattleSimulator.i: src/sim/BattleSimulator.cpp.i
 
 # target to preprocess a source file
 src/sim/BattleSimulator.cpp.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/slaythespire.dir/build.make CMakeFiles/slaythespire.dir/src/sim/BattleSimulator.cpp.i
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/sts_lightspeed_env.dir/build.make CMakeFiles/sts_lightspeed_env.dir/src/sim/BattleSimulator.cpp.i
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/main.dir/build.make CMakeFiles/main.dir/src/sim/BattleSimulator.cpp.i
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/test.dir/build.make CMakeFiles/test.dir/src/sim/BattleSimulator.cpp.i
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/small-test.dir/build.make CMakeFiles/small-test.dir/src/sim/BattleSimulator.cpp.i
@@ -946,7 +959,7 @@ src/sim/BattleSimulator.s: src/sim/BattleSimulator.cpp.s
 
 # target to generate assembly for a file
 src/sim/BattleSimulator.cpp.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/slaythespire.dir/build.make CMakeFiles/slaythespire.dir/src/sim/BattleSimulator.cpp.s
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/sts_lightspeed_env.dir/build.make CMakeFiles/sts_lightspeed_env.dir/src/sim/BattleSimulator.cpp.s
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/main.dir/build.make CMakeFiles/main.dir/src/sim/BattleSimulator.cpp.s
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/test.dir/build.make CMakeFiles/test.dir/src/sim/BattleSimulator.cpp.s
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/small-test.dir/build.make CMakeFiles/small-test.dir/src/sim/BattleSimulator.cpp.s
@@ -957,7 +970,7 @@ src/sim/ConsoleSimulator.o: src/sim/ConsoleSimulator.cpp.o
 
 # target to build an object file
 src/sim/ConsoleSimulator.cpp.o:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/slaythespire.dir/build.make CMakeFiles/slaythespire.dir/src/sim/ConsoleSimulator.cpp.o
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/sts_lightspeed_env.dir/build.make CMakeFiles/sts_lightspeed_env.dir/src/sim/ConsoleSimulator.cpp.o
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/main.dir/build.make CMakeFiles/main.dir/src/sim/ConsoleSimulator.cpp.o
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/test.dir/build.make CMakeFiles/test.dir/src/sim/ConsoleSimulator.cpp.o
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/small-test.dir/build.make CMakeFiles/small-test.dir/src/sim/ConsoleSimulator.cpp.o
@@ -968,7 +981,7 @@ src/sim/ConsoleSimulator.i: src/sim/ConsoleSimulator.cpp.i
 
 # target to preprocess a source file
 src/sim/ConsoleSimulator.cpp.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/slaythespire.dir/build.make CMakeFiles/slaythespire.dir/src/sim/ConsoleSimulator.cpp.i
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/sts_lightspeed_env.dir/build.make CMakeFiles/sts_lightspeed_env.dir/src/sim/ConsoleSimulator.cpp.i
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/main.dir/build.make CMakeFiles/main.dir/src/sim/ConsoleSimulator.cpp.i
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/test.dir/build.make CMakeFiles/test.dir/src/sim/ConsoleSimulator.cpp.i
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/small-test.dir/build.make CMakeFiles/small-test.dir/src/sim/ConsoleSimulator.cpp.i
@@ -979,7 +992,7 @@ src/sim/ConsoleSimulator.s: src/sim/ConsoleSimulator.cpp.s
 
 # target to generate assembly for a file
 src/sim/ConsoleSimulator.cpp.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/slaythespire.dir/build.make CMakeFiles/slaythespire.dir/src/sim/ConsoleSimulator.cpp.s
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/sts_lightspeed_env.dir/build.make CMakeFiles/sts_lightspeed_env.dir/src/sim/ConsoleSimulator.cpp.s
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/main.dir/build.make CMakeFiles/main.dir/src/sim/ConsoleSimulator.cpp.s
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/test.dir/build.make CMakeFiles/test.dir/src/sim/ConsoleSimulator.cpp.s
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/small-test.dir/build.make CMakeFiles/small-test.dir/src/sim/ConsoleSimulator.cpp.s
@@ -990,7 +1003,7 @@ src/sim/PrintHelpers.o: src/sim/PrintHelpers.cpp.o
 
 # target to build an object file
 src/sim/PrintHelpers.cpp.o:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/slaythespire.dir/build.make CMakeFiles/slaythespire.dir/src/sim/PrintHelpers.cpp.o
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/sts_lightspeed_env.dir/build.make CMakeFiles/sts_lightspeed_env.dir/src/sim/PrintHelpers.cpp.o
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/main.dir/build.make CMakeFiles/main.dir/src/sim/PrintHelpers.cpp.o
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/test.dir/build.make CMakeFiles/test.dir/src/sim/PrintHelpers.cpp.o
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/small-test.dir/build.make CMakeFiles/small-test.dir/src/sim/PrintHelpers.cpp.o
@@ -1001,7 +1014,7 @@ src/sim/PrintHelpers.i: src/sim/PrintHelpers.cpp.i
 
 # target to preprocess a source file
 src/sim/PrintHelpers.cpp.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/slaythespire.dir/build.make CMakeFiles/slaythespire.dir/src/sim/PrintHelpers.cpp.i
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/sts_lightspeed_env.dir/build.make CMakeFiles/sts_lightspeed_env.dir/src/sim/PrintHelpers.cpp.i
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/main.dir/build.make CMakeFiles/main.dir/src/sim/PrintHelpers.cpp.i
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/test.dir/build.make CMakeFiles/test.dir/src/sim/PrintHelpers.cpp.i
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/small-test.dir/build.make CMakeFiles/small-test.dir/src/sim/PrintHelpers.cpp.i
@@ -1012,7 +1025,7 @@ src/sim/PrintHelpers.s: src/sim/PrintHelpers.cpp.s
 
 # target to generate assembly for a file
 src/sim/PrintHelpers.cpp.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/slaythespire.dir/build.make CMakeFiles/slaythespire.dir/src/sim/PrintHelpers.cpp.s
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/sts_lightspeed_env.dir/build.make CMakeFiles/sts_lightspeed_env.dir/src/sim/PrintHelpers.cpp.s
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/main.dir/build.make CMakeFiles/main.dir/src/sim/PrintHelpers.cpp.s
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/test.dir/build.make CMakeFiles/test.dir/src/sim/PrintHelpers.cpp.s
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/small-test.dir/build.make CMakeFiles/small-test.dir/src/sim/PrintHelpers.cpp.s
@@ -1023,7 +1036,7 @@ src/sim/SimHelpers.o: src/sim/SimHelpers.cpp.o
 
 # target to build an object file
 src/sim/SimHelpers.cpp.o:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/slaythespire.dir/build.make CMakeFiles/slaythespire.dir/src/sim/SimHelpers.cpp.o
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/sts_lightspeed_env.dir/build.make CMakeFiles/sts_lightspeed_env.dir/src/sim/SimHelpers.cpp.o
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/main.dir/build.make CMakeFiles/main.dir/src/sim/SimHelpers.cpp.o
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/test.dir/build.make CMakeFiles/test.dir/src/sim/SimHelpers.cpp.o
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/small-test.dir/build.make CMakeFiles/small-test.dir/src/sim/SimHelpers.cpp.o
@@ -1034,7 +1047,7 @@ src/sim/SimHelpers.i: src/sim/SimHelpers.cpp.i
 
 # target to preprocess a source file
 src/sim/SimHelpers.cpp.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/slaythespire.dir/build.make CMakeFiles/slaythespire.dir/src/sim/SimHelpers.cpp.i
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/sts_lightspeed_env.dir/build.make CMakeFiles/sts_lightspeed_env.dir/src/sim/SimHelpers.cpp.i
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/main.dir/build.make CMakeFiles/main.dir/src/sim/SimHelpers.cpp.i
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/test.dir/build.make CMakeFiles/test.dir/src/sim/SimHelpers.cpp.i
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/small-test.dir/build.make CMakeFiles/small-test.dir/src/sim/SimHelpers.cpp.i
@@ -1045,7 +1058,7 @@ src/sim/SimHelpers.s: src/sim/SimHelpers.cpp.s
 
 # target to generate assembly for a file
 src/sim/SimHelpers.cpp.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/slaythespire.dir/build.make CMakeFiles/slaythespire.dir/src/sim/SimHelpers.cpp.s
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/sts_lightspeed_env.dir/build.make CMakeFiles/sts_lightspeed_env.dir/src/sim/SimHelpers.cpp.s
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/main.dir/build.make CMakeFiles/main.dir/src/sim/SimHelpers.cpp.s
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/test.dir/build.make CMakeFiles/test.dir/src/sim/SimHelpers.cpp.s
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/small-test.dir/build.make CMakeFiles/small-test.dir/src/sim/SimHelpers.cpp.s
@@ -1056,7 +1069,7 @@ src/sim/search/Action.o: src/sim/search/Action.cpp.o
 
 # target to build an object file
 src/sim/search/Action.cpp.o:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/slaythespire.dir/build.make CMakeFiles/slaythespire.dir/src/sim/search/Action.cpp.o
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/sts_lightspeed_env.dir/build.make CMakeFiles/sts_lightspeed_env.dir/src/sim/search/Action.cpp.o
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/main.dir/build.make CMakeFiles/main.dir/src/sim/search/Action.cpp.o
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/test.dir/build.make CMakeFiles/test.dir/src/sim/search/Action.cpp.o
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/small-test.dir/build.make CMakeFiles/small-test.dir/src/sim/search/Action.cpp.o
@@ -1067,7 +1080,7 @@ src/sim/search/Action.i: src/sim/search/Action.cpp.i
 
 # target to preprocess a source file
 src/sim/search/Action.cpp.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/slaythespire.dir/build.make CMakeFiles/slaythespire.dir/src/sim/search/Action.cpp.i
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/sts_lightspeed_env.dir/build.make CMakeFiles/sts_lightspeed_env.dir/src/sim/search/Action.cpp.i
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/main.dir/build.make CMakeFiles/main.dir/src/sim/search/Action.cpp.i
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/test.dir/build.make CMakeFiles/test.dir/src/sim/search/Action.cpp.i
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/small-test.dir/build.make CMakeFiles/small-test.dir/src/sim/search/Action.cpp.i
@@ -1078,7 +1091,7 @@ src/sim/search/Action.s: src/sim/search/Action.cpp.s
 
 # target to generate assembly for a file
 src/sim/search/Action.cpp.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/slaythespire.dir/build.make CMakeFiles/slaythespire.dir/src/sim/search/Action.cpp.s
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/sts_lightspeed_env.dir/build.make CMakeFiles/sts_lightspeed_env.dir/src/sim/search/Action.cpp.s
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/main.dir/build.make CMakeFiles/main.dir/src/sim/search/Action.cpp.s
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/test.dir/build.make CMakeFiles/test.dir/src/sim/search/Action.cpp.s
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/small-test.dir/build.make CMakeFiles/small-test.dir/src/sim/search/Action.cpp.s
@@ -1089,7 +1102,7 @@ src/sim/search/BattleScumSearcher2.o: src/sim/search/BattleScumSearcher2.cpp.o
 
 # target to build an object file
 src/sim/search/BattleScumSearcher2.cpp.o:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/slaythespire.dir/build.make CMakeFiles/slaythespire.dir/src/sim/search/BattleScumSearcher2.cpp.o
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/sts_lightspeed_env.dir/build.make CMakeFiles/sts_lightspeed_env.dir/src/sim/search/BattleScumSearcher2.cpp.o
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/main.dir/build.make CMakeFiles/main.dir/src/sim/search/BattleScumSearcher2.cpp.o
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/test.dir/build.make CMakeFiles/test.dir/src/sim/search/BattleScumSearcher2.cpp.o
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/small-test.dir/build.make CMakeFiles/small-test.dir/src/sim/search/BattleScumSearcher2.cpp.o
@@ -1100,7 +1113,7 @@ src/sim/search/BattleScumSearcher2.i: src/sim/search/BattleScumSearcher2.cpp.i
 
 # target to preprocess a source file
 src/sim/search/BattleScumSearcher2.cpp.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/slaythespire.dir/build.make CMakeFiles/slaythespire.dir/src/sim/search/BattleScumSearcher2.cpp.i
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/sts_lightspeed_env.dir/build.make CMakeFiles/sts_lightspeed_env.dir/src/sim/search/BattleScumSearcher2.cpp.i
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/main.dir/build.make CMakeFiles/main.dir/src/sim/search/BattleScumSearcher2.cpp.i
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/test.dir/build.make CMakeFiles/test.dir/src/sim/search/BattleScumSearcher2.cpp.i
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/small-test.dir/build.make CMakeFiles/small-test.dir/src/sim/search/BattleScumSearcher2.cpp.i
@@ -1111,7 +1124,7 @@ src/sim/search/BattleScumSearcher2.s: src/sim/search/BattleScumSearcher2.cpp.s
 
 # target to generate assembly for a file
 src/sim/search/BattleScumSearcher2.cpp.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/slaythespire.dir/build.make CMakeFiles/slaythespire.dir/src/sim/search/BattleScumSearcher2.cpp.s
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/sts_lightspeed_env.dir/build.make CMakeFiles/sts_lightspeed_env.dir/src/sim/search/BattleScumSearcher2.cpp.s
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/main.dir/build.make CMakeFiles/main.dir/src/sim/search/BattleScumSearcher2.cpp.s
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/test.dir/build.make CMakeFiles/test.dir/src/sim/search/BattleScumSearcher2.cpp.s
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/small-test.dir/build.make CMakeFiles/small-test.dir/src/sim/search/BattleScumSearcher2.cpp.s
@@ -1122,7 +1135,7 @@ src/sim/search/ExpertKnowledge.o: src/sim/search/ExpertKnowledge.cpp.o
 
 # target to build an object file
 src/sim/search/ExpertKnowledge.cpp.o:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/slaythespire.dir/build.make CMakeFiles/slaythespire.dir/src/sim/search/ExpertKnowledge.cpp.o
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/sts_lightspeed_env.dir/build.make CMakeFiles/sts_lightspeed_env.dir/src/sim/search/ExpertKnowledge.cpp.o
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/main.dir/build.make CMakeFiles/main.dir/src/sim/search/ExpertKnowledge.cpp.o
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/test.dir/build.make CMakeFiles/test.dir/src/sim/search/ExpertKnowledge.cpp.o
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/small-test.dir/build.make CMakeFiles/small-test.dir/src/sim/search/ExpertKnowledge.cpp.o
@@ -1133,7 +1146,7 @@ src/sim/search/ExpertKnowledge.i: src/sim/search/ExpertKnowledge.cpp.i
 
 # target to preprocess a source file
 src/sim/search/ExpertKnowledge.cpp.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/slaythespire.dir/build.make CMakeFiles/slaythespire.dir/src/sim/search/ExpertKnowledge.cpp.i
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/sts_lightspeed_env.dir/build.make CMakeFiles/sts_lightspeed_env.dir/src/sim/search/ExpertKnowledge.cpp.i
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/main.dir/build.make CMakeFiles/main.dir/src/sim/search/ExpertKnowledge.cpp.i
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/test.dir/build.make CMakeFiles/test.dir/src/sim/search/ExpertKnowledge.cpp.i
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/small-test.dir/build.make CMakeFiles/small-test.dir/src/sim/search/ExpertKnowledge.cpp.i
@@ -1144,7 +1157,7 @@ src/sim/search/ExpertKnowledge.s: src/sim/search/ExpertKnowledge.cpp.s
 
 # target to generate assembly for a file
 src/sim/search/ExpertKnowledge.cpp.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/slaythespire.dir/build.make CMakeFiles/slaythespire.dir/src/sim/search/ExpertKnowledge.cpp.s
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/sts_lightspeed_env.dir/build.make CMakeFiles/sts_lightspeed_env.dir/src/sim/search/ExpertKnowledge.cpp.s
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/main.dir/build.make CMakeFiles/main.dir/src/sim/search/ExpertKnowledge.cpp.s
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/test.dir/build.make CMakeFiles/test.dir/src/sim/search/ExpertKnowledge.cpp.s
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/small-test.dir/build.make CMakeFiles/small-test.dir/src/sim/search/ExpertKnowledge.cpp.s
@@ -1155,7 +1168,7 @@ src/sim/search/GameAction.o: src/sim/search/GameAction.cpp.o
 
 # target to build an object file
 src/sim/search/GameAction.cpp.o:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/slaythespire.dir/build.make CMakeFiles/slaythespire.dir/src/sim/search/GameAction.cpp.o
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/sts_lightspeed_env.dir/build.make CMakeFiles/sts_lightspeed_env.dir/src/sim/search/GameAction.cpp.o
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/main.dir/build.make CMakeFiles/main.dir/src/sim/search/GameAction.cpp.o
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/test.dir/build.make CMakeFiles/test.dir/src/sim/search/GameAction.cpp.o
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/small-test.dir/build.make CMakeFiles/small-test.dir/src/sim/search/GameAction.cpp.o
@@ -1166,7 +1179,7 @@ src/sim/search/GameAction.i: src/sim/search/GameAction.cpp.i
 
 # target to preprocess a source file
 src/sim/search/GameAction.cpp.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/slaythespire.dir/build.make CMakeFiles/slaythespire.dir/src/sim/search/GameAction.cpp.i
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/sts_lightspeed_env.dir/build.make CMakeFiles/sts_lightspeed_env.dir/src/sim/search/GameAction.cpp.i
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/main.dir/build.make CMakeFiles/main.dir/src/sim/search/GameAction.cpp.i
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/test.dir/build.make CMakeFiles/test.dir/src/sim/search/GameAction.cpp.i
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/small-test.dir/build.make CMakeFiles/small-test.dir/src/sim/search/GameAction.cpp.i
@@ -1177,7 +1190,7 @@ src/sim/search/GameAction.s: src/sim/search/GameAction.cpp.s
 
 # target to generate assembly for a file
 src/sim/search/GameAction.cpp.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/slaythespire.dir/build.make CMakeFiles/slaythespire.dir/src/sim/search/GameAction.cpp.s
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/sts_lightspeed_env.dir/build.make CMakeFiles/sts_lightspeed_env.dir/src/sim/search/GameAction.cpp.s
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/main.dir/build.make CMakeFiles/main.dir/src/sim/search/GameAction.cpp.s
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/test.dir/build.make CMakeFiles/test.dir/src/sim/search/GameAction.cpp.s
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/small-test.dir/build.make CMakeFiles/small-test.dir/src/sim/search/GameAction.cpp.s
@@ -1188,7 +1201,7 @@ src/sim/search/ScumSearchAgent2.o: src/sim/search/ScumSearchAgent2.cpp.o
 
 # target to build an object file
 src/sim/search/ScumSearchAgent2.cpp.o:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/slaythespire.dir/build.make CMakeFiles/slaythespire.dir/src/sim/search/ScumSearchAgent2.cpp.o
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/sts_lightspeed_env.dir/build.make CMakeFiles/sts_lightspeed_env.dir/src/sim/search/ScumSearchAgent2.cpp.o
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/main.dir/build.make CMakeFiles/main.dir/src/sim/search/ScumSearchAgent2.cpp.o
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/test.dir/build.make CMakeFiles/test.dir/src/sim/search/ScumSearchAgent2.cpp.o
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/small-test.dir/build.make CMakeFiles/small-test.dir/src/sim/search/ScumSearchAgent2.cpp.o
@@ -1199,7 +1212,7 @@ src/sim/search/ScumSearchAgent2.i: src/sim/search/ScumSearchAgent2.cpp.i
 
 # target to preprocess a source file
 src/sim/search/ScumSearchAgent2.cpp.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/slaythespire.dir/build.make CMakeFiles/slaythespire.dir/src/sim/search/ScumSearchAgent2.cpp.i
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/sts_lightspeed_env.dir/build.make CMakeFiles/sts_lightspeed_env.dir/src/sim/search/ScumSearchAgent2.cpp.i
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/main.dir/build.make CMakeFiles/main.dir/src/sim/search/ScumSearchAgent2.cpp.i
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/test.dir/build.make CMakeFiles/test.dir/src/sim/search/ScumSearchAgent2.cpp.i
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/small-test.dir/build.make CMakeFiles/small-test.dir/src/sim/search/ScumSearchAgent2.cpp.i
@@ -1210,7 +1223,7 @@ src/sim/search/ScumSearchAgent2.s: src/sim/search/ScumSearchAgent2.cpp.s
 
 # target to generate assembly for a file
 src/sim/search/ScumSearchAgent2.cpp.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/slaythespire.dir/build.make CMakeFiles/slaythespire.dir/src/sim/search/ScumSearchAgent2.cpp.s
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/sts_lightspeed_env.dir/build.make CMakeFiles/sts_lightspeed_env.dir/src/sim/search/ScumSearchAgent2.cpp.s
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/main.dir/build.make CMakeFiles/main.dir/src/sim/search/ScumSearchAgent2.cpp.s
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/test.dir/build.make CMakeFiles/test.dir/src/sim/search/ScumSearchAgent2.cpp.s
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/small-test.dir/build.make CMakeFiles/small-test.dir/src/sim/search/ScumSearchAgent2.cpp.s
@@ -1221,7 +1234,7 @@ src/sim/search/SimpleAgent.o: src/sim/search/SimpleAgent.cpp.o
 
 # target to build an object file
 src/sim/search/SimpleAgent.cpp.o:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/slaythespire.dir/build.make CMakeFiles/slaythespire.dir/src/sim/search/SimpleAgent.cpp.o
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/sts_lightspeed_env.dir/build.make CMakeFiles/sts_lightspeed_env.dir/src/sim/search/SimpleAgent.cpp.o
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/main.dir/build.make CMakeFiles/main.dir/src/sim/search/SimpleAgent.cpp.o
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/test.dir/build.make CMakeFiles/test.dir/src/sim/search/SimpleAgent.cpp.o
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/small-test.dir/build.make CMakeFiles/small-test.dir/src/sim/search/SimpleAgent.cpp.o
@@ -1232,7 +1245,7 @@ src/sim/search/SimpleAgent.i: src/sim/search/SimpleAgent.cpp.i
 
 # target to preprocess a source file
 src/sim/search/SimpleAgent.cpp.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/slaythespire.dir/build.make CMakeFiles/slaythespire.dir/src/sim/search/SimpleAgent.cpp.i
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/sts_lightspeed_env.dir/build.make CMakeFiles/sts_lightspeed_env.dir/src/sim/search/SimpleAgent.cpp.i
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/main.dir/build.make CMakeFiles/main.dir/src/sim/search/SimpleAgent.cpp.i
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/test.dir/build.make CMakeFiles/test.dir/src/sim/search/SimpleAgent.cpp.i
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/small-test.dir/build.make CMakeFiles/small-test.dir/src/sim/search/SimpleAgent.cpp.i
@@ -1243,7 +1256,7 @@ src/sim/search/SimpleAgent.s: src/sim/search/SimpleAgent.cpp.s
 
 # target to generate assembly for a file
 src/sim/search/SimpleAgent.cpp.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/slaythespire.dir/build.make CMakeFiles/slaythespire.dir/src/sim/search/SimpleAgent.cpp.s
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/sts_lightspeed_env.dir/build.make CMakeFiles/sts_lightspeed_env.dir/src/sim/search/SimpleAgent.cpp.s
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/main.dir/build.make CMakeFiles/main.dir/src/sim/search/SimpleAgent.cpp.s
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/test.dir/build.make CMakeFiles/test.dir/src/sim/search/SimpleAgent.cpp.s
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/small-test.dir/build.make CMakeFiles/small-test.dir/src/sim/search/SimpleAgent.cpp.s
@@ -1257,9 +1270,10 @@ help:
 	@echo "... depend"
 	@echo "... edit_cache"
 	@echo "... rebuild_cache"
+	@echo "... test_python_import"
 	@echo "... main"
-	@echo "... slaythespire"
 	@echo "... small-test"
+	@echo "... sts_lightspeed_env"
 	@echo "... test"
 	@echo "... apps/main.o"
 	@echo "... apps/main.i"

@@ -63,7 +63,7 @@ CMAKE_BINARY_DIR = /Users/aaash/syncthing/slay/spire3/sts_lightspeed/build
 # Directory level rules for the build root directory
 
 # The main recursive "all" target.
-all: CMakeFiles/slaythespire.dir/all
+all: CMakeFiles/sts_lightspeed_env.dir/all
 all: CMakeFiles/main.dir/all
 all: CMakeFiles/test.dir/all
 all: CMakeFiles/small-test.dir/all
@@ -72,7 +72,7 @@ all: pybind11/all
 .PHONY : all
 
 # The main recursive "codegen" target.
-codegen: CMakeFiles/slaythespire.dir/codegen
+codegen: CMakeFiles/sts_lightspeed_env.dir/codegen
 codegen: CMakeFiles/main.dir/codegen
 codegen: CMakeFiles/test.dir/codegen
 codegen: CMakeFiles/small-test.dir/codegen
@@ -86,10 +86,11 @@ preinstall: pybind11/preinstall
 .PHONY : preinstall
 
 # The main recursive "clean" target.
-clean: CMakeFiles/slaythespire.dir/clean
+clean: CMakeFiles/sts_lightspeed_env.dir/clean
 clean: CMakeFiles/main.dir/clean
 clean: CMakeFiles/test.dir/clean
 clean: CMakeFiles/small-test.dir/clean
+clean: CMakeFiles/test_python_import.dir/clean
 clean: json/clean
 clean: pybind11/clean
 .PHONY : clean
@@ -133,36 +134,36 @@ pybind11/clean:
 .PHONY : pybind11/clean
 
 #=============================================================================
-# Target rules for target CMakeFiles/slaythespire.dir
+# Target rules for target CMakeFiles/sts_lightspeed_env.dir
 
 # All Build rule for target.
-CMakeFiles/slaythespire.dir/all:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/slaythespire.dir/build.make CMakeFiles/slaythespire.dir/depend
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/slaythespire.dir/build.make CMakeFiles/slaythespire.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=/Users/aaash/syncthing/slay/spire3/sts_lightspeed/build/CMakeFiles --progress-num=25,26,27,28,29,30,31,32,33,34,35,36,37,38,39,40,41,42,43,44,45,46,47,48,49,50 "Built target slaythespire"
-.PHONY : CMakeFiles/slaythespire.dir/all
+CMakeFiles/sts_lightspeed_env.dir/all:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/sts_lightspeed_env.dir/build.make CMakeFiles/sts_lightspeed_env.dir/depend
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/sts_lightspeed_env.dir/build.make CMakeFiles/sts_lightspeed_env.dir/build
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=/Users/aaash/syncthing/slay/spire3/sts_lightspeed/build/CMakeFiles --progress-num=50,51,52,53,54,55,56,57,58,59,60,61,62,63,64,65,66,67,68,69,70,71,72,73,74 "Built target sts_lightspeed_env"
+.PHONY : CMakeFiles/sts_lightspeed_env.dir/all
 
 # Build rule for subdir invocation for target.
-CMakeFiles/slaythespire.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /Users/aaash/syncthing/slay/spire3/sts_lightspeed/build/CMakeFiles 26
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 CMakeFiles/slaythespire.dir/all
+CMakeFiles/sts_lightspeed_env.dir/rule: cmake_check_build_system
+	$(CMAKE_COMMAND) -E cmake_progress_start /Users/aaash/syncthing/slay/spire3/sts_lightspeed/build/CMakeFiles 25
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 CMakeFiles/sts_lightspeed_env.dir/all
 	$(CMAKE_COMMAND) -E cmake_progress_start /Users/aaash/syncthing/slay/spire3/sts_lightspeed/build/CMakeFiles 0
-.PHONY : CMakeFiles/slaythespire.dir/rule
+.PHONY : CMakeFiles/sts_lightspeed_env.dir/rule
 
 # Convenience name for target.
-slaythespire: CMakeFiles/slaythespire.dir/rule
-.PHONY : slaythespire
+sts_lightspeed_env: CMakeFiles/sts_lightspeed_env.dir/rule
+.PHONY : sts_lightspeed_env
 
 # codegen rule for target.
-CMakeFiles/slaythespire.dir/codegen:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/slaythespire.dir/build.make CMakeFiles/slaythespire.dir/codegen
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=/Users/aaash/syncthing/slay/spire3/sts_lightspeed/build/CMakeFiles --progress-num=25,26,27,28,29,30,31,32,33,34,35,36,37,38,39,40,41,42,43,44,45,46,47,48,49,50 "Finished codegen for target slaythespire"
-.PHONY : CMakeFiles/slaythespire.dir/codegen
+CMakeFiles/sts_lightspeed_env.dir/codegen:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/sts_lightspeed_env.dir/build.make CMakeFiles/sts_lightspeed_env.dir/codegen
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=/Users/aaash/syncthing/slay/spire3/sts_lightspeed/build/CMakeFiles --progress-num=50,51,52,53,54,55,56,57,58,59,60,61,62,63,64,65,66,67,68,69,70,71,72,73,74 "Finished codegen for target sts_lightspeed_env"
+.PHONY : CMakeFiles/sts_lightspeed_env.dir/codegen
 
 # clean rule for target.
-CMakeFiles/slaythespire.dir/clean:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/slaythespire.dir/build.make CMakeFiles/slaythespire.dir/clean
-.PHONY : CMakeFiles/slaythespire.dir/clean
+CMakeFiles/sts_lightspeed_env.dir/clean:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/sts_lightspeed_env.dir/build.make CMakeFiles/sts_lightspeed_env.dir/clean
+.PHONY : CMakeFiles/sts_lightspeed_env.dir/clean
 
 #=============================================================================
 # Target rules for target CMakeFiles/main.dir
@@ -203,7 +204,7 @@ CMakeFiles/main.dir/clean:
 CMakeFiles/test.dir/all:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/test.dir/build.make CMakeFiles/test.dir/depend
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/test.dir/build.make CMakeFiles/test.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=/Users/aaash/syncthing/slay/spire3/sts_lightspeed/build/CMakeFiles --progress-num=76,77,78,79,80,81,82,83,84,85,86,87,88,89,90,91,92,93,94,95,96,97,98,99,100 "Built target test"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=/Users/aaash/syncthing/slay/spire3/sts_lightspeed/build/CMakeFiles --progress-num=75,76,77,78,79,80,81,82,83,84,85,86,87,88,89,90,91,92,93,94,95,96,97,98,99 "Built target test"
 .PHONY : CMakeFiles/test.dir/all
 
 # Build rule for subdir invocation for target.
@@ -220,7 +221,7 @@ test: CMakeFiles/test.dir/rule
 # codegen rule for target.
 CMakeFiles/test.dir/codegen:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/test.dir/build.make CMakeFiles/test.dir/codegen
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=/Users/aaash/syncthing/slay/spire3/sts_lightspeed/build/CMakeFiles --progress-num=76,77,78,79,80,81,82,83,84,85,86,87,88,89,90,91,92,93,94,95,96,97,98,99,100 "Finished codegen for target test"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=/Users/aaash/syncthing/slay/spire3/sts_lightspeed/build/CMakeFiles --progress-num=75,76,77,78,79,80,81,82,83,84,85,86,87,88,89,90,91,92,93,94,95,96,97,98,99 "Finished codegen for target test"
 .PHONY : CMakeFiles/test.dir/codegen
 
 # clean rule for target.
@@ -235,7 +236,7 @@ CMakeFiles/test.dir/clean:
 CMakeFiles/small-test.dir/all:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/small-test.dir/build.make CMakeFiles/small-test.dir/depend
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/small-test.dir/build.make CMakeFiles/small-test.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=/Users/aaash/syncthing/slay/spire3/sts_lightspeed/build/CMakeFiles --progress-num=51,52,53,54,55,56,57,58,59,60,61,62,63,64,65,66,67,68,69,70,71,72,73,74,75 "Built target small-test"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=/Users/aaash/syncthing/slay/spire3/sts_lightspeed/build/CMakeFiles --progress-num=25,26,27,28,29,30,31,32,33,34,35,36,37,38,39,40,41,42,43,44,45,46,47,48,49 "Built target small-test"
 .PHONY : CMakeFiles/small-test.dir/all
 
 # Build rule for subdir invocation for target.
@@ -252,13 +253,45 @@ small-test: CMakeFiles/small-test.dir/rule
 # codegen rule for target.
 CMakeFiles/small-test.dir/codegen:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/small-test.dir/build.make CMakeFiles/small-test.dir/codegen
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=/Users/aaash/syncthing/slay/spire3/sts_lightspeed/build/CMakeFiles --progress-num=51,52,53,54,55,56,57,58,59,60,61,62,63,64,65,66,67,68,69,70,71,72,73,74,75 "Finished codegen for target small-test"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=/Users/aaash/syncthing/slay/spire3/sts_lightspeed/build/CMakeFiles --progress-num=25,26,27,28,29,30,31,32,33,34,35,36,37,38,39,40,41,42,43,44,45,46,47,48,49 "Finished codegen for target small-test"
 .PHONY : CMakeFiles/small-test.dir/codegen
 
 # clean rule for target.
 CMakeFiles/small-test.dir/clean:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/small-test.dir/build.make CMakeFiles/small-test.dir/clean
 .PHONY : CMakeFiles/small-test.dir/clean
+
+#=============================================================================
+# Target rules for target CMakeFiles/test_python_import.dir
+
+# All Build rule for target.
+CMakeFiles/test_python_import.dir/all: CMakeFiles/sts_lightspeed_env.dir/all
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/test_python_import.dir/build.make CMakeFiles/test_python_import.dir/depend
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/test_python_import.dir/build.make CMakeFiles/test_python_import.dir/build
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=/Users/aaash/syncthing/slay/spire3/sts_lightspeed/build/CMakeFiles --progress-num=100 "Built target test_python_import"
+.PHONY : CMakeFiles/test_python_import.dir/all
+
+# Build rule for subdir invocation for target.
+CMakeFiles/test_python_import.dir/rule: cmake_check_build_system
+	$(CMAKE_COMMAND) -E cmake_progress_start /Users/aaash/syncthing/slay/spire3/sts_lightspeed/build/CMakeFiles 26
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 CMakeFiles/test_python_import.dir/all
+	$(CMAKE_COMMAND) -E cmake_progress_start /Users/aaash/syncthing/slay/spire3/sts_lightspeed/build/CMakeFiles 0
+.PHONY : CMakeFiles/test_python_import.dir/rule
+
+# Convenience name for target.
+test_python_import: CMakeFiles/test_python_import.dir/rule
+.PHONY : test_python_import
+
+# codegen rule for target.
+CMakeFiles/test_python_import.dir/codegen: CMakeFiles/sts_lightspeed_env.dir/all
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/test_python_import.dir/build.make CMakeFiles/test_python_import.dir/codegen
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=/Users/aaash/syncthing/slay/spire3/sts_lightspeed/build/CMakeFiles --progress-num=100 "Finished codegen for target test_python_import"
+.PHONY : CMakeFiles/test_python_import.dir/codegen
+
+# clean rule for target.
+CMakeFiles/test_python_import.dir/clean:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/test_python_import.dir/build.make CMakeFiles/test_python_import.dir/clean
+.PHONY : CMakeFiles/test_python_import.dir/clean
 
 #=============================================================================
 # Special targets to cleanup operation of make.

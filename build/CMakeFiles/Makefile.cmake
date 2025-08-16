@@ -80,8 +80,9 @@ set(CMAKE_MAKEFILE_PRODUCTS
 
 # Dependency information for all targets:
 set(CMAKE_DEPEND_INFO_FILES
-  "CMakeFiles/slaythespire.dir/DependInfo.cmake"
+  "CMakeFiles/sts_lightspeed_env.dir/DependInfo.cmake"
   "CMakeFiles/main.dir/DependInfo.cmake"
   "CMakeFiles/test.dir/DependInfo.cmake"
   "CMakeFiles/small-test.dir/DependInfo.cmake"
+  "CMakeFiles/test_python_import.dir/DependInfo.cmake"
   )
